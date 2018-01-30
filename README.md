@@ -14,12 +14,23 @@ import bem from "bem-ts";
 
 const b = bem("block");
 
-b();                                          //=> "block"
-b({ a: true, b: false });                     //=> "block--a"
-b({ a: true, b: false, c: true });            //=> "block--a block--c"
-b("element");                                 //=> "block__element"
-b("element", { a: true, b: false });          //=> "block__element--a"
-b("element", { a: true, b: false, c: true }); //=> "block__element--a block__element--c"
+b();
+//=> "block"
+
+b({ a: true, b: false });
+//=> "block--a"
+
+b({ a: true, b: false, c: true });
+//=> "block--a block--c"
+
+b("element");
+//=> "block__element"
+
+b("element", { a: true, b: false });
+//=> "block__element--a"
+
+b("element", { a: true, b: false, c: true });
+//=> "block__element--a block__element--c"
 ```
 
 ## Install
