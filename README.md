@@ -34,18 +34,6 @@ npm install bem-ts
 npm test
 ```
 
-## Build
-
-```sh
-npm run build
-```
-
-## Lint
-
-```sh
-npm run lint
-```
-
 ## Release
 
 ```sh

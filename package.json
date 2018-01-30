@@ -25,6 +25,7 @@
     "test": "jest",
     "test:watch": "npm test -- --watch",
     "test:coverage": "npm test -- --coverage",
+    "posttest": "npm run lint",
     "lint:ts": "tslint --project .",
     "lint:ts:fix": "npm run lint:ts -- --fix",
     "lint:md": "markdownlint *.md",
