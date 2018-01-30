@@ -1,5 +1,6 @@
 # bem-ts
 
+[![Build Status](https://travis-ci.org/ybiquitous/bem-ts.svg?branch=master)](https://travis-ci.org/ybiquitous/bem-ts)
 [![MIT License](https://img.shields.io/github/license/mashape/apistatus.svg)](LICENSE)
 
 BEM class names generator for TypeScript
