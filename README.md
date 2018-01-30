@@ -9,7 +9,7 @@ Inspired by [`bem-cn`](https://npm.im/bem-cn).
 ## Usage
 
 ```ts
-import bem from ".";
+import bem from "bem-ts";
 
 const b = bem("block");
 
