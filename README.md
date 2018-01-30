@@ -8,6 +8,11 @@ BEM class names generator for TypeScript
 
 Inspired by [`bem-cn`](https://npm.im/bem-cn).
 
+## Policy
+
+- No extra features. Dead simple.
+- TypeScript support.
+
 ## Usage
 
 ```ts
