@@ -12,3 +12,6 @@ deploy:
   on:
     tags: true
     node: "lts/*"
+
+notifications:
+  email: false
