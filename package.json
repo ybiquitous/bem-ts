@@ -22,9 +22,9 @@
     "prebuild": "rimraf dist",
     "build": "tsc",
     "pretest": "npm run build",
-    "test": "jest",
-    "test:watch": "npm test -- --watch",
-    "test:coverage": "npm test -- --coverage",
+    "test": "jest --coverage",
+    "test:watch": "jest --watch",
+    "test:coverage": "npm test -- --coverageReporters=html",
     "posttest": "npm run lint",
     "lint:ts": "tslint --project .",
     "lint:ts:fix": "npm run lint:ts -- --fix",
@@ -54,6 +54,16 @@
     "message": "chore(release): new version %s",
     "scripts": {
       "postchangelog": "prepend CHANGELOG.md \"<!-- markdownlint-disable -->\n\""
+    }
+  },
+  "jest": {
+    "coverageThreshold": {
+      "global": {
+        "branches": 100,
+        "functions": 100,
+        "lines": 100,
+        "statements": 100
+      }
     }
   }
 }
