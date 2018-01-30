@@ -42,3 +42,5 @@ git pull
 npm run release:dry-run
 npm run release
 ```
+
+NOTE: `npm publish` will be executed in CI.
