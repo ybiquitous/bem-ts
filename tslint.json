@@ -1,0 +1,7 @@
+{
+  "defaultSeverity": "error",
+  "extends": "tslint:latest",
+  "rules": {
+    "interface-over-type-literal": false
+  }
+}
