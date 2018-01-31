@@ -1,6 +1,6 @@
-import bem from ".";
+import block from ".";
 
-const b = bem("block");
+const b = block("block");
 
 it("returns block", () => {
   expect(b()).toBe("block");
