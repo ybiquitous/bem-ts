@@ -4,6 +4,9 @@ node_js:
   - "node"
   - "lts/*"
 
+before_script:
+  - commitlint-travis
+
 deploy:
   provider: npm
   email: ybiquitous@gmail.com
