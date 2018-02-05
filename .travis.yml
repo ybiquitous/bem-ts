@@ -4,6 +4,8 @@ node_js:
   - "node"
   - "lts/*"
 
+cache: yarn
+
 before_script:
   - commitlint-travis
 
