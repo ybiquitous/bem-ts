@@ -5,7 +5,7 @@
 [![dependencies Status](https://david-dm.org/ybiquitous/bem-ts/status.svg)](https://david-dm.org/ybiquitous/bem-ts)
 [![MIT License](https://img.shields.io/github/license/mashape/apistatus.svg)](LICENSE)
 
-BEM class names generator for TypeScript
+BEM class names generator for TypeScript.
 
 Inspired by [`bem-cn`](https://npm.im/bem-cn).
 
@@ -38,6 +38,27 @@ b("element", { a: true, b: false });
 
 b("element", { a: true, b: false, c: true });
 //=> "block__element--a block__element--c"
+```
+
+### `elementDelimiter`
+
+```ts
+const b = block("block", { elementDelimiter: "_" });
+
+b("element");
+//=> "block_element"
+```
+
+### `modifierDelimiter`
+
+```ts
+const b = block("block", { modifierDelimiter: "-" });
+
+b({ a: true });
+//=> "block-a"
+
+b("element", { a: true });
+//=> "block__element-a"
 ```
 
 ## Install
