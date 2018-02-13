@@ -79,6 +79,10 @@ b("element", { a: true, b: true });
 npm install bem-ts
 ```
 
+## Change Log
+
+Please see [here](CHANGELOG.md).
+
 ## Test
 
 ```sh
