@@ -28,7 +28,7 @@
     "posttest": "npm run lint",
     "lint:ts": "tslint --project .",
     "lint:ts:fix": "npm run lint:ts -- --fix",
-    "lint:md": "markdownlint --ignore node_modules \"**/*.md\"",
+    "lint:md": "markdownlint --ignore node_modules --ignore CHANGELOG.md \"**/*.md\"",
     "lint": "npm-run-all --print-name --print-label --parallel lint:*",
     "commitmsg": "commitlint -e $GIT_PARAMS",
     "precommit": "lint-staged",
@@ -48,13 +48,10 @@
       "tslint --fix",
       "git add"
     ],
-    "*.md": "markdownlint"
+    "*.md": "markdownlint --ignore CHANGELOG.md"
   },
   "standard-version": {
-    "message": "chore(release): new version %s",
-    "scripts": {
-      "postchangelog": "prepend CHANGELOG.md \"<!-- markdownlint-disable -->\n\""
-    }
+    "message": "chore(release): new version %s"
   },
   "jest": {
     "coverageThreshold": {
