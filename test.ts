@@ -86,3 +86,32 @@ describe("`modifierDelimiter` option", () => {
       .toBe("block__element-a block__element-c");
   });
 });
+
+describe("`prefix` option", () => {
+  const b = block("block", { prefix: "pre---" });
+
+  it("returns block", () => {
+    expect(b()).toBe("pre---block");
+  });
+
+  it("returns block with modifier", () => {
+    expect(b({ a: true, b: false })).toBe("pre---block--a");
+  });
+
+  it("returns block with multiple modifiers", () => {
+    expect(b({ a: true, b: false, c: true })).toBe("pre---block--a pre---block--c");
+  });
+
+  it("returns block with element", () => {
+    expect(b("element")).toBe("pre---block__element");
+  });
+
+  it("returns block with element and modifier", () => {
+    expect(b("element", { a: true, b: false })).toBe("pre---block__element--a");
+  });
+
+  it("returns block with element and multiple modifiers", () => {
+    expect(b("element", { a: true, b: false, c: true }))
+      .toBe("pre---block__element--a pre---block__element--c");
+  });
+});

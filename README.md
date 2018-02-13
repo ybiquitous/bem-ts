@@ -40,7 +40,7 @@ b("element", { a: true, b: false, c: true });
 //=> "block__element--a block__element--c"
 ```
 
-### `elementDelimiter`
+### `elementDelimiter = "__"`
 
 ```ts
 const b = block("block", { elementDelimiter: "_" });
@@ -49,7 +49,7 @@ b("element");
 //=> "block_element"
 ```
 
-### `modifierDelimiter`
+### `modifierDelimiter = "--"`
 
 ```ts
 const b = block("block", { modifierDelimiter: "-" });
@@ -59,6 +59,18 @@ b({ a: true });
 
 b("element", { a: true });
 //=> "block__element-a"
+```
+
+### `prefix = ""`
+
+```ts
+const b = block("block", { prefix: "pre---" });
+
+b();
+//=> "pre---block"
+
+b("element", { a: true, b: true });
+//=> "pre---block__element--a pre---block__element--b"
 ```
 
 ## Install

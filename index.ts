@@ -2,14 +2,15 @@ type Modifiers = { [key: string]: boolean; };
 
 export default function bem(
   block: string,
-  { elementDelimiter = "__", modifierDelimiter =  "--" } = {},
+  { elementDelimiter = "__", modifierDelimiter =  "--", prefix = "" } = {},
 ) {
   return (elementOrModifiers?: string | Modifiers, modifiers?: Modifiers) => {
+    let base = `${prefix}${block}`;
+
     if (!elementOrModifiers) {
-      return block;
+      return base;
     }
 
-    let base = block;
     let mods = modifiers;
 
     if (typeof elementOrModifiers === "string") {
