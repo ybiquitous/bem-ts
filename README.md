@@ -73,6 +73,25 @@ b("element", { a: true, b: true });
 //=> "pre---block__element--a pre---block__element--b"
 ```
 
+### `setup()`
+
+Change default options.
+
+```ts
+import block, { setup } from "bem-ts";
+
+setup({
+  elementDelimiter: "_",
+  modifierDelimiter: "-",
+  prefix: "pre---",
+});
+
+const b = block("block");
+
+b("element", { a: true });
+//=> "pre---block_element-a"
+```
+
 ## Install
 
 ```sh

@@ -1,8 +1,30 @@
 type Modifiers = { [key: string]: boolean; };
 
+const defaults = {
+  elementDelimiter: "__",
+  modifierDelimiter:  "--",
+  prefix: "",
+};
+
+export function setup(options: { elementDelimiter?: string, modifierDelimiter?: string, prefix?: string }) {
+  if (options.elementDelimiter) {
+    defaults.elementDelimiter = options.elementDelimiter;
+  }
+  if (options.modifierDelimiter) {
+    defaults.modifierDelimiter = options.modifierDelimiter;
+  }
+  if (options.prefix) {
+    defaults.prefix = options.prefix;
+  }
+}
+
 export default function bem(
   block: string,
-  { elementDelimiter = "__", modifierDelimiter =  "--", prefix = "" } = {},
+  {
+    elementDelimiter = defaults.elementDelimiter,
+    modifierDelimiter = defaults.modifierDelimiter,
+    prefix = defaults.prefix,
+  } = {},
 ) {
   return (elementOrModifiers?: string | Modifiers, modifiers?: Modifiers) => {
     let base = `${prefix}${block}`;
