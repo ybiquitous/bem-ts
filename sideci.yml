@@ -1,0 +1,3 @@
+linter:
+  tslint:
+    npm_install: 'development'
