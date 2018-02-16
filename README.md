@@ -3,6 +3,7 @@
 [![NPM version](https://img.shields.io/npm/v/bem-ts.svg)](https://npm.im/bem-ts)
 [![Build Status](https://travis-ci.org/ybiquitous/bem-ts.svg?branch=master)](https://travis-ci.org/ybiquitous/bem-ts)
 [![dependencies Status](https://david-dm.org/ybiquitous/bem-ts/status.svg)](https://david-dm.org/ybiquitous/bem-ts)
+[![SideCI Available](https://img.shields.io/badge/SideCI-available-blue.svg)](https://sideci.com)
 [![MIT License](https://img.shields.io/github/license/mashape/apistatus.svg)](LICENSE)
 
 BEM class names generator for TypeScript.
