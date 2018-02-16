@@ -1,6 +1,7 @@
 {
   "extends": [
     "config:js-lib",
+    ":maintainLockFilesWeekly",
     "schedule:nonOfficeHours"
   ],
   "timezone": "Asia/Tokyo"
