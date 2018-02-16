@@ -2,6 +2,7 @@
   "defaultSeverity": "error",
   "extends": "tslint:latest",
   "rules": {
-    "interface-over-type-literal": false
+    "interface-over-type-literal": false,
+    "object-literal-sort-keys": false
   }
 }

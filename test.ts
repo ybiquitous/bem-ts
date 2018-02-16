@@ -1,162 +1,117 @@
 import block, { setup } from ".";
 
-describe("default", () => {
-  const b = block("block");
+const testCases = [
+  {
+    description: "default",
+    tested: () => block("block"),
+    expectations: [
+      "block",
+      "block--mod1",
+      "block--mod1 block--mod2",
+      "block__element",
+      "block__element--mod1",
+      "block__element--mod1 block__element--mod2",
+    ],
+  },
+  {
+    description: "`elementDelimiter` option",
+    tested: () => block("block", { elementDelimiter: "_" }),
+    expectations: [
+      "block",
+      "block--mod1",
+      "block--mod1 block--mod2",
+      "block_element",
+      "block_element--mod1",
+      "block_element--mod1 block_element--mod2",
+    ],
+  },
+  {
+    description: "`modifierDelimiter` option",
+    tested: () => block("block", { modifierDelimiter: "-" }),
+    expectations: [
+      "block",
+      "block-mod1",
+      "block-mod1 block-mod2",
+      "block__element",
+      "block__element-mod1",
+      "block__element-mod1 block__element-mod2",
+    ],
+  },
+  {
+    description: "`prefix` option",
+    tested: () => block("block", { prefix: "pre---" }),
+    expectations: [
+      "pre---block",
+      "pre---block--mod1",
+      "pre---block--mod1 pre---block--mod2",
+      "pre---block__element",
+      "pre---block__element--mod1",
+      "pre---block__element--mod1 pre---block__element--mod2",
+    ],
+  },
+  {
+    description: "`setup`",
+    tested: () => {
+      setup({
+        elementDelimiter: "_",
+        modifierDelimiter: "-",
+        prefix: "pre---",
+      });
+      return block("block");
+    },
+    expectations: [
+      "pre---block",
+      "pre---block-mod1",
+      "pre---block-mod1 pre---block-mod2",
+      "pre---block_element",
+      "pre---block_element-mod1",
+      "pre---block_element-mod1 pre---block_element-mod2",
+    ],
+  },
+];
 
-  it("returns block", () => {
-    expect(b()).toBe("block");
-  });
+testCases.forEach(({ description, tested, expectations }) => {
+  describe(description, () => {
+    const b = tested();
 
-  it("returns block with modifier", () => {
-    expect(b({ a: true, b: false })).toBe("block--a");
-  });
+    it("returns block", () => {
+      expect(b()).toBe(expectations[0]);
+    });
 
-  it("returns block with multiple modifiers", () => {
-    expect(b({ a: true, b: false, c: true })).toBe("block--a block--c");
-  });
+    it("returns block with modifier", () => {
+      expect(b({ mod1: true })).toBe(expectations[1]);
+      expect(b({ mod1: true, mod2: false })).toBe(expectations[1]);
+    });
 
-  it("returns block with element", () => {
-    expect(b("element")).toBe("block__element");
-  });
+    it("returns block with multiple modifiers", () => {
+      expect(b({ mod1: true, mod2: true })).toBe(expectations[2]);
+      expect(b({ mod1: true, mod2: true, mod3: false })).toBe(expectations[2]);
+    });
 
-  it("returns block with element and modifier", () => {
-    expect(b("element", { a: true, b: false })).toBe("block__element--a");
-  });
+    it("returns block with element", () => {
+      expect(b("element")).toBe(expectations[3]);
+    });
 
-  it("returns block with element and multiple modifiers", () => {
-    expect(b("element", { a: true, b: false, c: true }))
-      .toBe("block__element--a block__element--c");
-  });
-});
+    it("returns block with element and modifier", () => {
+      expect(b("element", { mod1: true })).toBe(expectations[4]);
+      expect(b("element", { mod1: true, mod2: false })).toBe(expectations[4]);
+    });
 
-describe("`elementDelimiter` option", () => {
-  const b = block("block", { elementDelimiter: "_" });
-
-  it("returns block", () => {
-    expect(b()).toBe("block");
-  });
-
-  it("returns block with modifier", () => {
-    expect(b({ a: true, b: false })).toBe("block--a");
-  });
-
-  it("returns block with multiple modifiers", () => {
-    expect(b({ a: true, b: false, c: true })).toBe("block--a block--c");
-  });
-
-  it("returns block with element", () => {
-    expect(b("element")).toBe("block_element");
-  });
-
-  it("returns block with element and modifier", () => {
-    expect(b("element", { a: true, b: false })).toBe("block_element--a");
-  });
-
-  it("returns block with element and multiple modifiers", () => {
-    expect(b("element", { a: true, b: false, c: true }))
-      .toBe("block_element--a block_element--c");
-  });
-});
-
-describe("`modifierDelimiter` option", () => {
-  const b = block("block", { modifierDelimiter: "-" });
-
-  it("returns block", () => {
-    expect(b()).toBe("block");
-  });
-
-  it("returns block with modifier", () => {
-    expect(b({ a: true, b: false })).toBe("block-a");
-  });
-
-  it("returns block with multiple modifiers", () => {
-    expect(b({ a: true, b: false, c: true })).toBe("block-a block-c");
-  });
-
-  it("returns block with element", () => {
-    expect(b("element")).toBe("block__element");
-  });
-
-  it("returns block with element and modifier", () => {
-    expect(b("element", { a: true, b: false })).toBe("block__element-a");
-  });
-
-  it("returns block with element and multiple modifiers", () => {
-    expect(b("element", { a: true, b: false, c: true }))
-      .toBe("block__element-a block__element-c");
-  });
-});
-
-describe("`prefix` option", () => {
-  const b = block("block", { prefix: "pre---" });
-
-  it("returns block", () => {
-    expect(b()).toBe("pre---block");
-  });
-
-  it("returns block with modifier", () => {
-    expect(b({ a: true, b: false })).toBe("pre---block--a");
-  });
-
-  it("returns block with multiple modifiers", () => {
-    expect(b({ a: true, b: false, c: true })).toBe("pre---block--a pre---block--c");
-  });
-
-  it("returns block with element", () => {
-    expect(b("element")).toBe("pre---block__element");
-  });
-
-  it("returns block with element and modifier", () => {
-    expect(b("element", { a: true, b: false })).toBe("pre---block__element--a");
-  });
-
-  it("returns block with element and multiple modifiers", () => {
-    expect(b("element", { a: true, b: false, c: true }))
-      .toBe("pre---block__element--a pre---block__element--c");
+    it("returns block with element and multiple modifiers", () => {
+      expect(b("element", { mod1: true, mod2: true })).toBe(expectations[5]);
+      expect(b("element", { mod1: true, mod2: true, mod3: false })).toBe(expectations[5]);
+    });
   });
 });
 
-describe("`setup()`", () => {
-  setup({
-    elementDelimiter: "_",
-    modifierDelimiter: "-",
-    prefix: "pre---",
-  });
-
-  const b = block("block");
-
-  it("returns block", () => {
-    expect(b()).toBe("pre---block");
-  });
-
-  it("returns block with modifier", () => {
-    expect(b({ a: true, b: false })).toBe("pre---block-a");
-  });
-
-  it("returns block with multiple modifiers", () => {
-    expect(b({ a: true, b: false, c: true })).toBe("pre---block-a pre---block-c");
-  });
-
-  it("returns block with element", () => {
-    expect(b("element")).toBe("pre---block_element");
-  });
-
-  it("returns block with element and modifier", () => {
-    expect(b("element", { a: true, b: false })).toBe("pre---block_element-a");
-  });
-
-  it("returns block with element and multiple modifiers", () => {
-    expect(b("element", { a: true, b: false, c: true }))
-      .toBe("pre---block_element-a pre---block_element-c");
-  });
-
+describe("`setup` additional cases", () => {
   it("overrides options which was setup", () => {
-    const bl = block("block", { elementDelimiter: ":", modifierDelimiter: "/", prefix: "p-" });
-    expect(bl("element", { a: true })).toBe("p-block:element/a");
+    const b = block("block", { elementDelimiter: ":", modifierDelimiter: "/", prefix: "p-" });
+    expect(b("element", { mod: true })).toBe("p-block:element/mod");
   });
 
   it("has no effect when empty options are passed", () => {
     setup({});
-    expect(block("block")("element", { a: true })).toBe("pre---block_element-a");
+    expect(block("block")("element", { mod: true })).toBe("pre---block_element-mod");
   });
 });
