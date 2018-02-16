@@ -12,66 +12,66 @@ Inspired by [`bem-cn`](https://npm.im/bem-cn).
 
 ## Policy
 
-- No extra features. Dead simple.
-- TypeScript support.
+* No extra features. Dead simple.
+* TypeScript support.
 
 ## Usage
 
 ```ts
-import block from "bem-ts";
+import block from 'bem-ts'
 
-const b = block("block");
+const b = block('block')
 
-b();
-//=> "block"
+b()
+//=> 'block'
 
-b({ a: true, b: false });
-//=> "block--a"
+b({ mod1: true, mod2: false })
+//=> 'block--mod1'
 
-b({ a: true, b: false, c: true });
-//=> "block--a block--c"
+b({ mod1: true, mod2: false, mod3: true })
+//=> 'block--mod1 block--mod3'
 
-b("element");
-//=> "block__element"
+b('element')
+//=> 'block__element'
 
-b("element", { a: true, b: false });
-//=> "block__element--a"
+b('element', { mod1: true, mod2: false })
+//=> 'block__element--mod1'
 
-b("element", { a: true, b: false, c: true });
-//=> "block__element--a block__element--c"
+b('element', { mod1: true, mod2: false, mod3: true })
+//=> 'block__element--mod1 block__element--mod3'
 ```
 
-### `elementDelimiter = "__"`
+### `elementDelimiter = '__'`
 
 ```ts
-const b = block("block", { elementDelimiter: "_" });
+const b = block('block', { elementDelimiter: '_' })
 
-b("element");
-//=> "block_element"
+b('element')
+//=> 'block_element'
 ```
 
-### `modifierDelimiter = "--"`
+### `modifierDelimiter = '--'`
 
 ```ts
-const b = block("block", { modifierDelimiter: "-" });
+const b = block('block', { modifierDelimiter: '-' })
 
-b({ a: true });
-//=> "block-a"
+b({ mod: true })
+//=> 'block-mod'
 
-b("element", { a: true });
-//=> "block__element-a"
+b('element', { mod: true })
+//=> 'block__element-mod'
 ```
 
-### `prefix = ""`
+### `prefix = ''`
 
 ```ts
-const b = block("block", { prefix: "pre---" });
+const b = block('block', { prefix: 'pre---' })
 
-b();
-//=> "pre---block"
+b()
+//=> 'pre---block'
 
-b("element", { a: true, b: true });
-//=> "pre---block__element--a pre---block__element--b"
+b('element', { mod1: true, mod2: true })
+//=> 'pre---block__element--mod1 pre---block__element--mod2'
 ```
 
 ### `setup()`
@@ -79,18 +79,18 @@ b("element", { a: true, b: true });
 Change default options.
 
 ```ts
-import block, { setup } from "bem-ts";
+import block, { setup } from 'bem-ts'
 
 setup({
-  elementDelimiter: "_",
-  modifierDelimiter: "-",
-  prefix: "pre---",
-});
+  elementDelimiter: '_',
+  modifierDelimiter: '-',
+  prefix: 'pre---'
+})
 
-const b = block("block");
+const b = block('block')
 
-b("element", { a: true });
-//=> "pre---block_element-a"
+b('element', { mod: true })
+//=> 'pre---block_element-mod'
 ```
 
 ## Install
