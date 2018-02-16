@@ -50,7 +50,7 @@ const testCases = [
     ],
   },
   {
-    description: "`setup`",
+    description: "`setup()`",
     tested: () => {
       setup({
         elementDelimiter: "_",
@@ -104,7 +104,7 @@ testCases.forEach(({ description, tested, expectations }) => {
   });
 });
 
-describe("`setup` additional cases", () => {
+describe("`setup()` additional cases", () => {
   it("overrides options which was setup", () => {
     const b = block("block", { elementDelimiter: ":", modifierDelimiter: "/", prefix: "p-" });
     expect(b("element", { mod: true })).toBe("p-block:element/mod");
