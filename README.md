@@ -62,7 +62,45 @@ b('element', { mod: true })
 //=> 'block__element-mod'
 ```
 
+### `namespace = ''`
+
+```ts
+const b = block('block', { namespace: 'ns' })
+
+b()
+//=> 'ns-block'
+
+b('element', { mod1: true, mod2: true })
+//=> 'ns-block__element--mod1 ns-block__element--mod2'
+```
+
+### `namespaceDelimiter = '-'`
+
+```ts
+const b = block('block', { namespace: 'ns', namespaceDelimiter: '---' })
+
+b()
+//=> 'ns---block'
+
+b('element', { mod1: true, mod2: true })
+//=> 'ns---block__element--mod1 ns---block__element--mod2'
+```
+
+When `namespace` is not given, `namespaceDelimiter` will be ignored.
+
+```ts
+const b = block('block', { namespaceDelimiter: '---' })
+
+b()
+//=> 'block'
+
+b('element', { mod1: true, mod2: true })
+//=> 'block__element--mod1 block__element--mod2'
+```
+
 ### `prefix = ''`
+
+**[DEPRECATED]**: Please use `namespace` and `namespaceDelimiter`.
 
 ```ts
 const b = block('block', { prefix: 'pre---' })
@@ -84,13 +122,14 @@ import block, { setup } from 'bem-ts'
 setup({
   elementDelimiter: '_',
   modifierDelimiter: '-',
-  prefix: 'pre---'
+  namespace: 'ns',
+  namespaceDelimiter: '---'
 })
 
 const b = block('block')
 
 b('element', { mod: true })
-//=> 'pre---block_element-mod'
+//=> 'ns---block_element-mod'
 ```
 
 ## Install
