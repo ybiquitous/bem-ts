@@ -144,9 +144,9 @@ testCases.forEach(({ description, tested, expectations }) => {
 
 describe('`namespace` and `prefix` at the same time', () => {
   it('throws `TypeError`', () => {
-    const b = block('block', { namespace: 'ns', prefix: 'pre' })
-    expect(() => b()).toThrow(TypeError)
-    expect(() => b()).toThrow("prefix('pre') is deprecated. Use namespace('ns') instead.")
+    const fn = () => block('block', { namespace: 'ns', prefix: 'pre' })
+    expect(fn).toThrow(TypeError)
+    expect(fn).toThrow("prefix('pre') is deprecated. Use namespace('ns') instead.")
   })
 })
 
