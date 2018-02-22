@@ -15,6 +15,12 @@ Inspired by [`bem-cn`](https://npm.im/bem-cn).
 * No extra features. Dead simple.
 * TypeScript support.
 
+## Install
+
+```sh
+npm install bem-ts
+```
+
 ## Usage
 
 ```ts
@@ -130,12 +136,6 @@ const b = block('block')
 
 b('element', { mod: true })
 //=> 'ns---block_element-mod'
-```
-
-## Install
-
-```sh
-npm install bem-ts
 ```
 
 ## Change Log
