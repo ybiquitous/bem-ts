@@ -42,13 +42,14 @@ export default function bem(
     prefix = defaults.prefix,
   } = {},
 ) {
-  return (elementOrModifiers?: string | Modifiers, modifiers?: Modifiers) => {
-    if (namespace && prefix) {
-      throw new TypeError(`prefix('${prefix}') is deprecated. Use namespace('${namespace}') instead.`)
-    }
+  if (namespace && prefix) {
+    throw new TypeError(`prefix('${prefix}') is deprecated. Use namespace('${namespace}') instead.`)
+  }
 
-    const nsDelim = namespace ? namespaceDelimiter : ''
-    const pre = prefix || `${namespace}${nsDelim}`
+  const nsDelim = namespace ? namespaceDelimiter : ''
+  const pre = prefix || `${namespace}${nsDelim}`
+
+  return (elementOrModifiers?: string | Modifiers, modifiers?: Modifiers) => {
     let base = `${pre}${block}`
 
     if (!elementOrModifiers) {
