@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.6.0"></a>
+# [0.6.0](https://github.com/ybiquitous/bem-ts/compare/v0.5.0...v0.6.0) (2018-02-23)
+
+
+### Bug Fixes
+
+* generate multi classes with modifiers ([#43](https://github.com/ybiquitous/bem-ts/issues/43)) ([188d643](https://github.com/ybiquitous/bem-ts/commit/188d643))
+
+
+### Performance Improvements
+
+* remove useless truthy check in `.filter()` via casting ([#42](https://github.com/ybiquitous/bem-ts/issues/42)) ([ce1f3be](https://github.com/ybiquitous/bem-ts/commit/ce1f3be))
+
+
+
 <a name="0.5.0"></a>
 # [0.5.0](https://github.com/ybiquitous/bem-ts/compare/v0.4.1...v0.5.0) (2018-02-23)
 
