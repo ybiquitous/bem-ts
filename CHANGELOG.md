@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.4.1"></a>
+## [0.4.1](https://github.com/ybiquitous/bem-ts/compare/v0.4.0...v0.4.1) (2018-02-23)
+
+
+### Performance Improvements
+
+* avoid repeated evaluation in each function call ([#39](https://github.com/ybiquitous/bem-ts/issues/39)) ([07e2722](https://github.com/ybiquitous/bem-ts/commit/07e2722))
+* avoid unnecessary multiple string interpolation ([#40](https://github.com/ybiquitous/bem-ts/issues/40)) ([1975b93](https://github.com/ybiquitous/bem-ts/commit/1975b93))
+
+
+
 <a name="0.4.0"></a>
 # [0.4.0](https://github.com/ybiquitous/bem-ts/compare/v0.3.0...v0.4.0) (2018-02-22)
 
