@@ -33,19 +33,19 @@ b()
 //=> 'block'
 
 b({ mod1: true, mod2: false })
-//=> 'block--mod1'
+//=> 'block block--mod1'
 
 b({ mod1: true, mod2: false, mod3: true })
-//=> 'block--mod1 block--mod3'
+//=> 'block block--mod1 block--mod3'
 
 b('element')
 //=> 'block__element'
 
 b('element', { mod1: true, mod2: false })
-//=> 'block__element--mod1'
+//=> 'block__element block__element--mod1'
 
 b('element', { mod1: true, mod2: false, mod3: true })
-//=> 'block__element--mod1 block__element--mod3'
+//=> 'block__element block__element--mod1 block__element--mod3'
 ```
 
 ### `elementDelimiter = '__'`
@@ -63,10 +63,10 @@ b('element')
 const b = block('block', { modifierDelimiter: '-' })
 
 b({ mod: true })
-//=> 'block-mod'
+//=> block 'block-mod'
 
 b('element', { mod: true })
-//=> 'block__element-mod'
+//=> 'block__element block__element-mod'
 ```
 
 ### `namespace = ''`
@@ -78,7 +78,7 @@ b()
 //=> 'ns-block'
 
 b('element', { mod1: true, mod2: true })
-//=> 'ns-block__element--mod1 ns-block__element--mod2'
+//=> 'ns-block__element ns-block__element--mod1 ns-block__element--mod2'
 ```
 
 ### `namespaceDelimiter = '-'`
@@ -90,7 +90,7 @@ b()
 //=> 'ns---block'
 
 b('element', { mod1: true, mod2: true })
-//=> 'ns---block__element--mod1 ns---block__element--mod2'
+//=> 'ns---block__element ns---block__element--mod1 ns---block__element--mod2'
 ```
 
 When `namespace` is not given, `namespaceDelimiter` will be ignored.
@@ -102,7 +102,7 @@ b()
 //=> 'block'
 
 b('element', { mod1: true, mod2: true })
-//=> 'block__element--mod1 block__element--mod2'
+//=> 'block__element block__element--mod1 block__element--mod2'
 ```
 
 ### `prefix = ''`
@@ -116,7 +116,7 @@ b()
 //=> 'pre---block'
 
 b('element', { mod1: true, mod2: true })
-//=> 'pre---block__element--mod1 pre---block__element--mod2'
+//=> 'pre---block__element pre---block__element--mod1 pre---block__element--mod2'
 ```
 
 ### `setup()`
@@ -136,7 +136,7 @@ setup({
 const b = block('block')
 
 b('element', { mod: true })
-//=> 'ns---block_element-mod'
+//=> 'ns---block_element ns---block_element-mod'
 ```
 
 ## Change Log
