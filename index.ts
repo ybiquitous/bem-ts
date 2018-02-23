@@ -72,7 +72,7 @@ export default function bem(
     }
 
     return Object.keys(mods)
-      .filter((mod) => mods && mods[mod])
+      .filter((mod) => (mods as Modifiers)[mod])
       .map((mod) => `${base}${modifierDelimiter}${mod}`)
       .join(' ')
   }
