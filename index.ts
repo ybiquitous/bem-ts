@@ -1,5 +1,3 @@
-type Modifiers = { [key: string]: boolean; }
-
 const defaults = {
   elementDelimiter: '__',
   modifierDelimiter:  '--',
@@ -30,6 +28,10 @@ export function setup(options: {
   if (typeof options.prefix === 'string') {
     defaults.prefix = options.prefix
   }
+}
+
+type Modifiers = {
+  [key: string]: boolean | null | undefined,
 }
 
 export default function bem(

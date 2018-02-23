@@ -119,6 +119,8 @@ testCases.forEach(({ description, tested, expectations }) => {
     it('returns block with modifier', () => {
       expect(b({ mod1: true })).toBe(expectations[1])
       expect(b({ mod1: true, mod2: false })).toBe(expectations[1])
+      expect(b({ mod1: true, mod2: null })).toBe(expectations[1])
+      expect(b({ mod1: true, mod2: undefined })).toBe(expectations[1])
     })
 
     it('returns block with multiple modifiers', () => {
