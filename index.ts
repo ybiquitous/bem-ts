@@ -48,9 +48,10 @@ export default function bem(
 
   const nsDelim = namespace ? namespaceDelimiter : ''
   const pre = prefix || `${namespace}${nsDelim}`
+  const baseBlock = `${pre}${block}`
 
   return (elementOrModifiers?: string | Modifiers, modifiers?: Modifiers) => {
-    let base = `${pre}${block}`
+    let base = baseBlock
 
     if (!elementOrModifiers) {
       return base
