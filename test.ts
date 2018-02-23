@@ -6,11 +6,11 @@ const testCases = [
     tested: () => block('block'),
     expectations: [
       'block',
-      'block--mod1',
-      'block--mod1 block--mod2',
+      'block block--mod1',
+      'block block--mod1 block--mod2',
       'block__element',
-      'block__element--mod1',
-      'block__element--mod1 block__element--mod2',
+      'block__element block__element--mod1',
+      'block__element block__element--mod1 block__element--mod2',
     ],
   },
   {
@@ -18,11 +18,11 @@ const testCases = [
     tested: () => block('block', { elementDelimiter: '_' }),
     expectations: [
       'block',
-      'block--mod1',
-      'block--mod1 block--mod2',
+      'block block--mod1',
+      'block block--mod1 block--mod2',
       'block_element',
-      'block_element--mod1',
-      'block_element--mod1 block_element--mod2',
+      'block_element block_element--mod1',
+      'block_element block_element--mod1 block_element--mod2',
     ],
   },
   {
@@ -30,11 +30,11 @@ const testCases = [
     tested: () => block('block', { modifierDelimiter: '-' }),
     expectations: [
       'block',
-      'block-mod1',
-      'block-mod1 block-mod2',
+      'block block-mod1',
+      'block block-mod1 block-mod2',
       'block__element',
-      'block__element-mod1',
-      'block__element-mod1 block__element-mod2',
+      'block__element block__element-mod1',
+      'block__element block__element-mod1 block__element-mod2',
     ],
   },
   {
@@ -42,11 +42,11 @@ const testCases = [
     tested: () => block('block', { namespace: 'ns' }),
     expectations: [
       'ns-block',
-      'ns-block--mod1',
-      'ns-block--mod1 ns-block--mod2',
+      'ns-block ns-block--mod1',
+      'ns-block ns-block--mod1 ns-block--mod2',
       'ns-block__element',
-      'ns-block__element--mod1',
-      'ns-block__element--mod1 ns-block__element--mod2',
+      'ns-block__element ns-block__element--mod1',
+      'ns-block__element ns-block__element--mod1 ns-block__element--mod2',
     ],
   },
   {
@@ -54,11 +54,11 @@ const testCases = [
     tested: () => block('block', { namespace: 'ns', namespaceDelimiter: '---' }),
     expectations: [
       'ns---block',
-      'ns---block--mod1',
-      'ns---block--mod1 ns---block--mod2',
+      'ns---block ns---block--mod1',
+      'ns---block ns---block--mod1 ns---block--mod2',
       'ns---block__element',
-      'ns---block__element--mod1',
-      'ns---block__element--mod1 ns---block__element--mod2',
+      'ns---block__element ns---block__element--mod1',
+      'ns---block__element ns---block__element--mod1 ns---block__element--mod2',
     ],
   },
   {
@@ -66,11 +66,11 @@ const testCases = [
     tested: () => block('block', { namespaceDelimiter: '---' }),
     expectations: [
       'block',
-      'block--mod1',
-      'block--mod1 block--mod2',
+      'block block--mod1',
+      'block block--mod1 block--mod2',
       'block__element',
-      'block__element--mod1',
-      'block__element--mod1 block__element--mod2',
+      'block__element block__element--mod1',
+      'block__element block__element--mod1 block__element--mod2',
     ],
   },
   {
@@ -78,11 +78,11 @@ const testCases = [
     tested: () => block('block', { prefix: 'pre---' }),
     expectations: [
       'pre---block',
-      'pre---block--mod1',
-      'pre---block--mod1 pre---block--mod2',
+      'pre---block pre---block--mod1',
+      'pre---block pre---block--mod1 pre---block--mod2',
       'pre---block__element',
-      'pre---block__element--mod1',
-      'pre---block__element--mod1 pre---block__element--mod2',
+      'pre---block__element pre---block__element--mod1',
+      'pre---block__element pre---block__element--mod1 pre---block__element--mod2',
     ],
   },
   {
@@ -93,17 +93,16 @@ const testCases = [
         modifierDelimiter: '-',
         namespace: 'ns',
         namespaceDelimiter: '---',
-        // prefix: 'pre---',
       })
       return block('block')
     },
     expectations: [
       'ns---block',
-      'ns---block-mod1',
-      'ns---block-mod1 ns---block-mod2',
+      'ns---block ns---block-mod1',
+      'ns---block ns---block-mod1 ns---block-mod2',
       'ns---block_element',
-      'ns---block_element-mod1',
-      'ns---block_element-mod1 ns---block_element-mod2',
+      'ns---block_element ns---block_element-mod1',
+      'ns---block_element ns---block_element-mod1 ns---block_element-mod2',
     ],
   },
 ]
@@ -114,6 +113,8 @@ testCases.forEach(({ description, tested, expectations }) => {
 
     it('returns block', () => {
       expect(b()).toBe(expectations[0])
+      expect(b({ mod1: false })).toBe(expectations[0])
+      expect(b({ mod1: false, mod2: false })).toBe(expectations[0])
     })
 
     it('returns block with modifier', () => {
@@ -161,16 +162,19 @@ describe('`setup()` additional case', () => {
       namespace: 'n',
       namespaceDelimiter: '=',
     })
-    expect(b('element', { mod: true })).toBe('n=block:element/mod')
+    expect(b('element', { mod: true }))
+      .toBe('n=block:element n=block:element/mod')
   })
 
   it('has no effect when empty options are passed', () => {
     setup({})
-    expect(block('block')('element', { mod: true })).toBe('ns---block_element-mod')
+    expect(block('block')('element', { mod: true }))
+      .toBe('ns---block_element ns---block_element-mod')
   })
 
   it('`prefix` option [deprecated]', () => {
     setup({ prefix: 'pre:', namespace: '' })
-    expect(block('block')('element', { mod: true })).toBe('pre:block_element-mod')
+    expect(block('block')('element', { mod: true }))
+      .toBe('pre:block_element pre:block_element-mod')
   })
 })
