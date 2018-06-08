@@ -4,7 +4,13 @@ node_js:
   - "node"
   - "lts/*"
 
-cache: yarn
+cache:
+  directories:
+    - "$HOME/.npm"
+
+before_install:
+  # `npm ci` is available since npm@5.7.0
+  - if [[ $TRAVIS_NODE_VERSION == lts/* ]]; then npm i -g npm@latest; fi
 
 before_script:
   - commitlint-travis
