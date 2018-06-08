@@ -52,7 +52,7 @@ export default function bem(
   const pre = prefix || `${namespace}${nsDelim}`
   const baseBlock = `${pre}${block}`
 
-  return (elementOrModifiers?: string | Modifiers, modifiers?: Modifiers) => {
+  return function bemBlock(elementOrModifiers?: string | Modifiers, modifiers?: Modifiers) {
     let base = baseBlock
 
     if (!elementOrModifiers) {
