@@ -37,7 +37,7 @@
     "release:dry-run": "npm run release -- --dry-run"
   },
   "devDependencies": {
-    "@types/jest": "23.0.0",
+    "@types/jest": "23.0.2",
     "jest": "23.1.0",
     "rimraf": "2.6.2",
     "tslint": "5.10.0",
