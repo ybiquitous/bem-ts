@@ -4,8 +4,6 @@
   "description": "BEM class names generator for TypeScript",
   "author": "Masafumi Koba <ybiquitous@gmail.com>",
   "repository": "ybiquitous/bem-ts",
-  "bugs": "https://github.com/ybiquitous/bem-ts/issues",
-  "homepage": "https://github.com/ybiquitous/bem-ts#readme",
   "keywords": [
     "BEM",
     "classname",
