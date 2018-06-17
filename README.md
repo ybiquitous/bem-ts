@@ -12,8 +12,8 @@ Inspired by [`bem-cn`](https://npm.im/bem-cn).
 
 ## Policy
 
-* No extra features. Dead simple.
-* TypeScript support.
+- No extra features. Dead simple.
+- TypeScript support.
 
 ## Install
 
@@ -24,83 +24,83 @@ npm install bem-ts
 ## Usage
 
 ```ts
-import block from 'bem-ts'
+import block from "bem-ts";
 
-const b = block('block')
+const b = block("block");
 
-b()
+b();
 //=> 'block'
 
-b({ mod1: true, mod2: false })
+b({ mod1: true, mod2: false });
 //=> 'block block--mod1'
 
-b({ mod1: true, mod2: false, mod3: true })
+b({ mod1: true, mod2: false, mod3: true });
 //=> 'block block--mod1 block--mod3'
 
-b('element')
+b("element");
 //=> 'block__element'
 
-b('element', { mod1: true, mod2: false })
+b("element", { mod1: true, mod2: false });
 //=> 'block__element block__element--mod1'
 
-b('element', { mod1: true, mod2: false, mod3: true })
+b("element", { mod1: true, mod2: false, mod3: true });
 //=> 'block__element block__element--mod1 block__element--mod3'
 ```
 
 ### `elementDelimiter = '__'`
 
 ```ts
-const b = block('block', { elementDelimiter: '_' })
+const b = block("block", { elementDelimiter: "_" });
 
-b('element')
+b("element");
 //=> 'block_element'
 ```
 
 ### `modifierDelimiter = '--'`
 
 ```ts
-const b = block('block', { modifierDelimiter: '-' })
+const b = block("block", { modifierDelimiter: "-" });
 
-b({ mod: true })
+b({ mod: true });
 //=> block 'block-mod'
 
-b('element', { mod: true })
+b("element", { mod: true });
 //=> 'block__element block__element-mod'
 ```
 
 ### `namespace = ''`
 
 ```ts
-const b = block('block', { namespace: 'ns' })
+const b = block("block", { namespace: "ns" });
 
-b()
+b();
 //=> 'ns-block'
 
-b('element', { mod1: true, mod2: true })
+b("element", { mod1: true, mod2: true });
 //=> 'ns-block__element ns-block__element--mod1 ns-block__element--mod2'
 ```
 
 ### `namespaceDelimiter = '-'`
 
 ```ts
-const b = block('block', { namespace: 'ns', namespaceDelimiter: '---' })
+const b = block("block", { namespace: "ns", namespaceDelimiter: "---" });
 
-b()
+b();
 //=> 'ns---block'
 
-b('element', { mod1: true, mod2: true })
+b("element", { mod1: true, mod2: true });
 //=> 'ns---block__element ns---block__element--mod1 ns---block__element--mod2'
 ```
 
 When `namespace` is not given, `namespaceDelimiter` will be ignored.
 
 ```ts
-const b = block('block', { namespaceDelimiter: '---' })
+const b = block("block", { namespaceDelimiter: "---" });
 
-b()
+b();
 //=> 'block'
 
-b('element', { mod1: true, mod2: true })
+b("element", { mod1: true, mod2: true });
 //=> 'block__element block__element--mod1 block__element--mod2'
 ```
 
@@ -109,12 +109,12 @@ b('element', { mod1: true, mod2: true })
 **[DEPRECATED]**: Please use `namespace` and `namespaceDelimiter`.
 
 ```ts
-const b = block('block', { prefix: 'pre---' })
+const b = block("block", { prefix: "pre---" });
 
-b()
+b();
 //=> 'pre---block'
 
-b('element', { mod1: true, mod2: true })
+b("element", { mod1: true, mod2: true });
 //=> 'pre---block__element pre---block__element--mod1 pre---block__element--mod2'
 ```
 
@@ -123,18 +123,18 @@ b('element', { mod1: true, mod2: true })
 Change default options.
 
 ```ts
-import block, { setup } from 'bem-ts'
+import block, { setup } from "bem-ts";
 
 setup({
-  elementDelimiter: '_',
-  modifierDelimiter: '-',
-  namespace: 'ns',
-  namespaceDelimiter: '---'
-})
+  elementDelimiter: "_",
+  modifierDelimiter: "-",
+  namespace: "ns",
+  namespaceDelimiter: "---",
+});
 
-const b = block('block')
+const b = block("block");
 
-b('element', { mod: true })
+b("element", { mod: true });
 //=> 'ns---block_element ns---block_element-mod'
 ```
 
