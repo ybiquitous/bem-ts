@@ -1,38 +1,38 @@
 const defaults = {
-  elementDelimiter: '__',
-  modifierDelimiter:  '--',
-  namespace: '',
-  namespaceDelimiter: '-',
-  prefix: '',
-}
+  elementDelimiter: "__",
+  modifierDelimiter: "--",
+  namespace: "",
+  namespaceDelimiter: "-",
+  prefix: "",
+};
 
 export function setup(options: {
-  elementDelimiter?: string,
-  modifierDelimiter?: string,
-  namespace?: string,
-  namespaceDelimiter?: string,
-  prefix?: string,
+  elementDelimiter?: string;
+  modifierDelimiter?: string;
+  namespace?: string;
+  namespaceDelimiter?: string;
+  prefix?: string;
 }) {
-  if (typeof options.elementDelimiter === 'string') {
-    defaults.elementDelimiter = options.elementDelimiter
+  if (typeof options.elementDelimiter === "string") {
+    defaults.elementDelimiter = options.elementDelimiter;
   }
-  if (typeof options.modifierDelimiter === 'string') {
-    defaults.modifierDelimiter = options.modifierDelimiter
+  if (typeof options.modifierDelimiter === "string") {
+    defaults.modifierDelimiter = options.modifierDelimiter;
   }
-  if (typeof options.namespace === 'string') {
-    defaults.namespace = options.namespace
+  if (typeof options.namespace === "string") {
+    defaults.namespace = options.namespace;
   }
-  if (typeof options.namespaceDelimiter === 'string') {
-    defaults.namespaceDelimiter = options.namespaceDelimiter
+  if (typeof options.namespaceDelimiter === "string") {
+    defaults.namespaceDelimiter = options.namespaceDelimiter;
   }
-  if (typeof options.prefix === 'string') {
-    defaults.prefix = options.prefix
+  if (typeof options.prefix === "string") {
+    defaults.prefix = options.prefix;
   }
 }
 
 type Modifiers = {
-  [key: string]: boolean | null | undefined,
-}
+  [key: string]: boolean | null | undefined;
+};
 
 export default function bem(
   block: string,
@@ -42,37 +42,39 @@ export default function bem(
     namespace = defaults.namespace,
     namespaceDelimiter = defaults.namespaceDelimiter,
     prefix = defaults.prefix,
-  } = {},
+  } = {}
 ) {
   if (namespace && prefix) {
-    throw new TypeError(`prefix('${prefix}') is deprecated. Use namespace('${namespace}') instead.`)
+    throw new TypeError(
+      `prefix('${prefix}') is deprecated. Use namespace('${namespace}') instead.`
+    );
   }
 
-  const nsDelim = namespace ? namespaceDelimiter : ''
-  const pre = prefix || `${namespace}${nsDelim}`
-  const baseBlock = `${pre}${block}`
+  const nsDelim = namespace ? namespaceDelimiter : "";
+  const pre = prefix || `${namespace}${nsDelim}`;
+  const baseBlock = `${pre}${block}`;
 
   return function bemBlock(elementOrModifiers?: string | Modifiers, modifiers?: Modifiers) {
-    let base = baseBlock
+    let base = baseBlock;
 
     if (!elementOrModifiers) {
-      return base
+      return base;
     }
 
-    let mods = modifiers
+    let mods = modifiers;
 
-    if (typeof elementOrModifiers === 'string') {
-      base = `${base}${elementDelimiter}${elementOrModifiers}`
+    if (typeof elementOrModifiers === "string") {
+      base = `${base}${elementDelimiter}${elementOrModifiers}`;
     } else {
-      mods = elementOrModifiers
+      mods = elementOrModifiers;
     }
 
     if (!mods) {
-      return base
+      return base;
     }
 
     return Object.keys(mods)
-      .filter((mod) => (mods as Modifiers)[mod])
-      .reduce((result, mod) => `${result} ${base}${modifierDelimiter}${mod}`, base)
-  }
+      .filter(mod => (mods as Modifiers)[mod])
+      .reduce((result, mod) => `${result} ${base}${modifierDelimiter}${mod}`, base);
+  };
 }

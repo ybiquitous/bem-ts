@@ -1,10 +1,11 @@
 {
   "defaultSeverity": "error",
-  "extends": "tslint:latest",
+  "extends":[
+    "tslint:latest",
+    "tslint-config-prettier"
+  ],
   "rules": {
     "interface-over-type-literal": false,
-    "object-literal-sort-keys": false,
-    "quotemark": [true, "single", "avoid-escape"],
-    "semicolon": [true, "never"]
+    "object-literal-sort-keys": false
   }
 }
