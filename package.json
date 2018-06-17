@@ -63,6 +63,9 @@
       "CHANGELOG.md"
     ]
   },
+  "prettier": {
+    "trailingComma": "es5"
+  },
   "jest": {
     "coverageThreshold": {
       "global": {
