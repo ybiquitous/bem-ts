@@ -30,8 +30,9 @@
     "lint:ts": "tslint --project .",
     "lint:ts:fix": "npm run lint:ts -- --fix",
     "lint:md": "markdownlint --ignore node_modules --ignore CHANGELOG.md \"**/*.md\"",
+    "lint:md:fix": "prettier --write \"**/*.md\"",
     "lint": "npm-run-all --print-name --print-label --parallel lint:*",
-    "commitmsg": "commitlint -e $GIT_PARAMS",
+    "commitmsg": "commitlint -E GIT_PARAMS",
     "precommit": "lint-staged",
     "release": "standard-version",
     "release:dry-run": "npm run release -- --dry-run"
@@ -45,14 +46,20 @@
     "ybiq": "3.2.0"
   },
   "lint-staged": {
-    "*.ts": [
-      "tslint --fix",
-      "git add"
-    ],
-    "*.md": "markdownlint --ignore CHANGELOG.md"
-  },
-  "standard-version": {
-    "message": "chore(release): new version %s"
+    "linters": {
+      "*.ts": [
+        "tslint --fix",
+        "git add"
+      ],
+      "*.md": [
+        "prettier --write",
+        "markdownlint",
+        "git add"
+      ]
+    },
+    "ignore": [
+      "CHANGELOG.md"
+    ]
   },
   "jest": {
     "coverageThreshold": {
