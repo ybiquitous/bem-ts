@@ -2,7 +2,8 @@
   "extends": [
     "config:js-lib",
     ":maintainLockFilesWeekly",
-    "schedule:nonOfficeHours"
+    ":automergePatch",
+    "schedule:weekly"
   ],
   "timezone": "Asia/Tokyo"
 }
