@@ -42,7 +42,7 @@
     "tslint": "5.10.0",
     "tslint-config-prettier": "1.13.0",
     "typescript": "2.9.2",
-    "ybiq": "3.2.0"
+    "ybiq": "3.3.0"
   },
   "lint-staged": {
     "linters": {
