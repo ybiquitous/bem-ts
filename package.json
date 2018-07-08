@@ -37,7 +37,7 @@
   },
   "devDependencies": {
     "@types/jest": "23.1.4",
-    "jest": "23.2.0",
+    "jest": "23.3.0",
     "rimraf": "2.6.2",
     "tslint": "5.10.0",
     "tslint-config-prettier": "1.13.0",
