@@ -16,6 +16,9 @@ before_script:
   - commitlint-travis
   - npm run lint
 
+after_success:
+  - npm run build
+
 branches:
   only:
     - master
