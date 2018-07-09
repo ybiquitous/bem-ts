@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>bem-ts Demo</title>
+    <title>bem-ts demo</title>
     <link rel="stylesheet" href="//unpkg.com/bulma@0.7.1/css/bulma.min.css">
     <style>
       body {
@@ -11,22 +11,42 @@
         margin: 0 auto;
         padding: 1em;
       }
+      main {
+        margin: 1em 0 10em;
+      }
+      h1 {
+        border-bottom: 1px solid lightgray;
+        font-size: 2em;
+      }
       h2 {
         margin-top: 2em;
+        font-size: 1.2em;
       }
-      pre, p {
+      pre, .output {
         border: 1px solid lightgray;
+        min-height: 5em;
         padding: 1em 1.25em;
         overflow-x: auto;
+      }
+      footer {
+        color: gray;
       }
     </style>
   </head>
   <body>
-    <h2>Input:</h2>
-    <pre><code></code></pre>
+    <main>
+      <h1><a href="https://github.com/ybiquitous/bem-ts" title="Move to GitHub"><strong>bem-ts</strong></a> demo</h1>
 
-    <h2>Output:</h2>
-    <p><samp></samp></p>
+      <h2>Input:</h2>
+      <pre><code></code></pre>
+
+      <h2>Output:</h2>
+      <p class="output"><samp></samp></p>
+    </main>
+
+    <footer>
+      <p>© 2018 <a href="https://github.com/ybiquitous" title="Move to GitHub">Masafumi Koba</a></p>
+    </footer>
 
     <script type="module">
       import block from "https://unpkg.com/bem-ts/dist/bem-ts.min.js";
