@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.7.0"></a>
+# [0.7.0](https://github.com/ybiquitous/bem-ts/compare/v0.6.1...v0.7.0) (2018-07-09)
+
+
+### Features
+
+* distribute files for ES modules (also support browser) ([#105](https://github.com/ybiquitous/bem-ts/issues/105)) ([1f2010a](https://github.com/ybiquitous/bem-ts/commit/1f2010a))
+
+
+
 <a name="0.6.1"></a>
 ## [0.6.1](https://github.com/ybiquitous/bem-ts/compare/v0.6.0...v0.6.1) (2018-06-08)
 
