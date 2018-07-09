@@ -9,5 +9,8 @@
     "noUnusedParameters": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true
-  }
+  },
+  "files": [
+    "index.ts"
+  ]
 }
