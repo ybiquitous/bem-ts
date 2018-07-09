@@ -16,6 +16,10 @@ before_script:
   - commitlint-travis
   - npm run lint
 
+branches:
+  only:
+    - master
+
 deploy:
   provider: npm
   email: ybiquitous@gmail.com
