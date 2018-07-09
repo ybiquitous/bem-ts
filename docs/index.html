@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>bem-ts Demo</title>
+    <link rel="stylesheet" href="//unpkg.com/bulma@0.7.1/css/bulma.min.css">
+    <style>
+      body {
+        max-width: 40em;
+        margin: 0 auto;
+        padding: 1em;
+      }
+      h2 {
+        margin-top: 2em;
+      }
+      pre, p {
+        border: 1px solid lightgray;
+        padding: 1em 1.25em;
+        overflow-x: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Input:</h2>
+    <pre><code></code></pre>
+
+    <h2>Output:</h2>
+    <p><samp></samp></p>
+
+    <script type="module">
+      import block from "../dist/bem-ts.js";
+      const b = block("block");
+      const output = document.querySelector("samp");
+      output.innerHTML = b();
+      output.innerHTML += "<br>" + b({ modifier: true });
+      output.innerHTML += "<br>" + b("element");
+      output.innerHTML += "<br>" + b("element", { modifier: true });
+    </script>
+
+    <script>
+      document.querySelector("code").textContent =
+        document.querySelector("script[type='module']").textContent.replace(/ {2,}/g, "").trim();
+    </script>
+  </body>
+</html>

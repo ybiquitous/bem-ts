@@ -11,6 +11,7 @@
   ],
   "license": "MIT",
   "main": "dist/index.js",
+  "module": "dist/bem-ts.js",
   "types": "dist/index.d.ts",
   "files": [
     "dist",
@@ -18,15 +19,17 @@
   ],
   "scripts": {
     "prebuild": "rimraf dist/",
-    "build": "tsc",
-    "build:watch": "npm run build -- --watch",
+    "build": "npm-run-all --print-label --parallel build:*",
+    "build:cjs": "tsc",
+    "build:esm": "tsc --module es2015 --outDir dist/module/ && mv dist/module/index.js dist/bem-ts.js && rimraf dist/module/",
+    "postbuild:esm": "cd dist && uglifyjs bem-ts.js -o bem-ts.min.js --source-map url=bem-ts.min.js.map",
     "test": "nyc tape -r ts-node/register test.ts",
     "test:coverage": "nyc report --reporter=html && opn coverage/index.html",
     "lint:ts": "tslint --project .",
     "lint:ts:fix": "prettier --write \"**/*.ts\" && npm run lint:ts -- --fix",
     "lint:md": "markdownlint --ignore node_modules --ignore CHANGELOG.md \"**/*.md\"",
     "lint:md:fix": "prettier --write \"**/*.md\"",
-    "lint": "npm-run-all --print-name --print-label --parallel lint:*",
+    "lint": "npm-run-all --print-label --parallel lint:*",
     "commitmsg": "commitlint -E GIT_PARAMS",
     "precommit": "lint-staged",
     "release": "standard-version",
@@ -42,6 +45,7 @@
     "tslint": "5.10.0",
     "tslint-config-prettier": "1.13.0",
     "typescript": "2.9.2",
+    "uglify-es": "3.3.9",
     "ybiq": "3.3.0"
   },
   "lint-staged": {
