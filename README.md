@@ -21,6 +21,12 @@ Inspired by [`bem-cn`](https://npm.im/bem-cn).
 npm install bem-ts
 ```
 
+## Demo
+
+<https://ybiquitous.github.io/bem-ts>
+
+_NOTE: Please open with [browsers supporting ES modules](https://caniuse.com/#feat=es6-module)._
+
 ## Usage
 
 ```ts
