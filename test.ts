@@ -1,4 +1,5 @@
-import block, { setup } from ".";
+import * as test from "tape";
+import block, { setup } from "./index";
 
 const testCases = [
   {
@@ -108,74 +109,81 @@ const testCases = [
 ];
 
 testCases.forEach(({ description, tested, expectations }) => {
-  describe(description, () => {
+  test(description, t => {
     const b = tested();
 
-    it("returns block", () => {
-      expect(b()).toBe(expectations[0]);
-      expect(b({ mod1: false })).toBe(expectations[0]);
-      expect(b({ mod1: false, mod2: false })).toBe(expectations[0]);
+    t.test("returns block", assert => {
+      assert.is(b(), expectations[0]);
+      assert.is(b({ mod1: false }), expectations[0]);
+      assert.is(b({ mod1: false, mod2: false }), expectations[0]);
+      assert.end();
     });
 
-    it("returns block with modifier", () => {
-      expect(b({ mod1: true })).toBe(expectations[1]);
-      expect(b({ mod1: true, mod2: false })).toBe(expectations[1]);
-      expect(b({ mod1: true, mod2: null })).toBe(expectations[1]);
-      expect(b({ mod1: true, mod2: undefined })).toBe(expectations[1]);
+    t.test("returns block with modifier", assert => {
+      assert.is(b({ mod1: true }), expectations[1]);
+      assert.is(b({ mod1: true, mod2: false }), expectations[1]);
+      assert.is(b({ mod1: true, mod2: null }), expectations[1]);
+      assert.is(b({ mod1: true, mod2: undefined }), expectations[1]);
+      assert.end();
     });
 
-    it("returns block with multiple modifiers", () => {
-      expect(b({ mod1: true, mod2: true })).toBe(expectations[2]);
-      expect(b({ mod1: true, mod2: true, mod3: false })).toBe(expectations[2]);
+    t.test("returns block with multiple modifiers", assert => {
+      assert.is(b({ mod1: true, mod2: true }), expectations[2]);
+      assert.is(b({ mod1: true, mod2: true, mod3: false }), expectations[2]);
+      assert.end();
     });
 
-    it("returns block with element", () => {
-      expect(b("element")).toBe(expectations[3]);
+    t.test("returns block with element", assert => {
+      assert.is(b("element"), expectations[3]);
+      assert.end();
     });
 
-    it("returns block with element and modifier", () => {
-      expect(b("element", { mod1: true })).toBe(expectations[4]);
-      expect(b("element", { mod1: true, mod2: false })).toBe(expectations[4]);
+    t.test("returns block with element and modifier", assert => {
+      assert.is(b("element", { mod1: true }), expectations[4]);
+      assert.is(b("element", { mod1: true, mod2: false }), expectations[4]);
+      assert.end();
     });
 
-    it("returns block with element and multiple modifiers", () => {
-      expect(b("element", { mod1: true, mod2: true })).toBe(expectations[5]);
-      expect(b("element", { mod1: true, mod2: true, mod3: false })).toBe(expectations[5]);
+    t.test("returns block with element and multiple modifiers", assert => {
+      assert.is(b("element", { mod1: true, mod2: true }), expectations[5]);
+      assert.is(b("element", { mod1: true, mod2: true, mod3: false }), expectations[5]);
+      assert.end();
     });
   });
 });
 
-describe("`namespace` and `prefix` at the same time", () => {
-  it("throws `TypeError`", () => {
-    const fn = () => block("block", { namespace: "ns", prefix: "pre" });
-    expect(fn).toThrow(TypeError);
-    expect(fn).toThrow("prefix('pre') is deprecated. Use namespace('ns') instead.");
-  });
+test("`namespace` and `prefix` at the same time", assert => {
+  const fn = () => block("block", { namespace: "ns", prefix: "pre" });
+  assert.throws(fn, TypeError);
+  assert.throws(fn, "prefix('pre') is deprecated. Use namespace('ns') instead.");
+  assert.end();
 });
 
 // `setup()` test must be at last
-describe("`setup()` additional case", () => {
-  it("overrides options which was setup", () => {
+test("`setup()` additional case", t => {
+  t.test("overrides options which was setup", assert => {
     const b = block("block", {
       elementDelimiter: ":",
       modifierDelimiter: "/",
       namespace: "n",
       namespaceDelimiter: "=",
     });
-    expect(b("element", { mod: true })).toBe("n=block:element n=block:element/mod");
+    assert.is(b("element", { mod: true }), "n=block:element n=block:element/mod");
+    assert.end();
   });
 
-  it("has no effect when empty options are passed", () => {
+  t.test("has no effect when empty options are passed", assert => {
     setup({});
-    expect(block("block")("element", { mod: true })).toBe(
+    assert.is(
+      block("block")("element", { mod: true }),
       "ns---block_element ns---block_element-mod"
     );
+    assert.end();
   });
 
-  it("`prefix` option [deprecated]", () => {
+  t.test("`prefix` option [deprecated]", assert => {
     setup({ prefix: "pre:", namespace: "" });
-    expect(block("block")("element", { mod: true })).toBe(
-      "pre:block_element pre:block_element-mod"
-    );
+    assert.is(block("block")("element", { mod: true }), "pre:block_element pre:block_element-mod");
+    assert.end();
   });
 });
