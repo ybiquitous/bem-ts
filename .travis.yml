@@ -19,6 +19,7 @@ before_script:
 branches:
   only:
     - master
+    - /^v\d+\.\d+.\d+$/
 
 deploy:
   provider: npm
