@@ -146,6 +146,9 @@ Please see [here](CHANGELOG.md).
 
 ```sh
 npm test
+
+# If you want to see a coverage report, run this command:
+npm run test:coverage
 ```
 
 ## Release
