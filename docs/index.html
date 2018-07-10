@@ -4,7 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>bem-ts demo</title>
-    <link rel="stylesheet" href="//unpkg.com/bulma@0.7.1/css/bulma.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/bulma/css/bulma.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/prismjs/themes/prism.css">
     <style>
       body {
         max-width: 40em;
@@ -25,6 +26,7 @@
       pre, .output {
         border: 1px solid lightgray;
         min-height: 5em;
+        margin: 0.5em 0;
         padding: 1em 1.25em;
         overflow-x: auto;
       }
@@ -38,7 +40,7 @@
       <h1><a href="https://github.com/ybiquitous/bem-ts" title="Move to GitHub"><strong>bem-ts</strong></a> demo</h1>
 
       <h2>Input:</h2>
-      <pre><code></code></pre>
+      <pre><code class="language-js"></code></pre>
 
       <h2>Output:</h2>
       <p class="output"><samp></samp></p>
@@ -49,18 +51,28 @@
     </footer>
 
     <script type="module">
+      const output = document.querySelector("samp");
+      const print = (text) => {
+        if (output.innerHTML) {
+          output.innerHTML += `<br>${text}`;
+        } else {
+          output.innerHTML = text;
+        }
+      };
+
       import block from "https://unpkg.com/bem-ts/dist/bem-ts.min.js";
       const b = block("block");
-      const output = document.querySelector("samp");
-      output.innerHTML = b();
-      output.innerHTML += "<br>" + b({ modifier: true });
-      output.innerHTML += "<br>" + b("element");
-      output.innerHTML += "<br>" + b("element", { modifier: true });
+      print(b());
+      print(b({ modifier: true }));
+      print(b("element"));
+      print(b("element", { modifier: true }));
     </script>
 
     <script>
       document.querySelector("code").textContent =
-        document.querySelector("script[type='module']").textContent.replace(/ {2,}/g, "").trim();
+        document.querySelector("script[type='module']").textContent.replace(/ {6}/g, "").trim();
     </script>
+
+    <script src="https://unpkg.com/prismjs"></script>
   </body>
 </html>
