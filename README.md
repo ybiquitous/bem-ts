@@ -35,67 +35,67 @@ import block from "bem-ts";
 const b = block("block");
 
 b();
-//=> 'block'
+//=> "block"
 
 b({ mod1: true, mod2: false });
-//=> 'block block--mod1'
+//=> "block block--mod1"
 
 b({ mod1: true, mod2: false, mod3: true });
-//=> 'block block--mod1 block--mod3'
+//=> "block block--mod1 block--mod3"
 
 b("element");
-//=> 'block__element'
+//=> "block__element"
 
 b("element", { mod1: true, mod2: false });
-//=> 'block__element block__element--mod1'
+//=> "block__element block__element--mod1"
 
 b("element", { mod1: true, mod2: false, mod3: true });
-//=> 'block__element block__element--mod1 block__element--mod3'
+//=> "block__element block__element--mod1 block__element--mod3"
 ```
 
-### `elementDelimiter = '__'`
+### `elementDelimiter = "__"`
 
 ```ts
 const b = block("block", { elementDelimiter: "_" });
 
 b("element");
-//=> 'block_element'
+//=> "block_element"
 ```
 
-### `modifierDelimiter = '--'`
+### `modifierDelimiter = "--"`
 
 ```ts
 const b = block("block", { modifierDelimiter: "-" });
 
 b({ mod: true });
-//=> block 'block-mod'
+//=> block "block-mod"
 
 b("element", { mod: true });
-//=> 'block__element block__element-mod'
+//=> "block__element block__element-mod"
 ```
 
-### `namespace = ''`
+### `namespace = ""`
 
 ```ts
 const b = block("block", { namespace: "ns" });
 
 b();
-//=> 'ns-block'
+//=> "ns-block"
 
 b("element", { mod1: true, mod2: true });
-//=> 'ns-block__element ns-block__element--mod1 ns-block__element--mod2'
+//=> "ns-block__element ns-block__element--mod1 ns-block__element--mod2"
 ```
 
-### `namespaceDelimiter = '-'`
+### `namespaceDelimiter = "-"`
 
 ```ts
 const b = block("block", { namespace: "ns", namespaceDelimiter: "---" });
 
 b();
-//=> 'ns---block'
+//=> "ns---block"
 
 b("element", { mod1: true, mod2: true });
-//=> 'ns---block__element ns---block__element--mod1 ns---block__element--mod2'
+//=> "ns---block__element ns---block__element--mod1 ns---block__element--mod2"
 ```
 
 When `namespace` is not given, `namespaceDelimiter` will be ignored.
@@ -104,13 +104,13 @@ When `namespace` is not given, `namespaceDelimiter` will be ignored.
 const b = block("block", { namespaceDelimiter: "---" });
 
 b();
-//=> 'block'
+//=> "block"
 
 b("element", { mod1: true, mod2: true });
-//=> 'block__element block__element--mod1 block__element--mod2'
+//=> "block__element block__element--mod1 block__element--mod2"
 ```
 
-### `prefix = ''`
+### `prefix = ""`
 
 **[DEPRECATED]**: Please use `namespace` and `namespaceDelimiter`.
 
@@ -118,10 +118,10 @@ b("element", { mod1: true, mod2: true });
 const b = block("block", { prefix: "pre---" });
 
 b();
-//=> 'pre---block'
+//=> "pre---block"
 
 b("element", { mod1: true, mod2: true });
-//=> 'pre---block__element pre---block__element--mod1 pre---block__element--mod2'
+//=> "pre---block__element pre---block__element--mod1 pre---block__element--mod2"
 ```
 
 ### `setup()`
@@ -141,7 +141,7 @@ setup({
 const b = block("block");
 
 b("element", { mod: true });
-//=> 'ns---block_element ns---block_element-mod'
+//=> "ns---block_element ns---block_element-mod"
 ```
 
 ## Change Log
