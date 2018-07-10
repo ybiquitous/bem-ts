@@ -25,7 +25,7 @@
     "postbuild:esm": "cd dist && uglifyjs bem-ts.js -o bem-ts.min.js --source-map url=bem-ts.min.js.map",
     "test": "nyc tape -r ts-node/register test.ts",
     "test:coverage": "nyc report --reporter=html && opn coverage/index.html",
-    "lint:ts": "tslint \"*.ts\"",
+    "lint:ts": "tslint \"**/*.ts\"",
     "lint:ts:fix": "prettier --write \"**/*.ts\" && npm run lint:ts -- --fix",
     "lint:md": "markdownlint --ignore node_modules --ignore CHANGELOG.md \"**/*.md\"",
     "lint:md:fix": "prettier --write \"**/*.md\"",
