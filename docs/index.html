@@ -13,7 +13,7 @@
         padding: 1em;
       }
       main {
-        margin: 1em 0 10em;
+        margin: 1em 0 8em;
       }
       h1 {
         border-bottom: 1px solid lightgray;
@@ -22,13 +22,6 @@
       h2 {
         margin-top: 2em;
         font-size: 1.2em;
-      }
-      pre, .output {
-        border: 1px solid lightgray;
-        min-height: 5em;
-        margin: 0.5em 0;
-        padding: 1em 1.25em;
-        overflow-x: auto;
       }
       footer {
         color: gray;
@@ -43,7 +36,7 @@
       <pre><code class="language-js"></code></pre>
 
       <h2>Output:</h2>
-      <p class="output"><samp></samp></p>
+      <pre><code class="language-js" id="output"></code></pre>
     </main>
 
     <footer>
@@ -51,12 +44,13 @@
     </footer>
 
     <script type="module">
-      const output = document.querySelector("samp");
+      const output = document.querySelector("#output");
       const print = (text) => {
-        if (output.innerHTML) {
-          output.innerHTML += `<br>${text}`;
+        text = `"${text}"`;
+        if (output.textContent) {
+          output.textContent += `\n${text}`;
         } else {
-          output.innerHTML = text;
+          output.textContent = text;
         }
       };
 
