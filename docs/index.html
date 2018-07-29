@@ -13,11 +13,16 @@
         padding: 1em;
       }
       main {
-        margin: 1em 0 8em;
+        margin: 1em 0 4em;
       }
       h1 {
         border-bottom: 1px solid lightgray;
         font-size: 2em;
+        display: flex;
+        justify-content: space-between;
+      }
+      h1 img {
+        width: 0.8em;
       }
       h2 {
         margin-top: 2em;
@@ -30,7 +35,12 @@
   </head>
   <body>
     <main>
-      <h1><a href="https://github.com/ybiquitous/bem-ts" title="Move to GitHub"><strong>bem-ts</strong></a> demo</h1>
+      <h1>
+        <span><strong>bem-ts</strong> demo</span>
+        <a href="https://github.com/ybiquitous/bem-ts" title="Move to GitHub">
+          <img src="https://cdnjs.cloudflare.com/ajax/libs/octicons/8.0.0/svg/mark-github.svg" alt="GitHub">
+        </a>
+      </h1>
 
       <h2>Input:</h2>
       <pre><code class="language-js"></code></pre>
