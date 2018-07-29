@@ -11,16 +11,16 @@ export function setup({
   namespace,
   namespaceDelimiter,
 }: Partial<typeof defaults>) {
-  if (typeof elementDelimiter === "string") {
+  if (elementDelimiter) {
     defaults.elementDelimiter = elementDelimiter;
   }
-  if (typeof modifierDelimiter === "string") {
+  if (modifierDelimiter) {
     defaults.modifierDelimiter = modifierDelimiter;
   }
-  if (typeof namespace === "string") {
+  if (namespace) {
     defaults.namespace = namespace;
   }
-  if (typeof namespaceDelimiter === "string") {
+  if (namespaceDelimiter) {
     defaults.namespaceDelimiter = namespaceDelimiter;
   }
 }
