@@ -110,20 +110,6 @@ b("element", { mod1: true, mod2: true });
 //=> "block__element block__element--mod1 block__element--mod2"
 ```
 
-### `prefix = ""`
-
-**[DEPRECATED]**: Please use `namespace` and `namespaceDelimiter`.
-
-```ts
-const b = block("block", { prefix: "pre---" });
-
-b();
-//=> "pre---block"
-
-b("element", { mod1: true, mod2: true });
-//=> "pre---block__element pre---block__element--mod1 pre---block__element--mod2"
-```
-
 ### `setup()`
 
 Change default options.

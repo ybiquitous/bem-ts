@@ -75,18 +75,6 @@ const testCases = [
     ],
   },
   {
-    description: "`prefix` option",
-    tested: () => block("block", { prefix: "pre---" }),
-    expectations: [
-      "pre---block",
-      "pre---block pre---block--mod1",
-      "pre---block pre---block--mod1 pre---block--mod2",
-      "pre---block__element",
-      "pre---block__element pre---block__element--mod1",
-      "pre---block__element pre---block__element--mod1 pre---block__element--mod2",
-    ],
-  },
-  {
     description: "`setup()`",
     tested: () => {
       setup({
@@ -152,13 +140,6 @@ testCases.forEach(({ description, tested, expectations }) => {
   });
 });
 
-test("`namespace` and `prefix` at the same time", assert => {
-  const fn = () => block("block", { namespace: "ns", prefix: "pre" });
-  assert.throws(fn, TypeError);
-  assert.throws(fn, "prefix('pre') is deprecated. Use namespace('ns') instead.");
-  assert.end();
-});
-
 // `setup()` test must be at last
 test("`setup()` additional case", t => {
   t.test("overrides options which was setup", assert => {
@@ -178,12 +159,6 @@ test("`setup()` additional case", t => {
       block("block")("element", { mod: true }),
       "ns---block_element ns---block_element-mod"
     );
-    assert.end();
-  });
-
-  t.test("`prefix` option [deprecated]", assert => {
-    setup({ prefix: "pre:", namespace: "" });
-    assert.is(block("block")("element", { mod: true }), "pre:block_element pre:block_element-mod");
     assert.end();
   });
 });
