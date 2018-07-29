@@ -5,18 +5,23 @@ const defaults = {
   namespaceDelimiter: "-",
 };
 
-export function setup(options: Partial<typeof defaults>) {
-  if (typeof options.elementDelimiter === "string") {
-    defaults.elementDelimiter = options.elementDelimiter;
+export function setup({
+  elementDelimiter,
+  modifierDelimiter,
+  namespace,
+  namespaceDelimiter,
+}: Partial<typeof defaults>) {
+  if (typeof elementDelimiter === "string") {
+    defaults.elementDelimiter = elementDelimiter;
   }
-  if (typeof options.modifierDelimiter === "string") {
-    defaults.modifierDelimiter = options.modifierDelimiter;
+  if (typeof modifierDelimiter === "string") {
+    defaults.modifierDelimiter = modifierDelimiter;
   }
-  if (typeof options.namespace === "string") {
-    defaults.namespace = options.namespace;
+  if (typeof namespace === "string") {
+    defaults.namespace = namespace;
   }
-  if (typeof options.namespaceDelimiter === "string") {
-    defaults.namespaceDelimiter = options.namespaceDelimiter;
+  if (typeof namespaceDelimiter === "string") {
+    defaults.namespaceDelimiter = namespaceDelimiter;
   }
 }
 
