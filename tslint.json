@@ -8,10 +8,5 @@
     "interface-over-type-literal": false,
     "no-implicit-dependencies": [true, "dev"],
     "object-literal-sort-keys": false
-  },
-  "linterOptions": {
-    "exclude": [
-      "node_modules/**"
-    ]
   }
 }
