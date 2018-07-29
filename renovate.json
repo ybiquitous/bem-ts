@@ -3,7 +3,7 @@
     "config:js-lib",
     ":maintainLockFilesWeekly",
     ":automergePatch",
-    "schedule:weekly"
+    "schedule:daily"
   ],
   "timezone": "Asia/Tokyo"
 }
