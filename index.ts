@@ -3,7 +3,6 @@ const defaults = {
   modifierDelimiter: "--",
   namespace: "",
   namespaceDelimiter: "-",
-  prefix: "",
 };
 
 export function setup(options: {
@@ -11,7 +10,6 @@ export function setup(options: {
   modifierDelimiter?: string;
   namespace?: string;
   namespaceDelimiter?: string;
-  prefix?: string;
 }) {
   if (typeof options.elementDelimiter === "string") {
     defaults.elementDelimiter = options.elementDelimiter;
@@ -24,9 +22,6 @@ export function setup(options: {
   }
   if (typeof options.namespaceDelimiter === "string") {
     defaults.namespaceDelimiter = options.namespaceDelimiter;
-  }
-  if (typeof options.prefix === "string") {
-    defaults.prefix = options.prefix;
   }
 }
 
@@ -41,18 +36,10 @@ export default function bem(
     modifierDelimiter = defaults.modifierDelimiter,
     namespace = defaults.namespace,
     namespaceDelimiter = defaults.namespaceDelimiter,
-    prefix = defaults.prefix,
   } = {}
 ) {
-  if (namespace && prefix) {
-    throw new TypeError(
-      `prefix('${prefix}') is deprecated. Use namespace('${namespace}') instead.`
-    );
-  }
-
   const nsDelim = namespace ? namespaceDelimiter : "";
-  const pre = prefix || `${namespace}${nsDelim}`;
-  const baseBlock = `${pre}${block}`;
+  const baseBlock = `${namespace}${nsDelim}${block}`;
 
   return function bemBlock(elementOrModifiers?: string | Modifiers, modifiers?: Modifiers) {
     let base = baseBlock;
