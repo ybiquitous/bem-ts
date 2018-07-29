@@ -6,7 +6,7 @@
 [![MIT License](https://img.shields.io/github/license/mashape/apistatus.svg)](LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
 
-BEM class names generator for TypeScript.
+[BEM](http://getbem.com/) class names generator for TypeScript.
 
 Inspired by [`bem-cn`](https://npm.im/bem-cn).
 
