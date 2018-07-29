@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.8.0"></a>
+# [0.8.0](https://github.com/ybiquitous/bem-ts/compare/v0.7.0...v0.8.0) (2018-07-29)
+
+
+### Features
+
+* remove deprecated `prefix` option ([#115](https://github.com/ybiquitous/bem-ts/issues/115)) ([b96e31a](https://github.com/ybiquitous/bem-ts/commit/b96e31a)), closes [#106](https://github.com/ybiquitous/bem-ts/issues/106)
+
+
+### BREAKING CHANGES
+
+* remove deprecated `prefix` option
+
+
+
 <a name="0.7.0"></a>
 # [0.7.0](https://github.com/ybiquitous/bem-ts/compare/v0.6.1...v0.7.0) (2018-07-09)
 
