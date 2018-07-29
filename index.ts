@@ -5,12 +5,7 @@ const defaults = {
   namespaceDelimiter: "-",
 };
 
-export function setup(options: {
-  elementDelimiter?: string;
-  modifierDelimiter?: string;
-  namespace?: string;
-  namespaceDelimiter?: string;
-}) {
+export function setup(options: Partial<typeof defaults>) {
   if (typeof options.elementDelimiter === "string") {
     defaults.elementDelimiter = options.elementDelimiter;
   }
