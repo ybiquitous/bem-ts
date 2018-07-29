@@ -25,7 +25,7 @@ npm install bem-ts
 
 <https://ybiquitous.github.io/bem-ts>
 
-_NOTE: Please open with [browsers supporting ES modules](https://caniuse.com/#feat=es6-module)._
+_NOTE: Please open with [a browser supporting ES modules](https://caniuse.com/#feat=es6-module) (e.g. Chrome 66+)._
 
 ## Usage
 
