@@ -32,7 +32,7 @@
     "lint": "npm-run-all --print-label --parallel lint:*",
     "commitmsg": "commitlint -E GIT_PARAMS",
     "precommit": "lint-staged",
-    "release": "standard-version",
+    "release": "standard-version --sign",
     "release:dry-run": "npm run release -- --dry-run"
   },
   "devDependencies": {
