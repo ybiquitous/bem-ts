@@ -47,7 +47,7 @@
     "tslint-config-prettier": "1.14.0",
     "typescript": "3.0.1",
     "uglify-es": "3.3.9",
-    "ybiq": "4.0.0"
+    "ybiq": "4.1.0"
   },
   "lint-staged": {
     "linters": {
