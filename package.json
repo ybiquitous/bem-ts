@@ -38,7 +38,7 @@
   },
   "devDependencies": {
     "@types/tape": "4.2.32",
-    "nyc": "12.0.2",
+    "nyc": "13.0.1",
     "opn-cli": "3.1.0",
     "rimraf": "2.6.2",
     "tape": "4.9.1",
