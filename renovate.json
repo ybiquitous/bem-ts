@@ -5,5 +5,8 @@
     ":automergePatch",
     "schedule:daily"
   ],
-  "timezone": "Asia/Tokyo"
+  "timezone": "Asia/Tokyo",
+  "labels": [
+    "dependencies"
+  ]
 }
