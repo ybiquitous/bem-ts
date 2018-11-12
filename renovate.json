@@ -1,7 +1,7 @@
 {
   "extends": [
     "config:js-lib",
-    ":maintainLockFilesWeekly",
+    ":maintainLockFilesMonthly",
     ":automergePatch",
     "schedule:daily"
   ],
