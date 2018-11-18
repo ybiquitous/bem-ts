@@ -8,14 +8,14 @@ node_js:
 cache: npm
 
 before_script:
-  - if [ $TRAVIS_NODE_VERSION == "10" ] then;
+  - if [ $TRAVIS_NODE_VERSION == "10" ]; then
       commitlint-travis;
       npm run lint;
     fi
 
 script:
   - npm test
-  - if [ $TRAVIS_NODE_VERSION == "10" ] then;
+  - if [ $TRAVIS_NODE_VERSION == "10" ]; then
       npm run test:coverage:report;
       npm run build;
     fi
