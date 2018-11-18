@@ -1,4 +1,13 @@
-const defaults = {
+type Options = {
+  elementDelimiter: string;
+  modifierDelimiter: string;
+  namespace: string | string[];
+  namespaceDelimiter: string;
+};
+
+type PartialOptions = Partial<Options>;
+
+const defaultOptions: Options = {
   elementDelimiter: "__",
   modifierDelimiter: "--",
   namespace: "",
@@ -10,18 +19,18 @@ export function setup({
   modifierDelimiter,
   namespace,
   namespaceDelimiter,
-}: Partial<typeof defaults>) {
+}: PartialOptions) {
   if (elementDelimiter) {
-    defaults.elementDelimiter = elementDelimiter;
+    defaultOptions.elementDelimiter = elementDelimiter;
   }
   if (modifierDelimiter) {
-    defaults.modifierDelimiter = modifierDelimiter;
+    defaultOptions.modifierDelimiter = modifierDelimiter;
   }
   if (namespace) {
-    defaults.namespace = namespace;
+    defaultOptions.namespace = namespace;
   }
   if (namespaceDelimiter) {
-    defaults.namespaceDelimiter = namespaceDelimiter;
+    defaultOptions.namespaceDelimiter = namespaceDelimiter;
   }
 }
 
@@ -29,15 +38,12 @@ type Modifiers = {
   [key: string]: boolean | null | undefined;
 };
 
-export default function bem(
-  block: string,
-  {
-    elementDelimiter = defaults.elementDelimiter,
-    modifierDelimiter = defaults.modifierDelimiter,
-    namespace = defaults.namespace,
-    namespaceDelimiter = defaults.namespaceDelimiter,
-  } = {}
-) {
+export default function bem(block: string, options: PartialOptions = {}) {
+  const { elementDelimiter, modifierDelimiter, namespace, namespaceDelimiter } = {
+    ...defaultOptions,
+    ...options,
+  };
+
   const nsDelim = namespace ? namespaceDelimiter : "";
   const baseBlock = `${namespace}${nsDelim}${block}`;
 
