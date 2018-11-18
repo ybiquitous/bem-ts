@@ -5,17 +5,20 @@ node_js:
   - "10"
   - "8"
 
-cache:
-  directories:
-    - "$HOME/.npm"
+cache: npm
 
 before_script:
-  - commitlint-travis
-  - npm run lint
+  - if [ $TRAVIS_NODE_VERSION == "10" ] then;
+      commitlint-travis;
+      npm run lint;
+    fi
 
-after_success:
-  - npm run build
-  - npm run test:coverage:report
+script:
+  - npm test
+  - if [ $TRAVIS_NODE_VERSION == "10" ] then;
+      npm run test:coverage:report;
+      npm run build;
+    fi
 
 branches:
   only:
@@ -29,7 +32,7 @@ deploy:
   skip_cleanup: true
   on:
     tags: true
-    node: "lts/*"
+    node: "10"
 
 notifications:
   email: false
