@@ -1,4 +1,4 @@
-### https://raw.github.com/github/gitignore/ca0d1e9ddc307deb4ffdab057497b3e009635229/Node.gitignore
+### https://raw.github.com/github/gitignore/c2bb55b891e67c8c43e731ccb6b8a4f3b6b02fd0/Node.gitignore
 
 # Logs
 logs
@@ -22,7 +22,7 @@ coverage
 # nyc test coverage
 .nyc_output
 
-# Grunt intermediate storage (http://gruntjs.com/creating-plugins#storing-task-files)
+# Grunt intermediate storage (https://gruntjs.com/creating-plugins#storing-task-files)
 .grunt
 
 # Bower dependency directory (https://bower.io/)
@@ -74,4 +74,8 @@ typings/
 # Serverless directories
 .serverless
 
+# FuseBox cache
+.fusebox/
 
+# --- Custom ---
+dist
