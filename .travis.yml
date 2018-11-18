@@ -9,27 +9,34 @@ cache:
   directories:
     - "$HOME/.npm"
 
-before_script:
-  - commitlint-travis
-  - npm run lint
-
-after_success:
-  - npm run build
-  - npm run test:coverage:report
+jobs:
+  include:
+    - stage: lint
+      node_js: "10"
+      script: commitlint-travis && npm run lint
+    - stage: test
+      script: npm test
+    - stage: report coverage
+      node_js: "10"
+      script: npm run test:coverage:report
+    - stage: test build
+      node_js: "10"
+      script: npm run build
+    - stage: npm publish
+      node_js: "10"
+      script: echo "Deploying to npm ..."
+      deploy:
+        provider: npm
+        email: $NPM_EMAIL
+        api_key: $NPM_TOKEN
+        skip_cleanup: true
+        on:
+          tags: true
 
 branches:
   only:
     - master
     - /^v\d+\.\d+.\d+(-\d+)?$/ # e.g. `v3.2.1` | `v3.2.1-0`
-
-deploy:
-  provider: npm
-  email: $NPM_EMAIL
-  api_key: $NPM_TOKEN
-  skip_cleanup: true
-  on:
-    tags: true
-    node: "lts/*"
 
 notifications:
   email: false
