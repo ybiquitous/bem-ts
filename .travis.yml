@@ -11,20 +11,13 @@ cache:
 
 jobs:
   include:
-    - stage: lint
-      node_js: "10"
-      script: commitlint-travis && npm run lint
     - stage: test
       script: npm test
-    - stage: report coverage
+    - script: npm run test:coverage:report ; commitlint-travis ; npm run lint ; npm run build
       node_js: "10"
-      script: npm run test:coverage:report
-    - stage: test build
-      node_js: "10"
-      script: npm run build
-    - stage: npm publish
-      node_js: "10"
+    - stage: deploy
       script: echo "Deploying to npm ..."
+      node_js: "10"
       deploy:
         provider: npm
         email: $NPM_EMAIL
