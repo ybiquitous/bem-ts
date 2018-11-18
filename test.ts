@@ -51,6 +51,30 @@ const testCases = [
     ],
   },
   {
+    description: "`namespace` option (array)",
+    tested: () => block("block", { namespace: ["ns1", "ns2"] }),
+    expectations: [
+      "ns1-ns2-block",
+      "ns1-ns2-block ns1-ns2-block--mod1",
+      "ns1-ns2-block ns1-ns2-block--mod1 ns1-ns2-block--mod2",
+      "ns1-ns2-block__element",
+      "ns1-ns2-block__element ns1-ns2-block__element--mod1",
+      "ns1-ns2-block__element ns1-ns2-block__element--mod1 ns1-ns2-block__element--mod2",
+    ],
+  },
+  {
+    description: "`namespace` option (empty array)",
+    tested: () => block("block", { namespace: [] }),
+    expectations: [
+      "block",
+      "block block--mod1",
+      "block block--mod1 block--mod2",
+      "block__element",
+      "block__element block__element--mod1",
+      "block__element block__element--mod1 block__element--mod2",
+    ],
+  },
+  {
     description: "`namespaceDelimiter` option",
     tested: () => block("block", { namespace: "ns", namespaceDelimiter: "---" }),
     expectations: [
