@@ -57,12 +57,12 @@ b("element", { mod1: true, mod2: false, mod3: true });
 
 ## Options
 
-| Name                                        | Type                | Default |
-| ------------------------------------------- | ------------------- | ------- |
-| [`elementDelimiter`](#elementdelimiter)     | `string`            | `"__"`  |
-| [`modifierDelimiter`](#modifierdelimiter)   | `string`            | `"--"`  |
-| [`namespace`](#namespace)                   | `string | string[]` | `""`    |
-| [`namespaceDelimiter`](#namespacedelimiter) | `string`            | `"-"`   |
+| Name                                        | Type                 | Default |
+| ------------------------------------------- | -------------------- | ------- |
+| [`elementDelimiter`](#elementdelimiter)     | `string`             | `"__"`  |
+| [`modifierDelimiter`](#modifierdelimiter)   | `string`             | `"--"`  |
+| [`namespace`](#namespace)                   | `string`, `string[]` | `""`    |
+| [`namespaceDelimiter`](#namespacedelimiter) | `string`             | `"-"`   |
 
 ### `elementDelimiter`
 
