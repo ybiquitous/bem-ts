@@ -56,13 +56,14 @@
   "lint-staged": {
     "linters": {
       "*.ts": [
-        "prettier --write",
         "tslint --fix",
         "git add"
       ],
       "*.md": [
+        "markdownlint"
+      ],
+      "*.{html,json,md,ts,yaml,yml}": [
         "prettier --write",
-        "markdownlint",
         "git add"
       ]
     },
