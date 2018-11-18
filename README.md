@@ -57,12 +57,12 @@ b("element", { mod1: true, mod2: false, mod3: true });
 
 ## Options
 
-| Name                                        | Type     | Default |
-| ------------------------------------------- | -------- | ------- |
-| [`elementDelimiter`](#elementdelimiter)     | `string` | `"__"`  |
-| [`modifierDelimiter`](#modifierdelimiter)   | `string` | `"--"`  |
-| [`namespace`](#namespace)                   | `string` | `""`    |
-| [`namespaceDelimiter`](#namespacedelimiter) | `string` | `"-"`   |
+| Name                                        | Type                | Default |
+| ------------------------------------------- | ------------------- | ------- |
+| [`elementDelimiter`](#elementdelimiter)     | `string`            | `"__"`  |
+| [`modifierDelimiter`](#modifierdelimiter)   | `string`            | `"--"`  |
+| [`namespace`](#namespace)                   | `string | string[]` | `""`    |
+| [`namespaceDelimiter`](#namespacedelimiter) | `string`            | `"-"`   |
 
 ### `elementDelimiter`
 
@@ -95,6 +95,16 @@ b();
 
 b("element", { mod1: true, mod2: true });
 //=> "ns-block__element ns-block__element--mod1 ns-block__element--mod2"
+```
+
+```ts
+const b = block("block", { namespace: ["ns1", "ns2"] });
+
+b();
+//=> "ns1-ns2-block"
+
+b("element", { mod1: true, mod2: true });
+//=> "ns1-ns2-block__element ns1-ns2-block__element--mod1 ns1-ns2-block__element--mod2"
 ```
 
 ### `namespaceDelimiter`

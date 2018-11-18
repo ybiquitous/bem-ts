@@ -44,8 +44,12 @@ export default function bem(block: string, options: PartialOptions = {}) {
     ...options,
   };
 
-  const nsDelim = namespace ? namespaceDelimiter : "";
-  const baseBlock = `${namespace}${nsDelim}${block}`;
+  const namespaces = ([] as string[])
+    .concat(namespace)
+    .filter(Boolean) // compact
+    .reduce((joined, ns) => joined + `${ns}${namespaceDelimiter}`, "");
+
+  const baseBlock = `${namespaces}${block}`;
 
   return function bemBlock(elementOrModifiers?: string | Modifiers, modifiers?: Modifiers) {
     let base = baseBlock;
