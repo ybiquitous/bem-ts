@@ -46,7 +46,7 @@
     "tslint-config-prettier": "1.16.0",
     "typescript": "3.1.6",
     "uglify-es": "3.3.9",
-    "ybiq": "^6.0.0"
+    "ybiq": "6.0.0"
   },
   "husky": {
     "hooks": {
