@@ -16,6 +16,13 @@ matrix:
       script: npm test
     - node_js: "8"
       script: npm test
+    # Windows
+    - os: windows
+      node_js: "10"
+      script: npm test
+    - os: windows
+      node_js: "8"
+      script: npm test
 
 branches:
   only:
@@ -30,6 +37,7 @@ deploy:
   on:
     tags: true
     node: "10"
+    condition: $TRAVIS_OS_NAME = linux
 
 notifications:
   email: false
