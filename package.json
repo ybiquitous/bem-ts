@@ -43,7 +43,7 @@
     "tape": "^4.9.2",
     "terser": "^3.14.1",
     "ts-node": "^7.0.1",
-    "tslint": "^5.12.0",
+    "tslint": "^5.12.1",
     "tslint-config-prettier": "^1.17.0",
     "typescript": "^3.2.2",
     "ybiq": "^6.0.0"
