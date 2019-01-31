@@ -29,10 +29,14 @@
     "test:coverage:report": "nyc report --reporter=lcov && npx codecov",
     "lint:ts": "tslint -p tsconfig.test.json",
     "lint:ts:fix": "prettier --write \"**/*.ts\" && npm run lint:ts -- --fix",
-    "lint:md": "markdownlint --ignore node_modules --ignore CHANGELOG.md \"**/*.md\"",
-    "lint:md:fix": "prettier --write \"**/*.md\"",
+    "lint:md": "remark . --frail",
+    "lint:md:fix": "npm run lint:md -- --output",
     "lint": "npm-run-all --print-label --parallel lint:*",
-    "release": "standard-version --sign",
+    "prettier": "prettier --ignore-path .gitignore \"**/*.{css,html,js,json,jsx,md,mjs,scss,yaml,yml}\"",
+    "prettier:check": "npm run prettier -- --check",
+    "prettier:write": "npm run prettier -- --write",
+    "format": "npm-run-all --print-label --parallel lint:*:fix prettier:write",
+    "release": "standard-version --sign --no-verify",
     "release:dry-run": "npm run release -- --dry-run"
   },
   "devDependencies": {
@@ -46,7 +50,7 @@
     "tslint": "^5.12.1",
     "tslint-config-prettier": "^1.17.0",
     "typescript": "^3.2.4",
-    "ybiq": "^6.0.0"
+    "ybiq": "^7.0.0"
   },
   "husky": {
     "hooks": {
@@ -61,7 +65,8 @@
         "git add"
       ],
       "*.md": [
-        "markdownlint"
+        "remark --output",
+        "git add"
       ],
       "*.{html,json,md,ts,yaml,yml}": [
         "prettier --write",
