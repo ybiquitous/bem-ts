@@ -5,7 +5,7 @@
 [![Build Status](https://travis-ci.org/ybiquitous/bem-ts.svg?branch=master)](https://travis-ci.org/ybiquitous/bem-ts)
 [![dependencies Status](https://david-dm.org/ybiquitous/bem-ts/status.svg)](https://david-dm.org/ybiquitous/bem-ts)
 [![codecov](https://codecov.io/gh/ybiquitous/bem-ts/branch/master/graph/badge.svg)](https://codecov.io/gh/ybiquitous/bem-ts)
-[![MIT License](https://img.shields.io/github/license/mashape/apistatus.svg)](LICENSE)
+[![MIT License](https://img.shields.io/github/license/ybiquitous/bem-ts.svg)](LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
 
 [BEM](http://getbem.com/) class names generator for TypeScript.
