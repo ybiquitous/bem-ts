@@ -46,7 +46,7 @@
     "tslint": "^5.12.1",
     "tslint-config-prettier": "^1.17.0",
     "typescript": "^3.2.4",
-    "ybiq": "^6.0.0"
+    "ybiq": "^7.0.0"
   },
   "husky": {
     "hooks": {
