@@ -1,6 +1,4 @@
 {
   "extends": "./tsconfig",
-  "files": [
-    "test.ts"
-  ]
+  "files": ["test.ts"]
 }

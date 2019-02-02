@@ -30,13 +30,13 @@
     "lint:ts": "tslint -p tsconfig.test.json",
     "lint:ts:fix": "prettier --write \"**/*.ts\" && npm run lint:ts -- --fix",
     "lint:md": "remark . --frail",
-    "lint:md:fix": "npm run lint:md -- --output",
+    "lint:md:fix": "remark . --output",
     "lint": "npm-run-all --print-label --parallel lint:*",
-    "prettier": "prettier --ignore-path .gitignore \"**/*.{css,html,js,json,jsx,md,mjs,scss,yaml,yml}\"",
+    "prettier": "prettier --ignore-path .gitignore \"**/*.{css,html,js,json,jsx,md,mjs,scss,ts,tsx,yaml,yml}\"",
     "prettier:check": "npm run prettier -- --check",
     "prettier:write": "npm run prettier -- --write",
     "format": "npm-run-all --print-label --parallel lint:*:fix prettier:write",
-    "release": "standard-version --sign --no-verify",
+    "release": "standard-version --sign",
     "release:dry-run": "npm run release -- --dry-run"
   },
   "devDependencies": {
@@ -65,10 +65,10 @@
         "git add"
       ],
       "*.md": [
-        "remark --output",
+        "remark --output --",
         "git add"
       ],
-      "*.{html,json,md,ts,yaml,yml}": [
+      "*.{css,html,js,json,jsx,md,mjs,scss,ts,tsx,yaml,yml}": [
         "prettier --write",
         "git add"
       ]
@@ -92,5 +92,61 @@
     "exclude": [
       "test.ts"
     ]
+  },
+  "standard-version": {
+    "scripts": {
+      "postchangelog": "prettier --write CHANGELOG.md"
+    }
+  },
+  "remarkConfig": {
+    "plugins": [
+      "remark-preset-lint-markdown-style-guide",
+      "remark-preset-lint-recommended",
+      "remark-lint-first-heading-level",
+      "remark-lint-no-tabs",
+      [
+        "remark-lint-emphasis-marker",
+        false
+      ],
+      [
+        "remark-lint-list-item-indent",
+        false
+      ],
+      [
+        "remark-lint-list-item-spacing",
+        false
+      ],
+      [
+        "remark-lint-maximum-line-length",
+        false
+      ],
+      [
+        "remark-lint-ordered-list-marker-value",
+        "ordered"
+      ],
+      "remark-validate-links"
+    ]
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ],
+    "rules": {
+      "scope-enum": [
+        2,
+        "always",
+        [
+          "deps",
+          "deps-dev",
+          "readme",
+          "demo",
+          "release",
+          "travis",
+          "sideci",
+          "coverage",
+          "security"
+        ]
+      ]
+    }
   }
 }

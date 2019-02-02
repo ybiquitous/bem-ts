@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>bem-ts demo</title>
-    <link rel="stylesheet" href="https://unpkg.com/bulma/css/bulma.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/prismjs/themes/prism.css">
+    <link rel="stylesheet" href="https://unpkg.com/bulma/css/bulma.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/prismjs/themes/prism.css" />
     <style>
       body {
         max-width: 40em;
@@ -38,7 +38,10 @@
       <h1>
         <span><strong>bem-ts</strong> demo</span>
         <a href="https://github.com/ybiquitous/bem-ts" title="Move to GitHub">
-          <img src="https://cdnjs.cloudflare.com/ajax/libs/octicons/8.0.0/svg/mark-github.svg" alt="GitHub">
+          <img
+            src="https://cdnjs.cloudflare.com/ajax/libs/octicons/8.0.0/svg/mark-github.svg"
+            alt="GitHub"
+          />
         </a>
       </h1>
 
@@ -55,7 +58,7 @@
 
     <script type="module">
       const output = document.querySelector("#output");
-      const print = (text) => {
+      const print = text => {
         text = `"${text}"`;
         if (output.textContent) {
           output.textContent += `\n${text}`;
@@ -73,8 +76,10 @@
     </script>
 
     <script>
-      document.querySelector("code").textContent =
-        document.querySelector("script[type='module']").textContent.replace(/ {6}/g, "").trim();
+      document.querySelector("code").textContent = document
+        .querySelector("script[type='module']")
+        .textContent.replace(/ {6}/g, "")
+        .trim();
     </script>
 
     <script src="https://unpkg.com/prismjs"></script>
