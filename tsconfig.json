@@ -10,7 +10,5 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true
   },
-  "files": [
-    "index.ts"
-  ]
+  "files": ["index.ts"]
 }

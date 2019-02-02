@@ -8,6 +8,7 @@ matrix:
       script:
         - commitlint-travis
         - npm run lint
+        - npm run prettier:check
         - npm test
         - npm run test:coverage:report
         - npm run build
