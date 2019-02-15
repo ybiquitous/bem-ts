@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.9.1"></a>
+
+## [0.9.1](https://github.com/ybiquitous/bem-ts/compare/v0.9.0...v0.9.1) (2019-02-15)
+
+### Bug Fixes
+
+- **deps:** migrate from `uglify-es` to `terser` ([#175](https://github.com/ybiquitous/bem-ts/issues/175)) ([799764c](https://github.com/ybiquitous/bem-ts/commit/799764c))
+- **security:** `event-stream` vulnerability ([#172](https://github.com/ybiquitous/bem-ts/issues/172)) ([2e74e58](https://github.com/ybiquitous/bem-ts/commit/2e74e58))
+
 <a name="0.9.0"></a>
 
 # [0.9.0](https://github.com/ybiquitous/bem-ts/compare/v0.8.0...v0.9.0) (2018-11-18)
