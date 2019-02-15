@@ -166,11 +166,12 @@ npm run test:coverage
 
 ## Release
 
-```sh
-git checkout master
-git pull
-npm run release:dry-run
-npm run release
-```
+On your local machine, execute the following commands:
 
-NOTE: `npm publish` will be executed in CI.
+1.  `git checkout master`
+2.  `git pull`
+3.  `npm ci`
+4.  `npm run release:dry-run`
+5.  `npm run release`
+
+NOTE: `npm publish` will be executed in CI automatically, so you don't need to execute it on local.
