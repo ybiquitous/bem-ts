@@ -7,6 +7,7 @@
 [![codecov](https://codecov.io/gh/ybiquitous/bem-ts/branch/master/graph/badge.svg)](https://codecov.io/gh/ybiquitous/bem-ts)
 [![MIT License](https://img.shields.io/github/license/ybiquitous/bem-ts.svg)](LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
+[![Changelog](https://img.shields.io/badge/changelog-here-blue.svg)](CHANGELOG.md)
 
 [BEM](http://getbem.com/) class names generator for TypeScript.
 
@@ -150,10 +151,6 @@ const b = block("block");
 b("element", { mod: true });
 //=> "ns---block_element ns---block_element-mod"
 ```
-
-## Change Log
-
-Please see [here](CHANGELOG.md).
 
 ## Test
 
