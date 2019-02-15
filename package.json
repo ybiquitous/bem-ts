@@ -105,6 +105,10 @@
       "remark-lint-first-heading-level",
       "remark-lint-no-tabs",
       [
+        "remark-lint-code-block-style",
+        false
+      ],
+      [
         "remark-lint-emphasis-marker",
         false
       ],
