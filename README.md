@@ -20,9 +20,7 @@ Inspired by [`bem-cn`](https://npm.im/bem-cn).
 
 ## Install
 
-```sh
-npm install bem-ts
-```
+    npm install bem-ts
 
 ## Demo
 
@@ -154,12 +152,11 @@ b("element", { mod: true });
 
 ## Test
 
-```sh
-npm test
+    npm test
 
-# If you want to see a coverage report, run this command:
-npm run test:coverage
-```
+When you see a coverage report, execute the following command:
+
+    npm run test:coverage
 
 ## Release
 
