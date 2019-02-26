@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.10.0"></a>
+
+# [0.10.0](https://github.com/ybiquitous/bem-ts/compare/v0.9.1...v0.10.0) (2019-02-26)
+
+### Features
+
+- migrate from TSLint to ESLint ([#217](https://github.com/ybiquitous/bem-ts/issues/217)) ([09d6d55](https://github.com/ybiquitous/bem-ts/commit/09d6d55))
+
 <a name="0.9.1"></a>
 
 ## [0.9.1](https://github.com/ybiquitous/bem-ts/compare/v0.9.0...v0.9.1) (2019-02-15)
