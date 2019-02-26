@@ -1,9 +1,9 @@
-type Options = {
+interface Options {
   elementDelimiter: string;
   modifierDelimiter: string;
   namespace: string | string[];
   namespaceDelimiter: string;
-};
+}
 
 type PartialOptions = Partial<Options>;
 
@@ -19,7 +19,7 @@ export function setup({
   modifierDelimiter,
   namespace,
   namespaceDelimiter,
-}: PartialOptions) {
+}: PartialOptions): void {
   if (elementDelimiter) {
     defaultOptions.elementDelimiter = elementDelimiter;
   }
@@ -34,11 +34,13 @@ export function setup({
   }
 }
 
-type Modifiers = {
+interface Modifiers {
   [key: string]: boolean | null | undefined;
-};
+}
 
-export default function bem(block: string, options: PartialOptions = {}) {
+type BemBlockFunction = (elementOrModifiers?: string | Modifiers, modifiers?: Modifiers) => string;
+
+export default function bem(block: string, options: PartialOptions = {}): BemBlockFunction {
   const { elementDelimiter, modifierDelimiter, namespace, namespaceDelimiter } = {
     ...defaultOptions,
     ...options,
@@ -51,7 +53,7 @@ export default function bem(block: string, options: PartialOptions = {}) {
 
   const baseBlock = `${namespaces}${block}`;
 
-  return function bemBlock(elementOrModifiers?: string | Modifiers, modifiers?: Modifiers) {
+  return function bemBlock(elementOrModifiers, modifiers) {
     let base = baseBlock;
 
     if (!elementOrModifiers) {
