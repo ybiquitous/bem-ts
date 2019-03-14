@@ -54,6 +54,7 @@ export default function bem(block: string, options: PartialOptions = {}): BemBlo
   const baseBlock = `${namespaces}${block}`;
 
   return function bemBlock(elementOrModifiers, modifiers) {
+    console.log({ elementOrModifiers, modifiers });
     let base = baseBlock;
 
     if (!elementOrModifiers) {
