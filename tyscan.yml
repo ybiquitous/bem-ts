@@ -1,0 +1,9 @@
+rules:
+  - id: sample
+    message: Use `debug` instead of `console`.
+    pattern: "(_: Console)._(...)"
+    tests:
+      match:
+        - "console.log(data)"
+      unmatch:
+        - "debug(data)"
