@@ -149,7 +149,8 @@
           "travis",
           "sideci",
           "coverage",
-          "security"
+          "security",
+          "lint"
         ]
       ]
     }
@@ -159,6 +160,14 @@
       "plugin:@typescript-eslint/recommended",
       "prettier",
       "prettier/@typescript-eslint"
-    ]
+    ],
+    "rules": {
+      "@typescript-eslint/explicit-function-return-type": [
+        "error",
+        {
+          "allowExpressions": true
+        }
+      ]
+    }
   }
 }
