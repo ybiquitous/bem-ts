@@ -54,19 +54,13 @@ export default function bem(block: string, options: PartialOptions = {}): BemBlo
   const baseBlock = `${namespaces}${block}`;
 
   return function bemBlock(elementOrModifiers, modifiers) {
-    let base = baseBlock;
-
     if (!elementOrModifiers) {
-      return base;
+      return baseBlock;
     }
 
-    let mods = modifiers;
-
-    if (typeof elementOrModifiers === "string") {
-      base = `${base}${elementDelimiter}${elementOrModifiers}`;
-    } else {
-      mods = elementOrModifiers;
-    }
+    const isElement = typeof elementOrModifiers === "string";
+    const base = isElement ? `${baseBlock}${elementDelimiter}${elementOrModifiers}` : baseBlock;
+    const mods = isElement ? modifiers : elementOrModifiers;
 
     if (!mods) {
       return base;
