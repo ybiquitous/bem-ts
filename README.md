@@ -44,6 +44,9 @@ b({ mod1: true, mod2: false });
 b({ mod1: true, mod2: false, mod3: true });
 //=> "block block--mod1 block--mod3"
 
+b(["mod1", null, "mod3"]);
+//=> "block block--mod1 block--mod3"
+
 b("element");
 //=> "block__element"
 
@@ -51,6 +54,9 @@ b("element", { mod1: true, mod2: false });
 //=> "block__element block__element--mod1"
 
 b("element", { mod1: true, mod2: false, mod3: true });
+//=> "block__element block__element--mod1 block__element--mod3"
+
+b("element", ["mod1", null, "mod3"]);
 //=> "block__element block__element--mod1 block__element--mod3"
 ```
 

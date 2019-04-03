@@ -34,9 +34,11 @@ export function setup({
   }
 }
 
-interface Modifiers {
-  [key: string]: boolean | null | undefined;
-}
+type Modifiers =
+  | {
+      [key: string]: boolean | null | undefined;
+    }
+  | (string | null | undefined)[];
 
 type BemBlockFunction = (elementOrModifiers?: string | Modifiers, modifiers?: Modifiers) => string;
 
@@ -58,16 +60,25 @@ export default function bem(block: string, options: PartialOptions = {}): BemBlo
       return baseBlock;
     }
 
-    const isElement = typeof elementOrModifiers === "string";
-    const base = isElement ? `${baseBlock}${elementDelimiter}${elementOrModifiers}` : baseBlock;
-    const mods = isElement ? modifiers : elementOrModifiers;
+    const base =
+      typeof elementOrModifiers === "string"
+        ? `${baseBlock}${elementDelimiter}${elementOrModifiers}`
+        : baseBlock;
+    const mods = typeof elementOrModifiers === "string" ? modifiers : elementOrModifiers;
 
     if (!mods) {
       return base;
     }
 
+    const reducer = (result: string, modifier: string | null | undefined): string =>
+      modifier ? `${result} ${base}${modifierDelimiter}${modifier}` : result;
+
+    if (Array.isArray(mods)) {
+      return mods.reduce(reducer, base);
+    }
+
     return Object.keys(mods)
-      .filter(mod => (mods as Modifiers)[mod])
-      .reduce((result, mod) => `${result} ${base}${modifierDelimiter}${mod}`, base);
+      .filter(mod => mods[mod])
+      .reduce(reducer, base);
   };
 }
