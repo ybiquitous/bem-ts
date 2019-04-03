@@ -41,7 +41,7 @@
   },
   "devDependencies": {
     "@types/tape": "^4.2.33",
-    "@typescript-eslint/eslint-plugin": "^1.5.0",
+    "@typescript-eslint/eslint-plugin": "^1.6.0",
     "eslint": "^5.16.0",
     "eslint-config-prettier": "^4.1.0",
     "nyc": "^13.3.0",
