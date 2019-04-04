@@ -26,8 +26,6 @@ Inspired by [`bem-cn`](https://npm.im/bem-cn).
 
 Visit [here](https://ybiquitous.github.io/bem-ts).
 
-NOTE: Use a [browser supporting ES modules](https://caniuse.com/#feat=es6-module) (e.g. _Chrome 66+_).
-
 ## Usage
 
 ```ts

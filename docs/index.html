@@ -5,10 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>bem-ts demo</title>
     <link rel="stylesheet" href="https://unpkg.com/bulma/css/bulma.min.css" />
-    <link rel="stylesheet" href="https://unpkg.com/prismjs/themes/prism.css" />
     <style>
       body {
-        max-width: 40em;
+        max-width: 60em;
         margin: 0 auto;
         padding: 1em;
       }
@@ -24,9 +23,8 @@
       h1 img {
         width: 0.8em;
       }
-      h2 {
-        margin-top: 2em;
-        font-size: 1.2em;
+      .embed {
+        margin: 3em 0;
       }
       footer {
         color: gray;
@@ -45,45 +43,18 @@
         </a>
       </h1>
 
-      <h2>Input:</h2>
-      <pre><code class="language-js"></code></pre>
-
-      <h2>Output:</h2>
-      <pre><code class="language-js" id="output"></code></pre>
+      <div class="embed">
+        <iframe
+          src="https://codesandbox.io/embed/kxymx2r2z5?fontsize=14"
+          title="bem-ts demo"
+          style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+          sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"
+        ></iframe>
+      </div>
     </main>
 
     <footer>
-      <p>© 2018 <a href="https://github.com/ybiquitous" title="Move to GitHub">Masafumi Koba</a></p>
+      <p>© 2019 <a href="https://github.com/ybiquitous" title="Move to GitHub">Masafumi Koba</a></p>
     </footer>
-
-    <script type="module">
-      const output = document.querySelector("#output");
-      const print = text => {
-        text = `"${text}"`;
-        if (output.textContent) {
-          output.textContent += `\n${text}`;
-        } else {
-          output.textContent = text;
-        }
-      };
-
-      import block from "https://unpkg.com/bem-ts/dist/bem-ts.min.js";
-      const b = block("block");
-      print(b());
-      print(b({ modifier: true, noModifier: false }));
-      print(b(["modifier2"]));
-      print(b("element"));
-      print(b("element", { modifier: true, noModifier: false }));
-      print(b("element", ["modifier2", null]));
-    </script>
-
-    <script>
-      document.querySelector("code").textContent = document
-        .querySelector("script[type='module']")
-        .textContent.replace(/ {6}/g, "")
-        .trim();
-    </script>
-
-    <script src="https://unpkg.com/prismjs"></script>
   </body>
 </html>
