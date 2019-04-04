@@ -125,40 +125,61 @@ testCases.forEach(({ description, tested, expectations }) => {
     const b = tested();
 
     t.test("returns block", assert => {
-      assert.is(b(), expectations[0]);
-      assert.is(b({ mod1: false }), expectations[0]);
-      assert.is(b({ mod1: false, mod2: false }), expectations[0]);
+      const expected = expectations[0];
+      assert.is(b(), expected);
+      assert.is(b({ mod1: false }), expected);
+      assert.is(b({ mod1: null }), expected);
+      assert.is(b({ mod1: undefined }), expected);
+      assert.is(b({ mod1: false, mod2: false, mod3: null, mod4: undefined }), expected);
+      assert.is(b([]), expected);
+      assert.is(b([""]), expected);
+      assert.is(b([null]), expected);
+      assert.is(b([undefined]), expected);
+      assert.is(b(["", null, undefined]), expected);
       assert.end();
     });
 
     t.test("returns block with modifier", assert => {
-      assert.is(b({ mod1: true }), expectations[1]);
-      assert.is(b({ mod1: true, mod2: false }), expectations[1]);
-      assert.is(b({ mod1: true, mod2: null }), expectations[1]);
-      assert.is(b({ mod1: true, mod2: undefined }), expectations[1]);
+      const expected = expectations[1];
+      assert.is(b({ mod1: true }), expected);
+      assert.is(b({ mod1: true, mod2: false, mod3: null, mod4: undefined }), expected);
+      assert.is(b(["mod1"]), expected);
+      assert.is(b(["mod1", "", null, undefined]), expected);
       assert.end();
     });
 
     t.test("returns block with multiple modifiers", assert => {
-      assert.is(b({ mod1: true, mod2: true }), expectations[2]);
-      assert.is(b({ mod1: true, mod2: true, mod3: false }), expectations[2]);
+      const expected = expectations[2];
+      assert.is(b({ mod1: true, mod2: true }), expected);
+      assert.is(b({ mod1: true, mod2: true, mod3: false }), expected);
+      assert.is(b(["mod1", "mod2"]), expected);
+      assert.is(b(["mod1", "mod2", null]), expected);
       assert.end();
     });
 
     t.test("returns block with element", assert => {
-      assert.is(b("element"), expectations[3]);
+      const expected = expectations[3];
+      assert.is(b("element"), expected);
+      assert.is(b("element", {}), expected);
+      assert.is(b("element", { mod: false }), expected);
+      assert.is(b("element", [""]), expected);
       assert.end();
     });
 
     t.test("returns block with element and modifier", assert => {
-      assert.is(b("element", { mod1: true }), expectations[4]);
-      assert.is(b("element", { mod1: true, mod2: false }), expectations[4]);
+      const expected = expectations[4];
+      assert.is(b("element", { mod1: true }), expected);
+      assert.is(b("element", { mod1: true, mod2: false }), expected);
+      assert.is(b("element", ["mod1"]), expected);
+      assert.is(b("element", ["mod1", null]), expected);
       assert.end();
     });
 
     t.test("returns block with element and multiple modifiers", assert => {
-      assert.is(b("element", { mod1: true, mod2: true }), expectations[5]);
-      assert.is(b("element", { mod1: true, mod2: true, mod3: false }), expectations[5]);
+      const expected = expectations[5];
+      assert.is(b("element", { mod1: true, mod2: true }), expected);
+      assert.is(b("element", { mod1: true, mod2: true, mod3: false }), expected);
+      assert.is(b("element", ["mod1", "mod2"]), expected);
       assert.end();
     });
   });

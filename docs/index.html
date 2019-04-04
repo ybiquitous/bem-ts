@@ -70,9 +70,11 @@
       import block from "https://unpkg.com/bem-ts/dist/bem-ts.min.js";
       const b = block("block");
       print(b());
-      print(b({ modifier: true }));
+      print(b({ modifier: true, noModifier: false }));
+      print(b(["modifier2"]));
       print(b("element"));
-      print(b("element", { modifier: true }));
+      print(b("element", { modifier: true, noModifier: false }));
+      print(b("element", ["modifier2", null]));
     </script>
 
     <script>
