@@ -66,6 +66,7 @@ b("element", ["mod1", null, "mod3"]);
 | [`modifierDelimiter`](#modifierdelimiter)   | `string`             | `"--"`  |
 | [`namespace`](#namespace)                   | `string`, `string[]` | `""`    |
 | [`namespaceDelimiter`](#namespacedelimiter) | `string`             | `"-"`   |
+| [`strict`](#strict)                         | `boolean`            | `true`  |
 
 ### `elementDelimiter`
 
@@ -134,6 +135,29 @@ b("element", { mod1: true, mod2: true });
 //=> "block__element block__element--mod1 block__element--mod2"
 ```
 
+### `strict`
+
+When you set `true` to this option, given elements or modifiers are checked.
+And if the check fails, then an runtime error is thrown.
+
+For example, when setting `true`, the following code throws an error.
+
+```ts
+const b = block("foo", { strict: true });
+b("element__");
+b({ modifier--: true });
+```
+
+When setting `false`, the following code throws no errors.
+
+```ts
+const b = block("foo", { strict: false });
+b("element__");
+//=> foo__element__
+b({ modifier_: true });
+//=> foo__modifier_
+```
+
 ### `setup()`
 
 Change default options.
@@ -146,6 +170,7 @@ setup({
   modifierDelimiter: "-",
   namespace: "ns",
   namespaceDelimiter: "---",
+  strict: false,
 });
 
 const b = block("block");
