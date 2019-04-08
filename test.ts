@@ -106,6 +106,7 @@ const testCases = [
         modifierDelimiter: "-",
         namespace: "ns",
         namespaceDelimiter: "---",
+        strict: true,
       });
       return block("block");
     },
@@ -185,6 +186,37 @@ testCases.forEach(({ description, tested, expectations }) => {
   });
 });
 
+test("invalid arguments", t => {
+  const b = block("invalid", {
+    namespaceDelimiter: "-",
+    elementDelimiter: "__",
+    modifierDelimiter: "--",
+  });
+
+  const expectedError = (subject: string, value: string): RegExp =>
+    new RegExp(
+      `^Error: The ${subject} \\("${value}"\\) must not use the characters contained within the delimiters \\("-", "__", "--"\\)\\.$`
+    );
+
+  t.test("element is invalid", assert => {
+    assert.throws(() => b("element--"), expectedError("element", "element--"));
+    assert.throws(() => b("element_"), expectedError("element", "element_"));
+    assert.throws(() => b("---element"), expectedError("element", "---element"));
+    assert.throws(() => b("-_element"), expectedError("element", "-_element"));
+    assert.throws(() => b("ele-me_nt"), expectedError("element", "ele-me_nt"));
+    assert.end();
+  });
+
+  t.test("modifier is invalid", assert => {
+    assert.throws(() => b(["modifier--"]), expectedError("modifier", "modifier--"));
+    assert.throws(() => b(["modifier_"]), expectedError("modifier", "modifier_"));
+    assert.throws(() => b(["---modifier"]), expectedError("modifier", "---modifier"));
+    assert.throws(() => b(["-_modifier"]), expectedError("modifier", "-_modifier"));
+    assert.throws(() => b(["mod-ifi_er"]), expectedError("modifier", "mod-ifi_er"));
+    assert.end();
+  });
+});
+
 // `setup()` test must be at last
 test("`setup()` additional case", t => {
   t.test("overrides options which was setup", assert => {
@@ -193,8 +225,9 @@ test("`setup()` additional case", t => {
       modifierDelimiter: "/",
       namespace: "n",
       namespaceDelimiter: "=",
+      strict: false,
     });
-    assert.is(b("element", { mod: true }), "n=block:element n=block:element/mod");
+    assert.is(b("element:", { mod: true }), "n=block:element: n=block:element:/mod");
     assert.end();
   });
 
