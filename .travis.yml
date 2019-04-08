@@ -12,6 +12,7 @@ matrix:
         - npm test
         - npm run test:coverage:report
         - npm run build
+        - npm run release:dry-run
     - node_js: "11"
       script: npm test
     - node_js: "8"
