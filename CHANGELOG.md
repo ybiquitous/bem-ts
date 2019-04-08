@@ -1,6 +1,15 @@
-# Changelog
+# Change Log
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+<a name="0.11.0"></a>
+
+# [0.11.0](https://github.com/ybiquitous/bem-ts/compare/v0.10.0...v0.11.0) (2019-04-08)
+
+### Features
+
+- allow to receive an array as modifiers ([#236](https://github.com/ybiquitous/bem-ts/issues/236)) ([cdad0b1](https://github.com/ybiquitous/bem-ts/commit/cdad0b1))
+- disallow elements or modifiers including delimiters ([#241](https://github.com/ybiquitous/bem-ts/issues/241)) ([0ad1e05](https://github.com/ybiquitous/bem-ts/commit/0ad1e05))
 
 <a name="0.10.0"></a>
 
