@@ -8,6 +8,7 @@
 [![MIT License](https://img.shields.io/github/license/ybiquitous/bem-ts.svg)](LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
 [![Changelog](https://img.shields.io/badge/changelog-here-blue.svg)](CHANGELOG.md)
+[![Edit bem-ts demo](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/kxymx2r2z5?fontsize=14)
 
 [BEM](http://getbem.com/) class names generator for TypeScript.
 
@@ -20,11 +21,9 @@ Inspired by [`bem-cn`](https://npm.im/bem-cn).
 
 ## Install
 
-    npm install bem-ts
-
-## Demo
-
-Visit [here](https://ybiquitous.github.io/bem-ts).
+```shell
+npm install bem-ts
+```
 
 ## Usage
 
