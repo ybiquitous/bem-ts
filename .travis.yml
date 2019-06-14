@@ -31,6 +31,3 @@ deploy:
   on:
     tags: true
     node: "12"
-
-notifications:
-  email: false
