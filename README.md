@@ -11,7 +11,7 @@
 
 [![Edit bem-ts demo](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/kxymx2r2z5?fontsize=14)
 
-[BEM](http://getbem.com/) class names generator for TypeScript.
+[BEM](http://getbem.com/) (Block Element Modifier) class names generator for TypeScript.
 
 Inspired by [`bem-cn`](https://npm.im/bem-cn).
 
