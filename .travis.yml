@@ -30,7 +30,7 @@ deploy:
   skip_cleanup: true
   on:
     tags: true
-    node: "10"
+    node: "12"
 
 notifications:
   email: false
