@@ -4,7 +4,7 @@ cache: npm
 
 matrix:
   include:
-    - node_js: "10" # main
+    - node_js: "12" # main
       script:
         - commitlint-travis
         - npm run lint
@@ -13,7 +13,7 @@ matrix:
         - npm run test:coverage:report
         - npm run build
         - npm run release:dry-run
-    - node_js: "11"
+    - node_js: "10"
       script: npm test
     - node_js: "8"
       script: npm test
