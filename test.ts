@@ -1,10 +1,10 @@
 import * as test from "tape";
-import block, { setup } from "./index";
+import bem, { setup } from "./index";
 
 const testCases = [
   {
     description: "default",
-    tested: () => block("block"),
+    tested: () => bem("block"),
     expectations: [
       "block",
       "block block--mod1",
@@ -16,7 +16,7 @@ const testCases = [
   },
   {
     description: "`elementDelimiter` option",
-    tested: () => block("block", { elementDelimiter: "_" }),
+    tested: () => bem("block", { elementDelimiter: "_" }),
     expectations: [
       "block",
       "block block--mod1",
@@ -28,7 +28,7 @@ const testCases = [
   },
   {
     description: "`modifierDelimiter` option",
-    tested: () => block("block", { modifierDelimiter: "-" }),
+    tested: () => bem("block", { modifierDelimiter: "-" }),
     expectations: [
       "block",
       "block block-mod1",
@@ -40,7 +40,7 @@ const testCases = [
   },
   {
     description: "`namespace` option",
-    tested: () => block("block", { namespace: "ns" }),
+    tested: () => bem("block", { namespace: "ns" }),
     expectations: [
       "ns-block",
       "ns-block ns-block--mod1",
@@ -52,7 +52,7 @@ const testCases = [
   },
   {
     description: "`namespace` option (array)",
-    tested: () => block("block", { namespace: ["ns1", "ns2"] }),
+    tested: () => bem("block", { namespace: ["ns1", "ns2"] }),
     expectations: [
       "ns1-ns2-block",
       "ns1-ns2-block ns1-ns2-block--mod1",
@@ -64,7 +64,7 @@ const testCases = [
   },
   {
     description: "`namespace` option (empty array)",
-    tested: () => block("block", { namespace: [] }),
+    tested: () => bem("block", { namespace: [] }),
     expectations: [
       "block",
       "block block--mod1",
@@ -76,7 +76,7 @@ const testCases = [
   },
   {
     description: "`namespaceDelimiter` option",
-    tested: () => block("block", { namespace: "ns", namespaceDelimiter: "---" }),
+    tested: () => bem("block", { namespace: "ns", namespaceDelimiter: "---" }),
     expectations: [
       "ns---block",
       "ns---block ns---block--mod1",
@@ -88,7 +88,7 @@ const testCases = [
   },
   {
     description: "`namespaceDelimiter` option without `namespace` option",
-    tested: () => block("block", { namespaceDelimiter: "---" }),
+    tested: () => bem("block", { namespaceDelimiter: "---" }),
     expectations: [
       "block",
       "block block--mod1",
@@ -108,7 +108,7 @@ const testCases = [
         namespaceDelimiter: "---",
         strict: true,
       });
-      return block("block");
+      return bem("block");
     },
     expectations: [
       "ns---block",
@@ -187,7 +187,7 @@ testCases.forEach(({ description, tested, expectations }) => {
 });
 
 test("invalid arguments", t => {
-  const b = block("invalid", {
+  const b = bem("invalid", {
     namespaceDelimiter: "-",
     elementDelimiter: "__",
     modifierDelimiter: "--",
@@ -220,7 +220,7 @@ test("invalid arguments", t => {
 // `setup()` test must be at last
 test("`setup()` additional case", t => {
   t.test("overrides options which was setup", assert => {
-    const b = block("block", {
+    const b = bem("block", {
       elementDelimiter: ":",
       modifierDelimiter: "/",
       namespace: "n",
@@ -233,10 +233,7 @@ test("`setup()` additional case", t => {
 
   t.test("has no effect when empty options are passed", assert => {
     setup({});
-    assert.is(
-      block("block")("element", { mod: true }),
-      "ns---block_element ns---block_element-mod"
-    );
+    assert.is(bem("block")("element", { mod: true }), "ns---block_element ns---block_element-mod");
     assert.end();
   });
 });

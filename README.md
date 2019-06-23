@@ -15,9 +15,21 @@
 
 Inspired by [`bem-cn`](https://npm.im/bem-cn).
 
+## Table of Contents
+
+- [Policy](#policy)
+- [Install](#install)
+- [Usage](#usage)
+- [API](#api)
+  - [`bem()`](#bem)
+  - [`setup()`](#setup)
+- [Development](#development)
+- [License](#license)
+
 ## Policy
 
 - No extra features. Dead simple.
+- No dependencies.
 - TypeScript support.
 
 ## Install
@@ -28,10 +40,12 @@ npm install bem-ts
 
 ## Usage
 
-```ts
-import block from "bem-ts";
+The following is a basic usage.
 
-const b = block("block");
+```ts
+import bem from "bem-ts";
+
+const b = bem("block");
 
 b();
 //=> "block"
@@ -58,7 +72,66 @@ b("element", ["mod1", null, "mod3"]);
 //=> "block__element block__element--mod1 block__element--mod3"
 ```
 
-## Options
+The following is a complicated example (nearer to real world) by using React and Sass.
+
+```tsx
+// Button.tsx
+import * as React from "react";
+import bem from "bem-ts";
+import "./Button.scss";
+
+const b = bem("Button");
+
+interface Props {
+  state: "success" | "danger";
+  icon: React.ReactNode;
+  children: React.ReactNode;
+}
+
+export function Button({ state, icon, children }: Props) {
+  return (
+    <button className={b({ state })}>
+      <i className={b("icon", { state })}>{icon}</i>
+      {children}
+    </button>
+  );
+}
+```
+
+```scss
+// Button.scss
+.Button {
+  // block styles...
+
+  &--success {
+    // modifier styles...
+  }
+
+  &--danger {
+    // modifier styles...
+  }
+
+  &__icon {
+    // element styles...
+
+    &--success {
+      // element's modifier styles...
+    }
+
+    &--danger {
+      // element's modifier styles...
+    }
+  }
+}
+```
+
+## API
+
+### `bem()`
+
+The `bem()` function receives a block name and creates a new function which generates class names. The created function can receive elements or modifiers.
+
+The `bem()` function can receive the following options.
 
 | Name                                        | Type                 | Default |
 | ------------------------------------------- | -------------------- | ------- |
@@ -68,19 +141,19 @@ b("element", ["mod1", null, "mod3"]);
 | [`namespaceDelimiter`](#namespacedelimiter) | `string`             | `"-"`   |
 | [`strict`](#strict)                         | `boolean`            | `true`  |
 
-### `elementDelimiter`
+#### `elementDelimiter`
 
 ```ts
-const b = block("block", { elementDelimiter: "_" });
+const b = bem("block", { elementDelimiter: "_" });
 
 b("element");
 //=> "block_element"
 ```
 
-### `modifierDelimiter`
+#### `modifierDelimiter`
 
 ```ts
-const b = block("block", { modifierDelimiter: "-" });
+const b = bem("block", { modifierDelimiter: "-" });
 
 b({ mod: true });
 //=> block "block-mod"
@@ -89,10 +162,10 @@ b("element", { mod: true });
 //=> "block__element block__element-mod"
 ```
 
-### `namespace`
+#### `namespace`
 
 ```ts
-const b = block("block", { namespace: "ns" });
+const b = bem("block", { namespace: "ns" });
 
 b();
 //=> "ns-block"
@@ -102,7 +175,7 @@ b("element", { mod1: true, mod2: true });
 ```
 
 ```ts
-const b = block("block", { namespace: ["ns1", "ns2"] });
+const b = bem("block", { namespace: ["ns1", "ns2"] });
 
 b();
 //=> "ns1-ns2-block"
@@ -111,10 +184,10 @@ b("element", { mod1: true, mod2: true });
 //=> "ns1-ns2-block__element ns1-ns2-block__element--mod1 ns1-ns2-block__element--mod2"
 ```
 
-### `namespaceDelimiter`
+#### `namespaceDelimiter`
 
 ```ts
-const b = block("block", { namespace: "ns", namespaceDelimiter: "---" });
+const b = bem("block", { namespace: "ns", namespaceDelimiter: "---" });
 
 b();
 //=> "ns---block"
@@ -126,7 +199,7 @@ b("element", { mod1: true, mod2: true });
 When `namespace` is not given, `namespaceDelimiter` will be ignored.
 
 ```ts
-const b = block("block", { namespaceDelimiter: "---" });
+const b = bem("block", { namespaceDelimiter: "---" });
 
 b();
 //=> "block"
@@ -135,7 +208,7 @@ b("element", { mod1: true, mod2: true });
 //=> "block__element block__element--mod1 block__element--mod2"
 ```
 
-### `strict`
+#### `strict`
 
 When you set `true` to this option, given elements or modifiers are checked.
 And if the check fails, then an runtime error is thrown.
@@ -143,7 +216,7 @@ And if the check fails, then an runtime error is thrown.
 For example, when setting `true`, the following code throws an error.
 
 ```ts
-const b = block("foo", { strict: true });
+const b = bem("foo", { strict: true });
 b("element__");
 b({ modifier--: true });
 ```
@@ -151,7 +224,7 @@ b({ modifier--: true });
 When setting `false`, the following code throws no errors.
 
 ```ts
-const b = block("foo", { strict: false });
+const b = bem("foo", { strict: false });
 b("element__");
 //=> foo__element__
 b({ modifier_: true });
@@ -160,10 +233,10 @@ b({ modifier_: true });
 
 ### `setup()`
 
-Change default options.
+The `setup()` function can change the default options.
 
 ```ts
-import block, { setup } from "bem-ts";
+import bem, { setup } from "bem-ts";
 
 setup({
   elementDelimiter: "_",
@@ -173,13 +246,15 @@ setup({
   strict: false,
 });
 
-const b = block("block");
+const b = bem("block");
 
 b("element", { mod: true });
 //=> "ns---block_element ns---block_element-mod"
 ```
 
-## Test
+## Development
+
+### Test
 
     npm test
 
@@ -187,7 +262,7 @@ When you see a coverage report, execute the following command:
 
     npm run test:coverage
 
-## Release
+### Release
 
 On your local machine, execute the following commands:
 
@@ -198,3 +273,7 @@ On your local machine, execute the following commands:
 5.  `npm run release`
 
 NOTE: `npm publish` will be executed in CI automatically, so you don't need to execute it on local.
+
+## License
+
+[MIT](LICENSE) © Masafumi Koba
