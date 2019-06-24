@@ -51,7 +51,7 @@
     "terser": "^4.0.0",
     "ts-node": "^8.3.0",
     "typescript": "^3.5.2",
-    "ybiq": "^7.3.0"
+    "ybiq": "^8.0.0"
   },
   "husky": {
     "hooks": {
@@ -61,13 +61,12 @@
   },
   "lint-staged": {
     "linters": {
-      "*.ts": [
-        "eslint --ext .ts --fix",
+      "*.{js,jsx,mjs,ts,tsx}": [
+        "eslint --fix --no-ignore",
         "git add"
       ],
       "*.md": [
-        "remark --output --",
-        "git add"
+        "remark --frail"
       ],
       "*.{css,html,js,json,jsx,md,mjs,scss,ts,tsx,yaml,yml}": [
         "prettier --write",
@@ -101,35 +100,17 @@
   },
   "remarkConfig": {
     "plugins": [
-      "remark-preset-lint-markdown-style-guide",
-      "remark-preset-lint-recommended",
-      "remark-lint-first-heading-level",
-      "remark-lint-no-tabs",
+      "preset-lint-recommended",
+      "lint-no-heading-punctuation",
       [
-        "remark-lint-code-block-style",
+        "lint-list-item-bullet-indent",
         false
       ],
       [
-        "remark-lint-emphasis-marker",
+        "lint-list-item-indent",
         false
       ],
-      [
-        "remark-lint-list-item-indent",
-        false
-      ],
-      [
-        "remark-lint-list-item-spacing",
-        false
-      ],
-      [
-        "remark-lint-maximum-line-length",
-        false
-      ],
-      [
-        "remark-lint-ordered-list-marker-value",
-        "ordered"
-      ],
-      "remark-validate-links"
+      "validate-links"
     ]
   },
   "commitlint": {
