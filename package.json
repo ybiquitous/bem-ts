@@ -50,7 +50,7 @@
     "tape": "^4.11.0",
     "terser": "^4.1.2",
     "ts-node": "^8.3.0",
-    "typescript": "^3.5.2",
+    "typescript": "^3.5.3",
     "ybiq": "^8.0.0"
   },
   "husky": {
