@@ -41,8 +41,9 @@
   },
   "devDependencies": {
     "@types/tape": "^4.2.33",
-    "@typescript-eslint/eslint-plugin": "^1.9.0",
-    "eslint": "^5.16.0",
+    "@typescript-eslint/eslint-plugin": "^2.0.0",
+    "@typescript-eslint/parser": "^2.0.0",
+    "eslint": "^6.2.1",
     "eslint-config-prettier": "^6.0.0",
     "nyc": "^14.1.1",
     "open-cli": "^5.0.0",
@@ -138,10 +139,16 @@
   },
   "eslintConfig": {
     "extends": [
+      "eslint:recommended",
+      "plugin:@typescript-eslint/eslint-recommended",
       "plugin:@typescript-eslint/recommended",
+      "plugin:@typescript-eslint/recommended-requiring-type-checking",
       "prettier",
       "prettier/@typescript-eslint"
     ],
+    "parserOptions": {
+      "project": "tsconfig.test.json"
+    },
     "rules": {
       "@typescript-eslint/explicit-function-return-type": [
         "error",
