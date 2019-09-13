@@ -43,7 +43,7 @@
     "@types/node": "^12.7.5",
     "@types/tape": "^4.2.33",
     "@typescript-eslint/eslint-plugin": "^2.1.0",
-    "@typescript-eslint/parser": "^2.1.0",
+    "@typescript-eslint/parser": "^2.2.0",
     "eslint": "^6.3.0",
     "eslint-config-prettier": "^6.3.0",
     "nyc": "^14.1.1",
