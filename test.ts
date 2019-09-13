@@ -195,7 +195,8 @@ test("invalid arguments", t => {
 
   const expectedError = (subject: string, value: string): RegExp =>
     new RegExp(
-      `^Error: The ${subject} \\("${value}"\\) must not use the characters contained within the delimiters \\("-", "__", "--"\\)\\.$`
+      `^Error: The ${subject} \\("${value}"\\) must not use the characters contained within the delimiters \\("-", "__", "--"\\)\\.$`,
+      "u"
     );
 
   t.test("element is invalid", assert => {

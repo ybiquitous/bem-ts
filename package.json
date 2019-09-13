@@ -42,10 +42,8 @@
   "devDependencies": {
     "@types/node": "^12.7.5",
     "@types/tape": "^4.2.33",
-    "@typescript-eslint/eslint-plugin": "^2.2.0",
-    "@typescript-eslint/parser": "^2.2.0",
     "eslint": "^6.3.0",
-    "eslint-config-prettier": "^6.3.0",
+    "eslint-config-ybiquitous": "^9.0.0",
     "nyc": "^14.1.1",
     "open-cli": "^5.0.0",
     "rimraf": "^3.0.0",
@@ -135,23 +133,15 @@
   },
   "eslintConfig": {
     "extends": [
-      "eslint:recommended",
-      "plugin:@typescript-eslint/eslint-recommended",
-      "plugin:@typescript-eslint/recommended",
-      "plugin:@typescript-eslint/recommended-requiring-type-checking",
-      "prettier",
-      "prettier/@typescript-eslint"
+      "ybiquitous/typescript",
+      "plugin:@typescript-eslint/recommended-requiring-type-checking"
     ],
     "parserOptions": {
       "project": "tsconfig.test.json"
     },
     "rules": {
-      "@typescript-eslint/explicit-function-return-type": [
-        "error",
-        {
-          "allowExpressions": true
-        }
-      ]
+      "max-lines-per-function": "warn",
+      "max-statements": "warn"
     }
   }
 }

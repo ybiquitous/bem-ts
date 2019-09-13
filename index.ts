@@ -71,7 +71,7 @@ export default function bem(block: string, options: PartialOptions = {}): BemBlo
   const namespaces = ([] as string[])
     .concat(namespace)
     .filter(Boolean) // compact
-    .reduce((joined, ns) => joined + `${ns}${namespaceDelimiter}`, "");
+    .reduce((joined, ns) => `${joined}${ns}${namespaceDelimiter}`, "");
 
   const namespaceBlock = `${namespaces}${block}`;
 
