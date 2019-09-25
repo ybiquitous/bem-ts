@@ -1,4 +1,3 @@
 linter:
   eslint:
-    npm_install: "development"
     ext: ".ts"
