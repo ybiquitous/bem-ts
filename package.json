@@ -44,7 +44,7 @@
     "@types/node": "^12.11.2",
     "@types/tape": "^4.2.33",
     "eslint": "^6.5.1",
-    "eslint-config-ybiquitous": "^9.0.0",
+    "eslint-config-ybiquitous": "^10.0.0",
     "nyc": "^14.1.1",
     "open-cli": "^5.0.0",
     "rimraf": "^3.0.0",
