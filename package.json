@@ -41,7 +41,7 @@
     "release:dry-run": "npm run release -- --dry-run"
   },
   "devDependencies": {
-    "@types/node": "^12.11.5",
+    "@types/node": "^12.11.7",
     "@types/tape": "^4.2.33",
     "eslint": "^6.5.1",
     "eslint-config-ybiquitous": "^10.0.0",
