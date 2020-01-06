@@ -41,7 +41,7 @@
     "release:dry-run": "npm run release -- --dry-run"
   },
   "devDependencies": {
-    "@types/node": "^13.1.2",
+    "@types/node": "^13.1.4",
     "@types/tape": "^4.2.33",
     "@typescript-eslint/eslint-plugin": "^2.14.0",
     "@typescript-eslint/parser": "^2.14.0",
