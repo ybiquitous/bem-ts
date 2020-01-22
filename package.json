@@ -26,7 +26,7 @@
     "postbuild:esm": "cd dist && terser bem-ts.js -o bem-ts.min.js --source-map url=bem-ts.min.js.map",
     "test": "nyc tape -r ts-node/register test.ts",
     "test:coverage": "nyc report --reporter=html && open-cli coverage/index.html",
-    "test:coverage:report": "nyc report --reporter=lcov && npx codecov",
+    "test:coverage:report": "nyc report --reporter=lcov",
     "lint:ts": "eslint --ignore-path .gitignore --ext .ts .",
     "lint:ts:fix": "prettier --write \"**/*.ts\" && npm run lint:ts -- --fix",
     "lint:md": "remark . --frail",
