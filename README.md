@@ -2,7 +2,6 @@
 
 [![NPM version](https://img.shields.io/npm/v/bem-ts.svg)](https://npm.im/bem-ts)
 [![npm bundle size (minified + gzip)](https://img.shields.io/bundlephobia/minzip/bem-ts.svg)](https://bundlephobia.com/result?p=bem-ts)
-[![Build Status](https://travis-ci.org/ybiquitous/bem-ts.svg?branch=master)](https://travis-ci.org/ybiquitous/bem-ts)
 [![codecov](https://codecov.io/gh/ybiquitous/bem-ts/branch/master/graph/badge.svg)](https://codecov.io/gh/ybiquitous/bem-ts)
 [![MIT License](https://img.shields.io/github/license/ybiquitous/bem-ts.svg)](LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
@@ -265,13 +264,8 @@ When you see a coverage report, execute the following command:
 
 On your local machine, execute the following commands:
 
-1.  `git checkout master`
-2.  `git pull`
-3.  `npm ci`
-4.  `npm run release:dry-run`
-5.  `npm run release`
-
-NOTE: `npm publish` will be executed in CI automatically, so you don't need to execute it on local.
+1.  `npm run release:dry-run`
+2.  `npm run release`
 
 ## License
 
