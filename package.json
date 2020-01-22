@@ -121,6 +121,7 @@
         2,
         "always",
         [
+          "actions",
           "deps",
           "deps-dev",
           "readme",
