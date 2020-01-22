@@ -26,7 +26,7 @@
     "postbuild:esm": "cd dist && terser bem-ts.js -o bem-ts.min.js --source-map url=bem-ts.min.js.map",
     "test": "nyc tape -r ts-node/register test.ts",
     "test:coverage": "nyc report --reporter=html && open-cli coverage/index.html",
-    "test:coverage:report": "nyc report --reporter=lcov && npx codecov",
+    "test:coverage:report": "nyc report --reporter=lcov",
     "lint:ts": "eslint --ignore-path .gitignore --ext .ts .",
     "lint:ts:fix": "prettier --write \"**/*.ts\" && npm run lint:ts -- --fix",
     "lint:md": "remark . --frail",
@@ -38,7 +38,7 @@
     "format": "npm-run-all --print-label --parallel lint:*:fix prettier:write",
     "prerelease": "git checkout master && git pull origin master && npm ci && npm test",
     "release": "standard-version --sign",
-    "release:dry-run": "npm run release -- --dry-run"
+    "release:dry-run": "standard-version --sign --dry-run"
   },
   "devDependencies": {
     "@types/node": "^13.1.8",
@@ -121,6 +121,7 @@
         2,
         "always",
         [
+          "actions",
           "deps",
           "deps-dev",
           "readme",
