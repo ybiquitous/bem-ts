@@ -38,7 +38,7 @@
     "format": "npm-run-all --print-label --parallel lint:*:fix prettier:write",
     "prerelease": "git checkout master && git pull origin master && npm ci && npm test",
     "release": "standard-version --sign",
-    "release:dry-run": "npm run release -- --dry-run"
+    "release:dry-run": "standard-version --sign --dry-run"
   },
   "devDependencies": {
     "@types/node": "^13.1.8",
