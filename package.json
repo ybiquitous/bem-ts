@@ -41,7 +41,7 @@
     "release:dry-run": "standard-version --dry-run"
   },
   "devDependencies": {
-    "@types/node": "^13.1.8",
+    "@types/node": "^13.5.0",
     "@types/tape": "^4.2.33",
     "@typescript-eslint/eslint-plugin": "^2.17.0",
     "@typescript-eslint/parser": "^2.17.0",
