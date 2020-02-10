@@ -42,7 +42,7 @@
   },
   "devDependencies": {
     "@types/node": "^13.7.0",
-    "@types/tape": "^4.2.33",
+    "@types/tape": "^4.2.34",
     "@typescript-eslint/eslint-plugin": "^2.19.0",
     "@typescript-eslint/parser": "^2.19.0",
     "eslint": "^6.8.0",
