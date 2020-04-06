@@ -23,5 +23,3 @@ jobs:
       - run: npm run build
       - run: npm run release:dry-run
       - uses: codecov/codecov-action@v1
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}
