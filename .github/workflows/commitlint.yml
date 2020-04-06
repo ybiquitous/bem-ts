@@ -4,9 +4,9 @@ name: commitlint
 # events but only for the master branch
 on:
   push:
-    branches: [ "**" ]
+    branches: ["**"]
   pull_request:
-    branches: [ "**" ]
+    branches: ["**"]
 
 jobs:
   test:
