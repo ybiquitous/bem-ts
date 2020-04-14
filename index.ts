@@ -1,10 +1,10 @@
-interface Options {
+type Options = {
   elementDelimiter: string;
   modifierDelimiter: string;
   namespace: string | string[];
   namespaceDelimiter: string;
   strict: boolean;
-}
+};
 
 type PartialOptions = Partial<Options>;
 
@@ -23,16 +23,16 @@ export function setup({
   namespaceDelimiter,
   strict,
 }: PartialOptions): void {
-  if (elementDelimiter) {
+  if (typeof elementDelimiter === "string") {
     defaultOptions.elementDelimiter = elementDelimiter;
   }
-  if (modifierDelimiter) {
+  if (typeof modifierDelimiter === "string") {
     defaultOptions.modifierDelimiter = modifierDelimiter;
   }
-  if (namespace) {
+  if (typeof namespace === "string" || Array.isArray(namespace)) {
     defaultOptions.namespace = namespace;
   }
-  if (namespaceDelimiter) {
+  if (typeof namespaceDelimiter === "string") {
     defaultOptions.namespaceDelimiter = namespaceDelimiter;
   }
   if (typeof strict === "boolean") {
@@ -62,6 +62,7 @@ const invalidMessage = (subject: string, subjectValue: string, delimiters: strin
   return `The ${subject} ("${subjectValue}") must not use the characters contained within the delimiters (${delims}).`;
 };
 
+// eslint-disable-next-line max-lines-per-function
 export default function bem(block: string, options: PartialOptions = {}): BemBlockFunction {
   const { elementDelimiter, modifierDelimiter, namespace, namespaceDelimiter, strict } = {
     ...defaultOptions,
@@ -78,27 +79,29 @@ export default function bem(block: string, options: PartialOptions = {}): BemBlo
   const delimiters = strict ? [namespaceDelimiter, elementDelimiter, modifierDelimiter] : [];
   const delimiterChars = strict ? uniqueChars(delimiters) : [];
 
+  // eslint-disable-next-line max-statements, @typescript-eslint/explicit-module-boundary-types
   return function bemBlock(elementOrModifiers, modifiers) {
-    if (!elementOrModifiers) {
+    if (elementOrModifiers == null) {
       return namespaceBlock;
     }
 
     const element = typeof elementOrModifiers === "string" ? elementOrModifiers : null;
 
-    if (strict && element && includesChars(element, delimiterChars)) {
+    if (strict && element != null && includesChars(element, delimiterChars)) {
       throw new Error(invalidMessage("element", element, delimiters));
     }
 
-    const base = element ? `${namespaceBlock}${elementDelimiter}${element}` : namespaceBlock;
+    const base =
+      element != null ? `${namespaceBlock}${elementDelimiter}${element}` : namespaceBlock;
 
     const mods = typeof elementOrModifiers === "string" ? modifiers : elementOrModifiers;
 
-    if (!mods) {
+    if (mods == null) {
       return base;
     }
 
     const addModifiers = (className: string, modifier: string | null | undefined): string => {
-      if (modifier) {
+      if (modifier != null && modifier !== "") {
         if (strict && includesChars(modifier, delimiterChars)) {
           throw new Error(invalidMessage("modifier", modifier, delimiters));
         }
