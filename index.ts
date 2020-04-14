@@ -55,7 +55,7 @@ const uniqueChars = (list: string[]): string[] =>
     .filter((value, index, self) => self.indexOf(value) === index);
 
 const includesChars = (str: string, chars: string[]): boolean =>
-  chars.some(char => str.includes(char));
+  chars.some((char) => str.includes(char));
 
 const invalidMessage = (subject: string, subjectValue: string, delimiters: string[]): string => {
   const delims = `"${delimiters.join('", "')}"`;
@@ -112,7 +112,7 @@ export default function bem(block: string, options: PartialOptions = {}): BemBlo
     }
 
     return Object.keys(mods)
-      .filter(mod => mods[mod])
+      .filter((mod) => mods[mod])
       .reduce(addModifiers, base);
   };
 }
