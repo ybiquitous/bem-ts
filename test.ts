@@ -122,10 +122,10 @@ const testCases = [
 ];
 
 testCases.forEach(({ description, tested, expectations }) => {
-  test(description, t => {
+  test(description, (t) => {
     const b = tested();
 
-    t.test("returns block", assert => {
+    t.test("returns block", (assert) => {
       const expected = expectations[0];
       assert.is(b(), expected);
       assert.is(b({ mod1: false }), expected);
@@ -140,7 +140,7 @@ testCases.forEach(({ description, tested, expectations }) => {
       assert.end();
     });
 
-    t.test("returns block with modifier", assert => {
+    t.test("returns block with modifier", (assert) => {
       const expected = expectations[1];
       assert.is(b({ mod1: true }), expected);
       assert.is(b({ mod1: true, mod2: false, mod3: null, mod4: undefined }), expected);
@@ -149,7 +149,7 @@ testCases.forEach(({ description, tested, expectations }) => {
       assert.end();
     });
 
-    t.test("returns block with multiple modifiers", assert => {
+    t.test("returns block with multiple modifiers", (assert) => {
       const expected = expectations[2];
       assert.is(b({ mod1: true, mod2: true }), expected);
       assert.is(b({ mod1: true, mod2: true, mod3: false }), expected);
@@ -158,7 +158,7 @@ testCases.forEach(({ description, tested, expectations }) => {
       assert.end();
     });
 
-    t.test("returns block with element", assert => {
+    t.test("returns block with element", (assert) => {
       const expected = expectations[3];
       assert.is(b("element"), expected);
       assert.is(b("element", {}), expected);
@@ -167,7 +167,7 @@ testCases.forEach(({ description, tested, expectations }) => {
       assert.end();
     });
 
-    t.test("returns block with element and modifier", assert => {
+    t.test("returns block with element and modifier", (assert) => {
       const expected = expectations[4];
       assert.is(b("element", { mod1: true }), expected);
       assert.is(b("element", { mod1: true, mod2: false }), expected);
@@ -176,7 +176,7 @@ testCases.forEach(({ description, tested, expectations }) => {
       assert.end();
     });
 
-    t.test("returns block with element and multiple modifiers", assert => {
+    t.test("returns block with element and multiple modifiers", (assert) => {
       const expected = expectations[5];
       assert.is(b("element", { mod1: true, mod2: true }), expected);
       assert.is(b("element", { mod1: true, mod2: true, mod3: false }), expected);
@@ -186,7 +186,7 @@ testCases.forEach(({ description, tested, expectations }) => {
   });
 });
 
-test("invalid arguments", t => {
+test("invalid arguments", (t) => {
   const b = bem("invalid", {
     namespaceDelimiter: "-",
     elementDelimiter: "__",
@@ -199,7 +199,7 @@ test("invalid arguments", t => {
       "u"
     );
 
-  t.test("element is invalid", assert => {
+  t.test("element is invalid", (assert) => {
     assert.throws(() => b("element--"), expectedError("element", "element--"));
     assert.throws(() => b("element_"), expectedError("element", "element_"));
     assert.throws(() => b("---element"), expectedError("element", "---element"));
@@ -208,7 +208,7 @@ test("invalid arguments", t => {
     assert.end();
   });
 
-  t.test("modifier is invalid", assert => {
+  t.test("modifier is invalid", (assert) => {
     assert.throws(() => b(["modifier--"]), expectedError("modifier", "modifier--"));
     assert.throws(() => b(["modifier_"]), expectedError("modifier", "modifier_"));
     assert.throws(() => b(["---modifier"]), expectedError("modifier", "---modifier"));
@@ -219,8 +219,8 @@ test("invalid arguments", t => {
 });
 
 // `setup()` test must be at last
-test("`setup()` additional case", t => {
-  t.test("overrides options which was setup", assert => {
+test("`setup()` additional case", (t) => {
+  t.test("overrides options which was setup", (assert) => {
     const b = bem("block", {
       elementDelimiter: ":",
       modifierDelimiter: "/",
@@ -232,7 +232,7 @@ test("`setup()` additional case", t => {
     assert.end();
   });
 
-  t.test("has no effect when empty options are passed", assert => {
+  t.test("has no effect when empty options are passed", (assert) => {
     setup({});
     assert.is(bem("block")("element", { mod: true }), "ns---block_element ns---block_element-mod");
     assert.end();
