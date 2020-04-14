@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.11.3](https://github.com/ybiquitous/bem-ts/compare/v0.11.2...v0.11.3) (2020-04-14)
+
+### Bug Fixes
+
+- reconsider and apply ESLint configuration ([#474](https://github.com/ybiquitous/bem-ts/issues/474)) ([dc3acdb](https://github.com/ybiquitous/bem-ts/commit/dc3acdbddcc4bbe5f545dc8d8f31e79f46f3b048))
+
 ### [0.11.2](https://github.com/ybiquitous/bem-ts/compare/v0.11.1...v0.11.2) (2020-01-22)
 
 <a name="0.11.1"></a>
