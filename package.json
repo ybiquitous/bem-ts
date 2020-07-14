@@ -54,7 +54,7 @@
     "terser": "^4.8.0",
     "ts-node": "^8.10.2",
     "typescript": "^3.9.6",
-    "ybiq": "^11.0.0"
+    "ybiq": "^11.2.0"
   },
   "husky": {
     "hooks": {
