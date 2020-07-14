@@ -79,7 +79,7 @@ export default function bem(block: string, options: PartialOptions = {}): BemBlo
   const delimiters = strict ? [namespaceDelimiter, elementDelimiter, modifierDelimiter] : [];
   const delimiterChars = strict ? uniqueChars(delimiters) : [];
 
-  // eslint-disable-next-line max-statements, @typescript-eslint/explicit-module-boundary-types
+  // eslint-disable-next-line max-statements
   return function bemBlock(elementOrModifiers, modifiers) {
     if (elementOrModifiers == null) {
       return namespaceBlock;
