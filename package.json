@@ -107,9 +107,9 @@
     ],
     "rules": {
       "body-max-line-length": [
-        1,
+        2,
         "always",
-        100
+        200
       ],
       "scope-enum": [
         2,
