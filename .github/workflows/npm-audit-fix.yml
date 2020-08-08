@@ -4,13 +4,13 @@ on:
   schedule:
     - cron: 0 0 * * *
   workflow_dispatch:
-    branches: ["master"]
+    branches: ["**"]
 
 jobs:
   npm-audit-fix:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: ybiquitous/npm-audit-fix-action@v1
+      - uses: ybiquitous/npm-audit-fix-action@v2
         with:
           github_token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}

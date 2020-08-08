@@ -2,8 +2,9 @@ name: commitlint
 
 on:
   push:
-    branches: [master]
+    branches: ["main"]
   pull_request:
+    branches: ["**"]
 
 jobs:
   commitlint:

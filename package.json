@@ -27,16 +27,17 @@
     "test": "nyc tape -r ts-node/register test.ts",
     "test:coverage": "nyc report --reporter=html && open-cli coverage/index.html",
     "test:coverage:report": "nyc report --reporter=lcov",
-    "lint:ts": "eslint .",
-    "lint:ts:fix": "npm run lint:ts -- --fix",
+    "test:watch": "exit 1",
+    "lint:js": "eslint .",
+    "lint:js:fix": "npm run lint:ts -- --fix",
     "lint:md": "remark . --frail",
     "lint:md:fix": "remark . --output",
-    "lint": "npm-run-all --print-label --parallel lint:*",
+    "lint": "npm-run-all --print-label --parallel lint:* prettier:check",
     "prettier": "prettier --ignore-path .gitignore .",
     "prettier:check": "npm run prettier -- --check",
     "prettier:write": "npm run prettier -- --write",
     "format": "npm-run-all --print-label --parallel lint:*:fix prettier:write",
-    "prerelease": "git checkout master && git pull origin master && npm ci && npm test",
+    "prerelease": "git switch main && git pull && npm ci && npm test",
     "release": "standard-version",
     "release:dry-run": "standard-version --dry-run"
   },
@@ -59,12 +60,13 @@
   "husky": {
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-commit": "lint-staged"
+      "pre-commit": "lint-staged",
+      "post-commit": "npm run release:dry-run"
     }
   },
   "lint-staged": {
-    "*.ts": "eslint --fix",
-    "*": "prettier --write",
+    "*.{js,jsx,mjs,ts,tsx}": "eslint --fix",
+    "!(*.snap)": "prettier --write",
     "!(CHANGELOG).md": "remark --frail"
   },
   "nyc": {
@@ -107,9 +109,9 @@
     ],
     "rules": {
       "body-max-line-length": [
-        2,
+        1,
         "always",
-        200
+        100
       ],
       "scope-enum": [
         2,
