@@ -1,6 +1,6 @@
 {
   "name": "bem-ts",
-  "version": "0.11.3",
+  "version": "0.11.4",
   "description": "BEM class names generator for TypeScript",
   "author": "Masafumi Koba <ybiquitous@gmail.com>",
   "repository": "ybiquitous/bem-ts",
