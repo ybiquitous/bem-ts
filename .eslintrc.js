@@ -7,12 +7,11 @@ module.exports = {
   //     The file does not match your project config: .eslintrc.js.
   //     The file must be included in at least one of the projects provided
   //
-  ignorePatterns: [".eslintrc.js"],
+  ignorePatterns: [".eslintrc.js", "coverage/**/*", "dist/**/*"],
 
   extends: ["ybiquitous/typescript", "plugin:@typescript-eslint/all"],
 
   parserOptions: {
-    tsconfigRootDir: __dirname,
     project: ["./tsconfig.test.json"],
   },
 
