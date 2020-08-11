@@ -22,6 +22,5 @@ jobs:
       - run: npm run lint
       - run: npm test
       - run: npm run release:dry-run
-      - run: npm run test:coverage:report
       - run: npm run build
       - uses: codecov/codecov-action@v1.0.12

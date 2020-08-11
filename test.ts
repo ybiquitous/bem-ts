@@ -1,4 +1,3 @@
-import * as test from "tape";
 import bem, { setup } from "./index";
 
 const testCases = [
@@ -122,105 +121,94 @@ const testCases = [
 ];
 
 testCases.forEach(({ description, tested, expectations }) => {
-  test(description, (t) => {
+  describe(description, () => {
     const b = tested();
 
-    t.test("returns block", (assert) => {
+    test("returns block", () => {
       const expected = expectations[0];
-      assert.is(b(), expected);
-      assert.is(b({ mod1: false }), expected);
-      assert.is(b({ mod1: null }), expected);
-      assert.is(b({ mod1: undefined }), expected);
-      assert.is(b({ mod1: false, mod2: false, mod3: null, mod4: undefined }), expected);
-      assert.is(b([]), expected);
-      assert.is(b([""]), expected);
-      assert.is(b([null]), expected);
-      assert.is(b([undefined]), expected);
-      assert.is(b(["", null, undefined]), expected);
-      assert.end();
+      expect(b()).toEqual(expected);
+      expect(b({ mod1: false })).toEqual(expected);
+      expect(b({ mod1: null })).toEqual(expected);
+      expect(b({ mod1: undefined })).toEqual(expected);
+      expect(b({ mod1: false, mod2: false, mod3: null, mod4: undefined })).toEqual(expected);
+      expect(b([])).toEqual(expected);
+      expect(b([""])).toEqual(expected);
+      expect(b([null])).toEqual(expected);
+      expect(b([undefined])).toEqual(expected);
+      expect(b(["", null, undefined])).toEqual(expected);
     });
 
-    t.test("returns block with modifier", (assert) => {
+    test("returns block with modifier", () => {
       const expected = expectations[1];
-      assert.is(b({ mod1: true }), expected);
-      assert.is(b({ mod1: true, mod2: false, mod3: null, mod4: undefined }), expected);
-      assert.is(b(["mod1"]), expected);
-      assert.is(b(["mod1", "", null, undefined]), expected);
-      assert.end();
+      expect(b({ mod1: true })).toEqual(expected);
+      expect(b({ mod1: true, mod2: false, mod3: null, mod4: undefined })).toEqual(expected);
+      expect(b(["mod1"])).toEqual(expected);
+      expect(b(["mod1", "", null, undefined])).toEqual(expected);
     });
 
-    t.test("returns block with multiple modifiers", (assert) => {
+    test("returns block with multiple modifiers", () => {
       const expected = expectations[2];
-      assert.is(b({ mod1: true, mod2: true }), expected);
-      assert.is(b({ mod1: true, mod2: true, mod3: false }), expected);
-      assert.is(b(["mod1", "mod2"]), expected);
-      assert.is(b(["mod1", "mod2", null]), expected);
-      assert.end();
+      expect(b({ mod1: true, mod2: true })).toEqual(expected);
+      expect(b({ mod1: true, mod2: true, mod3: false })).toEqual(expected);
+      expect(b(["mod1", "mod2"])).toEqual(expected);
+      expect(b(["mod1", "mod2", null])).toEqual(expected);
     });
 
-    t.test("returns block with element", (assert) => {
+    test("returns block with element", () => {
       const expected = expectations[3];
-      assert.is(b("element"), expected);
-      assert.is(b("element", {}), expected);
-      assert.is(b("element", { mod: false }), expected);
-      assert.is(b("element", [""]), expected);
-      assert.end();
+      expect(b("element")).toEqual(expected);
+      expect(b("element", {})).toEqual(expected);
+      expect(b("element", { mod: false })).toEqual(expected);
+      expect(b("element", [""])).toEqual(expected);
     });
 
-    t.test("returns block with element and modifier", (assert) => {
+    test("returns block with element and modifier", () => {
       const expected = expectations[4];
-      assert.is(b("element", { mod1: true }), expected);
-      assert.is(b("element", { mod1: true, mod2: false }), expected);
-      assert.is(b("element", ["mod1"]), expected);
-      assert.is(b("element", ["mod1", null]), expected);
-      assert.end();
+      expect(b("element", { mod1: true })).toEqual(expected);
+      expect(b("element", { mod1: true, mod2: false })).toEqual(expected);
+      expect(b("element", ["mod1"])).toEqual(expected);
+      expect(b("element", ["mod1", null])).toEqual(expected);
     });
 
-    t.test("returns block with element and multiple modifiers", (assert) => {
+    test("returns block with element and multiple modifiers", () => {
       const expected = expectations[5];
-      assert.is(b("element", { mod1: true, mod2: true }), expected);
-      assert.is(b("element", { mod1: true, mod2: true, mod3: false }), expected);
-      assert.is(b("element", ["mod1", "mod2"]), expected);
-      assert.end();
+      expect(b("element", { mod1: true, mod2: true })).toEqual(expected);
+      expect(b("element", { mod1: true, mod2: true, mod3: false })).toEqual(expected);
+      expect(b("element", ["mod1", "mod2"])).toEqual(expected);
     });
   });
 });
 
-test("invalid arguments", (t) => {
+describe("invalid arguments", () => {
   const b = bem("invalid", {
     namespaceDelimiter: "-",
     elementDelimiter: "__",
     modifierDelimiter: "--",
   });
 
-  const expectedError = (subject: string, value: string): RegExp =>
-    new RegExp(
-      `^Error: The ${subject} \\("${value}"\\) must not use the characters contained within the delimiters \\("-", "__", "--"\\)\\.$`,
-      "u"
-    );
+  const expectedError = (subject: string, value: string): string =>
+    `The ${subject} ("${value}") must not use the characters contained within the delimiters ("-", "__", "--").`;
 
-  t.test("element is invalid", (assert) => {
-    assert.throws(() => b("element--"), expectedError("element", "element--"));
-    assert.throws(() => b("element_"), expectedError("element", "element_"));
-    assert.throws(() => b("---element"), expectedError("element", "---element"));
-    assert.throws(() => b("-_element"), expectedError("element", "-_element"));
-    assert.throws(() => b("ele-me_nt"), expectedError("element", "ele-me_nt"));
-    assert.end();
+  test("element is invalid", () => {
+    expect(() => b("element--")).toThrow(expectedError("element", "element--"));
+    expect(() => b("element_")).toThrow(expectedError("element", "element_"));
+    expect(() => b("---element")).toThrow(expectedError("element", "---element"));
+    expect(() => b("-_element")).toThrow(expectedError("element", "-_element"));
+    expect(() => b("ele-me_nt")).toThrow(expectedError("element", "ele-me_nt"));
   });
 
-  t.test("modifier is invalid", (assert) => {
-    assert.throws(() => b(["modifier--"]), expectedError("modifier", "modifier--"));
-    assert.throws(() => b(["modifier_"]), expectedError("modifier", "modifier_"));
-    assert.throws(() => b(["---modifier"]), expectedError("modifier", "---modifier"));
-    assert.throws(() => b(["-_modifier"]), expectedError("modifier", "-_modifier"));
-    assert.throws(() => b(["mod-ifi_er"]), expectedError("modifier", "mod-ifi_er"));
-    assert.end();
+  test("modifier is invalid", () => {
+    expect(() => b(["modifier--"])).toThrow(expectedError("modifier", "modifier--"));
+    expect(() => b(["modifier_"])).toThrow(expectedError("modifier", "modifier_"));
+    expect(() => b(["---modifier"])).toThrow(expectedError("modifier", "---modifier"));
+    expect(() => b(["-_modifier"])).toThrow(expectedError("modifier", "-_modifier"));
+    expect(() => b(["mod-ifi_er"])).toThrow(expectedError("modifier", "mod-ifi_er"));
   });
 });
 
 // `setup()` test must be at last
-test("`setup()` additional case", (t) => {
-  t.test("overrides options which was setup", (assert) => {
+describe("`setup()` additional case", () => {
+  test("overrides options which was setup", () => {
     const b = bem("block", {
       elementDelimiter: ":",
       modifierDelimiter: "/",
@@ -228,13 +216,13 @@ test("`setup()` additional case", (t) => {
       namespaceDelimiter: "=",
       strict: false,
     });
-    assert.is(b("element:", { mod: true }), "n=block:element: n=block:element:/mod");
-    assert.end();
+    expect(b("element:", { mod: true })).toEqual("n=block:element: n=block:element:/mod");
   });
 
-  t.test("has no effect when empty options are passed", (assert) => {
+  test("has no effect when empty options are passed", () => {
     setup({});
-    assert.is(bem("block")("element", { mod: true }), "ns---block_element ns---block_element-mod");
-    assert.end();
+    expect(bem("block")("element", { mod: true })).toEqual(
+      "ns---block_element ns---block_element-mod"
+    );
   });
 });
