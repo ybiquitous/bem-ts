@@ -121,7 +121,7 @@ const testCases = [
 ];
 
 testCases.forEach(({ description, tested, expectations }) => {
-  describe(description, () => {
+  describe(description, () => { // eslint-disable-line jest/valid-title
     const b = tested();
 
     test("returns block", () => {
