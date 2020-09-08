@@ -121,6 +121,7 @@ const testCases = [
 ];
 
 testCases.forEach(({ description, tested, expectations }) => {
+  // eslint-disable-next-line jest/valid-title
   describe(description, () => {
     const b = tested();
 
