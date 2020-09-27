@@ -18,6 +18,7 @@ module.exports = {
   rules: {
     "max-lines-per-function": "warn",
     "max-statements": "warn",
+    "@typescript-eslint/comma-dangle": "off",
     "@typescript-eslint/consistent-type-definitions": ["error", "type"],
     "@typescript-eslint/indent": "off",
     "@typescript-eslint/no-type-alias": "off",
