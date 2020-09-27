@@ -9,7 +9,7 @@ module.exports = {
   //
   ignorePatterns: [".eslintrc.js", "coverage/**/*", "dist/**/*"],
 
-  extends: ["ybiquitous/typescript", "plugin:@typescript-eslint/all"],
+  extends: ["ybiquitous/typescript"],
 
   parserOptions: {
     project: ["./tsconfig.test.json"],
@@ -18,14 +18,8 @@ module.exports = {
   rules: {
     "max-lines-per-function": "warn",
     "max-statements": "warn",
-    "@typescript-eslint/comma-dangle": "off",
     "@typescript-eslint/consistent-type-definitions": ["error", "type"],
-    "@typescript-eslint/indent": "off",
-    "@typescript-eslint/no-type-alias": "off",
     "@typescript-eslint/prefer-readonly-parameter-types": "off",
-    "@typescript-eslint/quotes": "off",
-    "@typescript-eslint/space-before-function-paren": "off",
-    "@typescript-eslint/typedef": "off",
   },
 
   overrides: [
