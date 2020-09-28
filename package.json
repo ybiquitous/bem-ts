@@ -24,7 +24,7 @@
     "build:cjs": "tsc",
     "build:esm": "tsc --module es2015 --outDir dist/module/ && mv dist/module/index.js dist/bem-ts.js && rimraf dist/module/",
     "postbuild:esm": "cd dist && terser bem-ts.js -o bem-ts.min.js --source-map url=bem-ts.min.js.map",
-    "test": "jest --coverage",
+    "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
     "lint:js": "eslint .",
@@ -37,9 +37,10 @@
     "prettier:check": "npm run prettier -- --check",
     "prettier:write": "npm run prettier -- --write",
     "format": "npm-run-all --print-label --parallel lint:*:fix prettier:write",
-    "prerelease": "git switch main && git pull && npm ci && npm test",
+    "prerelease": "git switch main && git pull && npm ci && npm run clean && npm test && npm run lint && npm run clean",
     "release": "standard-version",
-    "release:dry-run": "standard-version --dry-run"
+    "release:dry-run": "standard-version --dry-run",
+    "clean": "git clean -dx --force --exclude=node_modules"
   },
   "devDependencies": {
     "@types/jest": "^26.0.14",
@@ -54,7 +55,7 @@
     "terser": "^5.3.2",
     "ts-jest": "^26.4.0",
     "typescript": "^4.0.3",
-    "ybiq": "^11.4.3"
+    "ybiq": "^11.5.0"
   },
   "husky": {
     "hooks": {
