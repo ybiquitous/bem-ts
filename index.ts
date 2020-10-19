@@ -40,11 +40,7 @@ export function setup({
   }
 }
 
-type Modifiers =
-  | {
-      [key: string]: boolean | null | undefined;
-    }
-  | (string | null | undefined)[];
+type Modifiers = Record<string, boolean | null | undefined> | Array<string | null | undefined>;
 
 type BemBlockFunction = (elementOrModifiers?: string | Modifiers, modifiers?: Modifiers) => string;
 
