@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.11.5](https://github.com/ybiquitous/bem-ts/compare/v0.11.4...v0.11.5) (2020-10-19)
+
+### Bug Fixes
+
+- use `Record` type ([#631](https://github.com/ybiquitous/bem-ts/issues/631)) ([5053f06](https://github.com/ybiquitous/bem-ts/commit/5053f06de58541d836e9e78c1cdc729df3770f8a))
+
 ### [0.11.4](https://github.com/ybiquitous/bem-ts/compare/v0.11.3...v0.11.4) (2020-08-11)
 
 ### [0.11.3](https://github.com/ybiquitous/bem-ts/compare/v0.11.2...v0.11.3) (2020-04-14)
