@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.11.6](https://github.com/ybiquitous/bem-ts/compare/v0.11.5...v0.11.6) (2020-10-20)
+
+### Bug Fixes
+
+- add `prepublishOnly` script to build files ([#632](https://github.com/ybiquitous/bem-ts/issues/632)) ([16d64df](https://github.com/ybiquitous/bem-ts/commit/16d64dfbfe738483e2fd304c0e135085cada8b79))
+
 ### [0.11.5](https://github.com/ybiquitous/bem-ts/compare/v0.11.4...v0.11.5) (2020-10-19)
 
 ### Bug Fixes
