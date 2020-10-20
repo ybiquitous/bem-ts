@@ -40,7 +40,8 @@
     "prerelease": "git switch main && git pull && npm ci && npm run clean && npm test && npm run lint && npm run clean",
     "release": "standard-version",
     "release:dry-run": "standard-version --dry-run",
-    "clean": "git clean -dx --force --exclude=node_modules"
+    "clean": "git clean -dx --force --exclude=node_modules",
+    "prepublishOnly": "npm run build"
   },
   "devDependencies": {
     "@types/jest": "^26.0.14",
