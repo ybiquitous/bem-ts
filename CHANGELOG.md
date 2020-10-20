@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.11.7](https://github.com/ybiquitous/bem-ts/compare/v0.11.6...v0.11.7) (2020-10-20)
+
+### Bug Fixes
+
+- add missing `npm ci` before `npm publish` ([#633](https://github.com/ybiquitous/bem-ts/issues/633)) ([c758167](https://github.com/ybiquitous/bem-ts/commit/c7581676b6ce01a35d3d3ffefc7eda445958e6ba))
+
 ### [0.11.6](https://github.com/ybiquitous/bem-ts/compare/v0.11.5...v0.11.6) (2020-10-20)
 
 ### Bug Fixes
