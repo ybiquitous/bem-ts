@@ -1,8 +1,5 @@
 # bem-ts
 
-
-test
-
 [![NPM version](https://img.shields.io/npm/v/bem-ts.svg)](https://npm.im/bem-ts)
 [![npm bundle size (minified + gzip)](https://img.shields.io/bundlephobia/minzip/bem-ts.svg)](https://bundlephobia.com/result?p=bem-ts)
 [![codecov](https://codecov.io/gh/ybiquitous/bem-ts/branch/master/graph/badge.svg)](https://codecov.io/gh/ybiquitous/bem-ts)
