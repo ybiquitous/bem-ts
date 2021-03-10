@@ -17,6 +17,7 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
+      - run: sudo npm --global install npm
       - run: npm ci
       - run: npm run lint
       - run: npm run test:coverage
