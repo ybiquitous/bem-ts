@@ -40,8 +40,9 @@
     "prerelease": "git switch main && git pull && npm ci && npm run clean && npm test && npm run lint && npm run clean",
     "release": "standard-version",
     "release:dry-run": "standard-version --dry-run",
-    "clean": "git clean -dx --force --exclude=node_modules",
-    "prepublishOnly": "npm run build"
+    "clean": "git clean -dx --force --exclude=node_modules --exclude=.husky",
+    "prepublishOnly": "npm run build",
+    "prepare": "husky install"
   },
   "devDependencies": {
     "@types/jest": "^26.0.14",
@@ -57,13 +58,6 @@
     "ts-jest": "^26.4.0",
     "typescript": "^4.0.3",
     "ybiq": "^12.0.1"
-  },
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-commit": "lint-staged",
-      "post-commit": "npm run release:dry-run"
-    }
   },
   "lint-staged": {
     "*.{js,jsx,mjs,ts,tsx}": "eslint --fix",
