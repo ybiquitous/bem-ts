@@ -14,3 +14,5 @@ jobs:
       - uses: ybiquitous/npm-audit-fix-action@v3
         with:
           github_token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          commit_title: "chore(deps): npm audit fix"
+          labels: "dependencies, javascript, security"
