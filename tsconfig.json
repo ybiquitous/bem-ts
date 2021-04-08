@@ -5,10 +5,13 @@
     "declaration": true,
     "outDir": "./dist",
     "strict": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitReturns": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noUncheckedIndexedAccess": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true,
+    "forceConsistentCasingInFileNames": true,
     "moduleResolution": "node"
   },
   "files": ["index.ts"]
