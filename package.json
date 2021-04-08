@@ -52,6 +52,7 @@
     "eslint-config-ybiquitous": "^13.0.0",
     "eslint-plugin-jest": "^24.2.1",
     "jest": "^26.6.3",
+    "remark-preset-ybiquitous": "^0.0.3",
     "rimraf": "^3.0.2",
     "terser": "^5.6.0",
     "ts-jest": "^26.5.3",
@@ -82,17 +83,7 @@
   },
   "remarkConfig": {
     "plugins": [
-      "preset-lint-recommended",
-      "lint-no-heading-punctuation",
-      [
-        "lint-list-item-bullet-indent",
-        false
-      ],
-      [
-        "lint-list-item-indent",
-        false
-      ],
-      "validate-links"
+      "remark-preset-ybiquitous"
     ]
   },
   "commitlint": {

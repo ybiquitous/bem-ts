@@ -9,6 +9,8 @@ module.exports = {
   //
   ignorePatterns: [".eslintrc.js", "coverage/**/*", "dist/**/*"],
 
+  reportUnusedDisableDirectives: true,
+
   extends: ["ybiquitous/typescript"],
 
   parserOptions: {
