@@ -1,11 +1,6 @@
 # bem-ts
 
 [![NPM version](https://img.shields.io/npm/v/bem-ts.svg)](https://npm.im/bem-ts)
-[![npm bundle size (minified + gzip)](https://img.shields.io/bundlephobia/minzip/bem-ts.svg)](https://bundlephobia.com/result?p=bem-ts)
-[![codecov](https://codecov.io/gh/ybiquitous/bem-ts/branch/master/graph/badge.svg)](https://codecov.io/gh/ybiquitous/bem-ts)
-[![MIT License](https://img.shields.io/github/license/ybiquitous/bem-ts.svg)](LICENSE)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
-[![Changelog](https://img.shields.io/badge/changelog-here-blue.svg)](CHANGELOG.md)
 
 [![Edit bem-ts demo](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/kxymx2r2z5?fontsize=14)
 
