@@ -2,8 +2,6 @@
 
 [![NPM version](https://img.shields.io/npm/v/bem-ts.svg)](https://npm.im/bem-ts)
 
-[![Edit bem-ts demo](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/kxymx2r2z5)
-
 [BEM](http://getbem.com/) (Block Element Modifier) class names generator for TypeScript.
 
 Inspired by [`bem-cn`](https://npm.im/bem-cn).
@@ -106,6 +104,10 @@ export function Button({ state, icon, children }: Props) {
   }
 }
 ```
+
+See also the online demo below!
+
+[![Edit bem-ts demo](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/kxymx2r2z5)
 
 ## API
 
