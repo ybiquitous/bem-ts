@@ -23,7 +23,6 @@
     "build": "npm-run-all --print-label --parallel build:*",
     "build:cjs": "tsc",
     "build:esm": "tsc --module es2015 --outDir dist/module/ && mv dist/module/index.js dist/bem-ts.js && rimraf dist/module/",
-    "postbuild:esm": "cd dist && terser bem-ts.js -o bem-ts.min.js --source-map url=bem-ts.min.js.map",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
@@ -54,7 +53,6 @@
     "jest": "^26.6.3",
     "remark-preset-ybiquitous": "^0.0.3",
     "rimraf": "^3.0.2",
-    "terser": "^5.6.0",
     "ts-jest": "^26.5.3",
     "typescript": "^4.2.3",
     "ybiq": "^12.0.2"
