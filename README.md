@@ -13,17 +13,6 @@
 
 Inspired by [`bem-cn`](https://npm.im/bem-cn).
 
-## Table of Contents
-
-- [Policy](#policy)
-- [Install](#install)
-- [Usage](#usage)
-- [API](#api)
-  - [`bem()`](#bem)
-  - [`setup()`](#setup)
-- [Development](#development)
-- [License](#license)
-
 ## Policy
 
 - No extra features. Dead simple.
