@@ -12,6 +12,7 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "forceConsistentCasingInFileNames": true,
+    "esModuleInterop": true,
     "moduleResolution": "node"
   },
   "files": ["index.ts"]
