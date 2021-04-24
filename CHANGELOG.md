@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.12.0](https://github.com/ybiquitous/bem-ts/compare/v0.11.7...v0.12.0) (2021-04-24)
+
+### ⚠ BREAKING CHANGES
+
+- Require Node.js 12.17.0+ and provide `*.cjs` for backward compatibility
+
+### Features
+
+- no longer provide minified version ([#734](https://github.com/ybiquitous/bem-ts/issues/734)) ([7ed62a0](https://github.com/ybiquitous/bem-ts/commit/7ed62a089734fd6a182a3ec76078e647aabd67c4))
+- support ESM ([#735](https://github.com/ybiquitous/bem-ts/issues/735)) ([485197a](https://github.com/ybiquitous/bem-ts/commit/485197a803dce0bb96208a2a2000ac9f4b1367bc))
+
 ### [0.11.7](https://github.com/ybiquitous/bem-ts/compare/v0.11.6...v0.11.7) (2020-10-20)
 
 ### Bug Fixes
