@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.12.1](https://github.com/ybiquitous/bem-ts/compare/v0.12.0...v0.12.1) (2021-09-04)
+
+### Bug Fixes
+
+- update `engines.node` for better ESM support ([#779](https://github.com/ybiquitous/bem-ts/issues/779)) ([6d233a3](https://github.com/ybiquitous/bem-ts/commit/6d233a3f72d73fac552627c6421ff6da59e71bbb))
+
 ## [0.12.0](https://github.com/ybiquitous/bem-ts/compare/v0.11.7...v0.12.0) (2021-04-24)
 
 ### ⚠ BREAKING CHANGES
