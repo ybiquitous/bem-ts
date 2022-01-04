@@ -60,7 +60,7 @@
     "jest": "^27.4.2",
     "remark-preset-ybiquitous": "^0.1.2",
     "ts-jest": "^27.0.7",
-    "typescript": "^4.5.2",
+    "typescript": "^4.5.4",
     "ybiq": "^13.7.1"
   },
   "lint-staged": {
