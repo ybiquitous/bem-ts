@@ -10,6 +10,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: ybiquitous/npm-audit-fix-action@v3
+      - uses: ybiquitous/npm-audit-fix-action@v4
         with:
           github_token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
