@@ -25,4 +25,4 @@ jobs:
       - run: npm run test:coverage
       - run: npm run posttest
       - run: npm run release:dry-run
-      - uses: codecov/codecov-action@v2
+      - uses: codecov/codecov-action@v3
