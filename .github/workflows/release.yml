@@ -18,8 +18,9 @@ jobs:
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-      - run: echo "::set-output name=tag::${GITHUB_REF/refs\/tags\//}"
-        id: get_tag
-      - run: gh release create '${{ steps.get_tag.outputs.tag }}' --notes 'See the [changelog](https://github.com/${{ github.repository }}/blob/${{ steps.get_tag.outputs.tag }}/CHANGELOG.md) for more details.'
+      - run: |
+          gh release create "${GITHUB_REF_NAME}" \
+            --generate-notes \
+            --notes "See the [changelog](https://github.com/${GITHUB_REPOSITORY}/blob/${GITHUB_REF_NAME}/CHANGELOG.md) for more details."
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
