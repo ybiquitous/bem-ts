@@ -8,21 +8,26 @@ on:
 
 jobs:
   test:
-    name: "test on node ${{ matrix.node-version }}"
-    runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
-        node-version: ["14", "16", "18"]
+        node-version: ["14", "16"]
+    uses: ybiquitous/.github/.github/workflows/nodejs-test-reusable.yml@main
+    with:
+      node-version: ${{ matrix.node-version }}
+
+  test-coverage:
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: "18"
           cache: "npm"
       - run: npm --global install npm@latest
       - run: npm ci
-      - run: npm run lint
       - run: npm run test:coverage
-      - run: npm run posttest
-      - run: npm run release:dry-run
       - uses: codecov/codecov-action@v3
+
+  lint:
+    uses: ybiquitous/.github/.github/workflows/nodejs-lint-reusable.yml@main

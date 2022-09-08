@@ -30,7 +30,7 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
-    "posttest": "npm-run-all --print-label --parallel build build:*",
+    "posttest": "npm-run-all --print-label --silent --parallel build build:*",
     "build": "tsc",
     "build:cjs": "tsc --project tsconfig.cjs.json && mv ./dist/cjs/index.js ./dist/cjs/index.cjs",
     "lint:js": "eslint --cache --ext=js,jsx,cjs,mjs,ts,tsx .",
@@ -41,9 +41,10 @@
     "lint:types:watch": "npm run lint:types -- --watch",
     "lint:styles": "npm run prettier -- --check",
     "lint:styles:fix": "npm run prettier -- --write",
-    "lint": "npm-run-all --print-label --parallel lint:*",
-    "format": "npm-run-all --print-label --parallel lint:*:fix",
-    "prettier": "prettier --ignore-path .gitignore .",
+    "lint:commit": "commitlint --from HEAD~10",
+    "lint": "npm-run-all --print-label --silent --parallel lint:*",
+    "format": "npm-run-all --print-label --silent --parallel lint:*:fix",
+    "prettier": "prettier --cache --ignore-path .gitignore .",
     "prerelease": "git switch main && git pull && npm ci && npm run clean && npm test && npm run clean",
     "release": "standard-version",
     "release:dry-run": "standard-version --dry-run",
@@ -62,11 +63,11 @@
     "remark-preset-ybiquitous": "^0.3.0",
     "ts-jest": "^27.1.4",
     "typescript": "^4.8.2",
-    "ybiq": "^14.2.0"
+    "ybiq": "^15.4.0"
   },
   "lint-staged": {
     "*.{js,jsx,cjs,mjs,ts,tsx}": "eslint --cache --fix",
-    "!(*.snap)": "prettier --write",
+    "!(*.snap)": "prettier --cache --write",
     "!(CHANGELOG).md": "remark --frail"
   },
   "jest": {
@@ -99,7 +100,7 @@
       "body-max-line-length": [
         1,
         "always",
-        100
+        200
       ],
       "scope-enum": [
         2,
