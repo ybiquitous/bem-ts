@@ -27,6 +27,7 @@ jobs:
       - run: npm --global install npm@latest
       - run: npm ci
       - run: npm run test:coverage
+      - run: npm run posttest # testing build
       - uses: codecov/codecov-action@v3
 
   lint:
