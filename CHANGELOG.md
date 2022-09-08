@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.13.0](https://github.com/ybiquitous/bem-ts/compare/v0.12.1...v0.13.0) (2022-09-08)
+
+### ⚠ BREAKING CHANGES
+
+- drop Node.js 12 support (#884)
+
+### Features
+
+- drop Node.js 12 support ([#884](https://github.com/ybiquitous/bem-ts/issues/884)) ([30a0242](https://github.com/ybiquitous/bem-ts/commit/30a0242c15f2b38a71ddec3bf38105a40de5a176))
+
 ### [0.12.1](https://github.com/ybiquitous/bem-ts/compare/v0.12.0...v0.12.1) (2021-09-04)
 
 ### Bug Fixes
