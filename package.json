@@ -52,6 +52,7 @@
     "prepare": "husky install"
   },
   "devDependencies": {
+    "@tsconfig/node16-strictest-esm": "^1.0.3",
     "@types/jest": "^29.0.0",
     "@types/node": "^18.7.16",
     "@typescript-eslint/eslint-plugin": "^5.36.2",
