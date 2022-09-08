@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.13.1](https://github.com/ybiquitous/bem-ts/compare/v0.13.0...v0.13.1) (2022-09-08)
+
+### Bug Fixes
+
+- releasing failure (no code changes) ([3b4b827](https://github.com/ybiquitous/bem-ts/commit/3b4b827af16545ec9a6342748b2503617795aed3))
+- releasing failure again ([6ce16b5](https://github.com/ybiquitous/bem-ts/commit/6ce16b56d661539603dc97ab33e7f9defcc5686d))
+
 ## [0.13.0](https://github.com/ybiquitous/bem-ts/compare/v0.12.1...v0.13.0) (2022-09-08)
 
 ### ⚠ BREAKING CHANGES
