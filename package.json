@@ -14,9 +14,8 @@
   "type": "module",
   "exports": {
     "import": "./dist/index.js",
-    "require": "./dist/cjs/index.cjs"
+    "require": "./dist/index.cjs"
   },
-  "main": "./dist/cjs/index.cjs",
   "types": "./dist/index.d.ts",
   "files": [
     "dist/",
@@ -32,7 +31,7 @@
     "test:coverage": "jest --coverage",
     "posttest": "npm-run-all --print-label --silent --parallel build build:*",
     "build": "tsc",
-    "build:cjs": "tsc --project tsconfig.cjs.json && mv ./dist/cjs/index.js ./dist/cjs/index.cjs",
+    "build:cjs": "tsc --project tsconfig.cjs.json && mv dist/cjs/index.js dist/index.cjs && rm -rf dist/cjs/",
     "lint:js": "eslint --cache --ext=js,jsx,cjs,mjs,ts,tsx .",
     "lint:js:fix": "npm run lint:js -- --fix",
     "lint:md": "remark . --frail",
