@@ -1,7 +1,0 @@
-linter:
-  eslint:
-    ext: ".ts"
-
-branches:
-  exclude:
-    - "/^dependabot\//"
