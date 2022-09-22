@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.13.3](https://github.com/ybiquitous/bem-ts/compare/v0.13.2...v0.13.3) (2022-09-22)
+
+### Bug Fixes
+
+- add `module` field to package.json for Parcel ([#894](https://github.com/ybiquitous/bem-ts/issues/894)) ([dcb9d2d](https://github.com/ybiquitous/bem-ts/commit/dcb9d2d83aec82d2a88329a5e0265984d95dee95))
+
 ### [0.13.2](https://github.com/ybiquitous/bem-ts/compare/v0.13.1...v0.13.2) (2022-09-08)
 
 ### [0.13.1](https://github.com/ybiquitous/bem-ts/compare/v0.13.0...v0.13.1) (2022-09-08)
