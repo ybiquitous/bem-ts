@@ -53,7 +53,7 @@ b("element", ["mod1", null, "mod3"]);
 //=> "block__element block__element--mod1 block__element--mod3"
 ```
 
-A more complex example using React and CSS (nearer to the real world):
+A more complex example using React and CSS (closer to the real world):
 
 ```tsx
 // Button.tsx
