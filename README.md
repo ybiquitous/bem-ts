@@ -101,7 +101,7 @@ export function Button({ state, icon, children }: Props) {
 }
 ```
 
-See also the online demo:
+## Demo
 
 [![Edit bem-ts demo](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/kxymx2r2z5)
 
