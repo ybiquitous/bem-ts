@@ -21,7 +21,7 @@ npm install bem-ts
 
 ## Usage
 
-The following is a basic usage.
+A basic usage:
 
 ```typescript
 import bem from "bem-ts";
@@ -53,7 +53,7 @@ b("element", ["mod1", null, "mod3"]);
 //=> "block__element block__element--mod1 block__element--mod3"
 ```
 
-The following is a complicated example (nearer to real world) by using React and CSS.
+A more complex example using React and CSS (nearer to the real world):
 
 ```tsx
 // Button.tsx
