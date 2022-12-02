@@ -58,7 +58,6 @@ const invalidMessage = (subject: string, subjectValue: string, delimiters: strin
   return `The ${subject} ("${subjectValue}") must not use the characters contained within the delimiters (${delims}).`;
 };
 
-// eslint-disable-next-line max-lines-per-function
 export default function bem(block: string, options: PartialOptions = {}): BemBlockFunction {
   const { elementDelimiter, modifierDelimiter, namespace, namespaceDelimiter, strict } = {
     ...defaultOptions,
@@ -75,7 +74,6 @@ export default function bem(block: string, options: PartialOptions = {}): BemBlo
   const delimiters = strict ? [namespaceDelimiter, elementDelimiter, modifierDelimiter] : [];
   const delimiterChars = strict ? uniqueChars(delimiters) : [];
 
-  // eslint-disable-next-line max-statements
   return function bemBlock(elementOrModifiers, modifiers) {
     if (elementOrModifiers == null) {
       return namespaceBlock;
@@ -88,7 +86,7 @@ export default function bem(block: string, options: PartialOptions = {}): BemBlo
     }
 
     const base =
-      element != null ? `${namespaceBlock}${elementDelimiter}${element}` : namespaceBlock;
+      element == null ? namespaceBlock : `${namespaceBlock}${elementDelimiter}${element}`;
 
     const mods = typeof elementOrModifiers === "string" ? modifiers : elementOrModifiers;
 

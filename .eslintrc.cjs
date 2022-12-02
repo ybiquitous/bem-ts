@@ -18,8 +18,8 @@ module.exports = {
   },
 
   rules: {
-    "max-lines-per-function": "warn",
-    "max-statements": "warn",
+    "max-lines-per-function": ["warn", { max: 80 }],
+    "max-statements": ["warn", { max: 50 }],
     "@typescript-eslint/consistent-type-definitions": ["error", "type"],
     "@typescript-eslint/prefer-readonly-parameter-types": "off",
   },
