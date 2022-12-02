@@ -1,8 +1,27 @@
 type Options = {
+  /**
+   * A delimiter to split a BEM element. Defaults to `"__"`.
+   */
   elementDelimiter: string;
+
+  /**
+   * A delimiter to split a BEM modifier. Defaults to `"--"`.
+   */
   modifierDelimiter: string;
+
+  /**
+   * A namespace to prepend a BEM block. Defaults to `""`.
+   */
   namespace: string | string[];
+
+  /**
+   * A delimiter to split a namespace. Defaults to `"-"`.
+   */
   namespaceDelimiter: string;
+
+  /**
+   * A flag to force a BEM convention. Defaults to `true`.
+   */
   strict: boolean;
 };
 
@@ -16,6 +35,11 @@ const defaultOptions: Options = {
   strict: true,
 };
 
+/**
+ * Set up the default options.
+ *
+ * @param options - Options to control a generated class name.
+ */
 export function setup({
   elementDelimiter,
   modifierDelimiter,
@@ -40,8 +64,18 @@ export function setup({
   }
 }
 
+/**
+ * BEM modifiers.
+ */
 type Modifiers = Record<string, boolean | null | undefined> | Array<string | null | undefined>;
 
+/**
+ * A function to generate a BEM class name.
+ *
+ * @param elementOrModifiers - A BEM element or modifiers.
+ * @param modifiers - BEM modifiers.
+ * @returns A generated class name.
+ */
 type BemBlockFunction = (elementOrModifiers?: string | Modifiers, modifiers?: Modifiers) => string;
 
 const uniqueChars = (list: string[]): string[] =>
@@ -58,6 +92,13 @@ const invalidMessage = (subject: string, subjectValue: string, delimiters: strin
   return `The ${subject} ("${subjectValue}") must not use the characters contained within the delimiters (${delims}).`;
 };
 
+/**
+ * Creates a function to generate a BEM class name.
+ *
+ * @param block - A BEM block name.
+ * @param options - Options to control a generated class name.
+ * @returns A function to generate a BEM class name.
+ */
 export default function bem(block: string, options: PartialOptions = {}): BemBlockFunction {
   const { elementDelimiter, modifierDelimiter, namespace, namespaceDelimiter, strict } = {
     ...defaultOptions,
