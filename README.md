@@ -71,8 +71,8 @@ type Props = {
 
 export function Button({ state, icon, children }: Props) {
   return (
-    <button className={b({ state })}>
-      <i className={b("icon", { state })}>{icon}</i>
+    <button className={b([state])}>
+      <i className={b("icon", [state])}>{icon}</i>
       {children}
     </button>
   );
