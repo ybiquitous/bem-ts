@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.13.5](https://github.com/ybiquitous/bem-ts/compare/v0.13.4...v0.13.5) (2022-12-02)
+
+### Bug Fixes
+
+- add JSDoc for better DX ([#917](https://github.com/ybiquitous/bem-ts/issues/917)) ([ac7711c](https://github.com/ybiquitous/bem-ts/commit/ac7711ccc6a5da072f7b3ea8b4ad934554d2be11))
+
 ### [0.13.4](https://github.com/ybiquitous/bem-ts/compare/v0.13.3...v0.13.4) (2022-09-22)
 
 ### Bug Fixes
