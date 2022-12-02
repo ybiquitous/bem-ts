@@ -1,7 +1,8 @@
 # bem-ts
 
-[![npm](https://img.shields.io/npm/v/bem-ts.svg)](https://npm.im/bem-ts)
-[![node](https://img.shields.io/node/v/bem-ts.svg)](https://github.com/ybiquitous/bem-ts)
+[![npm](https://img.shields.io/npm/v/bem-ts)](https://npm.im/bem-ts)
+[![npm bundle size](https://img.shields.io/bundlephobia/minzip/bem-ts)](https://bundlephobia.com/package/bem-ts)
+[![node](https://img.shields.io/node/v/bem-ts)](https://github.com/ybiquitous/bem-ts)
 
 [BEM](http://getbem.com/) (_Block Element Modifier_) class names generator for TypeScript.
 
@@ -9,7 +10,7 @@ Inspired by [`bem-cn`](https://npm.im/bem-cn).
 
 ## Policy
 
-- No extra features. Dead simple.
+- No extra features.
 - No dependencies.
 - TypeScript support.
 
