@@ -29,8 +29,8 @@
   "scripts": {
     "pretest": "npm run lint",
     "test": "jest",
-    "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage",
+    "test:watch": "npm --ignore-scripts test -- --watch",
+    "test:coverage": "npm --ignore-scripts test -- --coverage",
     "posttest": "npm-run-all --print-label --silent --parallel build build:*",
     "build": "tsc",
     "build:cjs": "tsc --project tsconfig.cjs.json && mv dist/cjs/index.js dist/index.cjs && rm -rf dist/cjs/",
