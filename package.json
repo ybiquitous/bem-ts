@@ -57,7 +57,7 @@
     "@tsconfig/node16-strictest-esm": "^1.0.3",
     "@types/jest": "^29.2.5",
     "@types/node": "^18.11.18",
-    "@typescript-eslint/eslint-plugin": "^5.45.0",
+    "@typescript-eslint/eslint-plugin": "^5.50.0",
     "eslint": "^8.26.0",
     "eslint-config-ybiquitous": "^16.2.0",
     "eslint-plugin-jest": "^27.2.0",
