@@ -1,3 +1,5 @@
+import { describe, test, expect } from "vitest";
+
 import bem, { setup } from "./index";
 
 const testCases = [

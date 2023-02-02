@@ -23,17 +23,4 @@ module.exports = {
     "@typescript-eslint/consistent-type-definitions": ["error", "type"],
     "@typescript-eslint/prefer-readonly-parameter-types": "off",
   },
-
-  overrides: [
-    {
-      files: ["test.*"],
-      extends: "plugin:jest/recommended",
-      rules: {
-        "max-lines-per-function": "off",
-        "max-statements": "off",
-        "prefer-destructuring": "off",
-        "@typescript-eslint/no-magic-numbers": "off",
-      },
-    },
-  ],
 };
