@@ -27,7 +27,19 @@ jobs:
       - run: npm --global install npm@latest
       - run: npm ci
       - run: npm run test:coverage
-      - run: npm run posttest # testing build
+      - uses: actions/upload-artifact@v3
+        with:
+          name: coverage
+          path: coverage/
+          retention-days: 1
+
+  upload-coverage:
+    needs: test-coverage
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v3
+        with:
+          name: coverage
       - uses: codecov/codecov-action@v3
 
   lint:
