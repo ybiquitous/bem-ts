@@ -11,30 +11,14 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        node-version: ["14", "16", "18"]
+        node-version: ["14", "16", "18", "20"]
     uses: ybiquitous/.github/.github/workflows/nodejs-test-reusable.yml@main
     with:
       node-version: ${{ matrix.node-version }}
-
-  test-coverage:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: "20"
-          cache: "npm"
-      - run: npm --global install npm@latest
-      - run: npm ci
-      - run: npm run test:coverage
-      - uses: actions/upload-artifact@v3
-        with:
-          name: coverage
-          path: coverage/
-          retention-days: 1
+      node-version-coverage: "20"
 
   upload-coverage:
-    needs: test-coverage
+    needs: test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
