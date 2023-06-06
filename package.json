@@ -26,6 +26,9 @@
   "engines": {
     "node": "^14.13.1 || >=16.0.0"
   },
+  "publishConfig": {
+    "provenance": true
+  },
   "scripts": {
     "pretest": "npm run lint",
     "test": "vitest",
@@ -89,25 +92,23 @@
       "body-max-line-length": [
         1,
         "always",
-        200
-      ],
-      "scope-enum": [
-        2,
-        "always",
-        [
-          "actions",
-          "deps",
-          "deps-dev",
-          "readme",
-          "demo",
-          "release",
-          "travis",
-          "sideci",
-          "coverage",
-          "security",
-          "lint"
-        ]
+        100
       ]
     }
+  },
+  "publishConfig": {
+    "provenance": true
+  },
+  "eslintConfig": {
+    "root": true,
+    "extends": [
+      "ybiquitous"
+    ],
+    "ignorePatterns": [
+      "coverage",
+      "dist",
+      "tmp"
+    ],
+    "reportUnusedDisableDirectives": true
   }
 }
