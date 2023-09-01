@@ -224,7 +224,7 @@ describe("`setup()` additional case", () => {
   test("has no effect when empty options are passed", () => {
     setup({});
     expect(bem("block")("element", { mod: true })).toEqual(
-      "ns---block_element ns---block_element-mod"
+      "ns---block_element ns---block_element-mod",
     );
   });
 });
