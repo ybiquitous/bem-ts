@@ -67,7 +67,7 @@
     "remark-preset-ybiquitous": "^0.3.1",
     "typescript": "^5.1.6",
     "vitest": "^0.34.3",
-    "ybiq": "^16.1.0"
+    "ybiq": "^16.2.1"
   },
   "lint-staged": {
     "*.{js,jsx,cjs,mjs,ts,tsx}": "eslint --cache --fix",
