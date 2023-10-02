@@ -64,10 +64,10 @@
     "@vitest/coverage-v8": "^0.32.2",
     "eslint": "^8.48.0",
     "eslint-config-ybiquitous": "^17.0.0",
-    "remark-preset-ybiquitous": "^0.3.1",
+    "remark-preset-ybiquitous": "^0.4.1",
     "typescript": "^5.2.2",
     "vitest": "^0.34.6",
-    "ybiq": "^16.2.1"
+    "ybiq": "^16.3.1"
   },
   "lint-staged": {
     "*.{js,jsx,cjs,mjs,ts,tsx}": "eslint --cache --fix",
