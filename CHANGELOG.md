@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.14.0](https://github.com/ybiquitous/bem-ts/compare/v0.13.5...v0.14.0) (2024-04-01)
+
+### ⚠ BREAKING CHANGES
+
+- drop Node.js 14 support (#1009)
+
+### Features
+
+- drop Node.js 14 support ([#1009](https://github.com/ybiquitous/bem-ts/issues/1009)) ([13bea25](https://github.com/ybiquitous/bem-ts/commit/13bea25f1d3f11fb941c0ed85e3132051fc99436))
+
 ### [0.13.5](https://github.com/ybiquitous/bem-ts/compare/v0.13.4...v0.13.5) (2022-12-02)
 
 ### Bug Fixes
