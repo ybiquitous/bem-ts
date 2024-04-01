@@ -123,60 +123,55 @@ const testCases = [
 ];
 
 testCases.forEach(({ description, tested, expectations }) => {
-  describe(`${description}`, () => {
+  describe(description, () => {
     const b = tested();
+    const [block, blockMod1, blockMod2, element, elementMod1, elementMod2] = expectations;
 
     test("returns block", () => {
-      const expected = expectations[0];
-      expect(b()).toEqual(expected);
-      expect(b({ mod1: false })).toEqual(expected);
-      expect(b({ mod1: null })).toEqual(expected);
-      expect(b({ mod1: undefined })).toEqual(expected);
-      expect(b({ mod1: false, mod2: false, mod3: null, mod4: undefined })).toEqual(expected);
-      expect(b([])).toEqual(expected);
-      expect(b([""])).toEqual(expected);
-      expect(b([null])).toEqual(expected);
-      expect(b([undefined])).toEqual(expected);
-      expect(b(["", null, undefined])).toEqual(expected);
+      expect(b()).toEqual(block);
+      expect(b({ mod1: false })).toEqual(block);
+      expect(b({ mod1: null })).toEqual(block);
+      expect(b({ mod1: undefined })).toEqual(block);
+      expect(b({ mod1: false, mod2: false, mod3: null, mod4: undefined })).toEqual(block);
+      expect(b([])).toEqual(block);
+      expect(b([""])).toEqual(block);
+      expect(b([null])).toEqual(block);
+      expect(b([undefined])).toEqual(block);
+      expect(b(["", null, undefined])).toEqual(block);
     });
 
     test("returns block with modifier", () => {
-      const expected = expectations[1];
-      expect(b({ mod1: true })).toEqual(expected);
-      expect(b({ mod1: true, mod2: false, mod3: null, mod4: undefined })).toEqual(expected);
-      expect(b(["mod1"])).toEqual(expected);
-      expect(b(["mod1", "", null, undefined])).toEqual(expected);
+      expect(b({ mod1: true })).toEqual(blockMod1);
+      expect(b({ mod1: true, mod2: false, mod3: null, mod4: undefined })).toEqual(blockMod1);
+      expect(b(["mod1"])).toEqual(blockMod1);
+      expect(b(["mod1", "", null, undefined])).toEqual(blockMod1);
     });
 
     test("returns block with multiple modifiers", () => {
-      const expected = expectations[2];
-      expect(b({ mod1: true, mod2: true })).toEqual(expected);
-      expect(b({ mod1: true, mod2: true, mod3: false })).toEqual(expected);
-      expect(b(["mod1", "mod2"])).toEqual(expected);
-      expect(b(["mod1", "mod2", null])).toEqual(expected);
+      expect(b({ mod1: true, mod2: true })).toEqual(blockMod2);
+      expect(b({ mod1: true, mod2: true, mod3: false })).toEqual(blockMod2);
+      expect(b(["mod1", "mod2"])).toEqual(blockMod2);
+      expect(b(["mod1", "mod2", null])).toEqual(blockMod2);
     });
 
     test("returns block with element", () => {
-      const expected = expectations[3];
-      expect(b("element")).toEqual(expected);
-      expect(b("element", {})).toEqual(expected);
-      expect(b("element", { mod: false })).toEqual(expected);
-      expect(b("element", [""])).toEqual(expected);
+      expect(b("element")).toEqual(element);
+      expect(b("element", {})).toEqual(element);
+      expect(b("element", { mod: false })).toEqual(element);
+      expect(b("element", [""])).toEqual(element);
     });
 
     test("returns block with element and modifier", () => {
-      const expected = expectations[4];
-      expect(b("element", { mod1: true })).toEqual(expected);
-      expect(b("element", { mod1: true, mod2: false })).toEqual(expected);
-      expect(b("element", ["mod1"])).toEqual(expected);
-      expect(b("element", ["mod1", null])).toEqual(expected);
+      expect(b("element", { mod1: true })).toEqual(elementMod1);
+      expect(b("element", { mod1: true, mod2: false })).toEqual(elementMod1);
+      expect(b("element", ["mod1"])).toEqual(elementMod1);
+      expect(b("element", ["mod1", null])).toEqual(elementMod1);
     });
 
     test("returns block with element and multiple modifiers", () => {
-      const expected = expectations[5];
-      expect(b("element", { mod1: true, mod2: true })).toEqual(expected);
-      expect(b("element", { mod1: true, mod2: true, mod3: false })).toEqual(expected);
-      expect(b("element", ["mod1", "mod2"])).toEqual(expected);
+      expect(b("element", { mod1: true, mod2: true })).toEqual(elementMod2);
+      expect(b("element", { mod1: true, mod2: true, mod3: false })).toEqual(elementMod2);
+      expect(b("element", ["mod1", "mod2"])).toEqual(elementMod2);
     });
   });
 });
