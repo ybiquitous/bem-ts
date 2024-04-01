@@ -54,7 +54,7 @@
     "release": "standard-version",
     "release:dry-run": "standard-version --dry-run",
     "clean": "git clean -dx --force --exclude=node_modules --exclude=.husky",
-    "prepare": "node .husky/install.mjs",
+    "prepare": "husky install",
     "prepublishOnly": "npm run posttest"
   },
   "devDependencies": {
