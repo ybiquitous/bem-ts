@@ -49,12 +49,12 @@
     "lint:commit": "commitlint --from HEAD~10",
     "lint": "npm-run-all --print-label --silent --parallel lint:*",
     "format": "npm-run-all --print-label --silent --parallel lint:*:fix",
-    "prettier": "prettier --cache --ignore-path .gitignore .",
+    "prettier": "prettier --cache .",
     "prerelease": "git switch main && git pull && npm ci && npm run clean && npm test && npm run clean",
     "release": "standard-version",
     "release:dry-run": "standard-version --dry-run",
     "clean": "git clean -dx --force --exclude=node_modules --exclude=.husky",
-    "prepare": "husky install",
+    "prepare": "husky",
     "prepublishOnly": "npm run posttest"
   },
   "devDependencies": {
@@ -71,7 +71,7 @@
   },
   "lint-staged": {
     "*.{js,jsx,cjs,mjs,ts,tsx}": "eslint --cache --fix",
-    "!(*.snap)": "prettier --cache --write",
+    "!(**/*.snap|.husky/**)": "prettier --cache --write",
     "!(CHANGELOG).md": "remark --frail"
   },
   "standard-version": {
@@ -93,7 +93,7 @@
       "body-max-line-length": [
         1,
         "always",
-        200
+        300
       ],
       "scope-enum": [
         2,
