@@ -49,29 +49,29 @@
     "lint:commit": "commitlint --from HEAD~10",
     "lint": "npm-run-all --print-label --silent --parallel lint:*",
     "format": "npm-run-all --print-label --silent --parallel lint:*:fix",
-    "prettier": "prettier --cache --ignore-path .gitignore .",
+    "prettier": "prettier --cache .",
     "prerelease": "git switch main && git pull && npm ci && npm run clean && npm test && npm run clean",
     "release": "standard-version",
     "release:dry-run": "standard-version --dry-run",
     "clean": "git clean -dx --force --exclude=node_modules --exclude=.husky",
-    "prepare": "husky install",
+    "prepare": "husky",
     "prepublishOnly": "npm run posttest"
   },
   "devDependencies": {
     "@tsconfig/node16-strictest-esm": "^1.0.3",
-    "@types/node": "^20.8.10",
-    "@typescript-eslint/eslint-plugin": "^6.9.1",
-    "@vitest/coverage-v8": "^0.34.6",
+    "@types/node": "^20.12.2",
+    "@typescript-eslint/eslint-plugin": "^7.4.0",
+    "@vitest/coverage-v8": "^1.4.0",
     "eslint": "^8.52.0",
-    "eslint-config-ybiquitous": "^18.2.0",
+    "eslint-config-ybiquitous": "^20.0.0",
     "remark-preset-ybiquitous": "^0.4.2",
-    "typescript": "^5.2.2",
-    "vitest": "^0.34.6",
-    "ybiq": "^16.3.1"
+    "typescript": "^5.4.3",
+    "vitest": "^1.4.0",
+    "ybiq": "^17.2.0"
   },
   "lint-staged": {
     "*.{js,jsx,cjs,mjs,ts,tsx}": "eslint --cache --fix",
-    "!(*.snap)": "prettier --cache --write",
+    "!(**/*.snap|.husky/**)": "prettier --cache --write",
     "!(CHANGELOG).md": "remark --frail"
   },
   "standard-version": {
@@ -93,7 +93,7 @@
       "body-max-line-length": [
         1,
         "always",
-        200
+        300
       ],
       "scope-enum": [
         2,
