@@ -59,13 +59,13 @@
   },
   "devDependencies": {
     "@tsconfig/node16-strictest-esm": "^1.0.3",
-    "@types/node": "^20.12.2",
-    "@typescript-eslint/eslint-plugin": "^7.4.0",
-    "@vitest/coverage-v8": "^1.4.0",
-    "eslint": "^8.52.0",
+    "@types/node": "^20.12.7",
+    "@typescript-eslint/eslint-plugin": "^7.8.0",
+    "@vitest/coverage-v8": "^1.5.3",
+    "eslint": "^9.1.1",
     "eslint-config-ybiquitous": "^20.0.0",
     "remark-preset-ybiquitous": "^0.4.2",
-    "typescript": "^5.4.3",
+    "typescript": "^5.4.5",
     "vitest": "^1.4.0",
     "ybiq": "^17.2.0"
   },
