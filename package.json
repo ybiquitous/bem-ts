@@ -59,8 +59,8 @@
   },
   "devDependencies": {
     "@tsconfig/node16-strictest-esm": "^1.0.3",
-    "@types/node": "^22.1.0",
-    "@typescript-eslint/eslint-plugin": "^8.0.0",
+    "@types/node": "^22.5.1",
+    "@typescript-eslint/eslint-plugin": "^8.3.0",
     "@vitest/coverage-v8": "^2.0.5",
     "eslint": "^8.52.0",
     "eslint-config-ybiquitous": "^21.0.0",
