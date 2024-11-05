@@ -1,9 +1,10 @@
 {
-  "extends": "@tsconfig/node16-strictest-esm/tsconfig.json",
+  "extends": ["@tsconfig/strictest/tsconfig", "@tsconfig/node16/tsconfig"],
   "compilerOptions": {
+    "module": "es2022",
+    "moduleResolution": "node10",
     "declaration": true,
-    "outDir": "./dist/",
-    "ignoreDeprecations": "5.0"
+    "outDir": "./dist/"
   },
   "files": ["index.ts"]
 }
