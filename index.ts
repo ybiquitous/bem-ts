@@ -150,7 +150,7 @@ export default function bem(block: string, options: PartialOptions = {}): BemBlo
     }
 
     return Object.keys(mods)
-      .filter((mod) => mods[mod])
+      .filter((mod) => Boolean(mods[mod]))
       .reduce(addModifiers, base);
   };
 }
