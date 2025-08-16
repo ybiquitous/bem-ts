@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.15.0](https://github.com/ybiquitous/bem-ts/compare/v0.14.0...v0.15.0) (2025-08-16)
+
+### ⚠ BREAKING CHANGES
+
+- drop Node.js 18 support (#1059)
+- drop Node.js 16 support (#1038)
+
+### Features
+
+- drop Node.js 16 support ([#1038](https://github.com/ybiquitous/bem-ts/issues/1038)) ([5a97787](https://github.com/ybiquitous/bem-ts/commit/5a97787ce31419500aef713f88802856002738f3))
+- drop Node.js 18 support ([#1059](https://github.com/ybiquitous/bem-ts/issues/1059)) ([65244a1](https://github.com/ybiquitous/bem-ts/commit/65244a18dd22a294dbd877bfb68e858b04cc4121))
+
 ## [0.14.0](https://github.com/ybiquitous/bem-ts/compare/v0.13.5...v0.14.0) (2024-04-01)
 
 ### ⚠ BREAKING CHANGES
