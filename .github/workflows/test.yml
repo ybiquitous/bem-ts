@@ -11,11 +11,11 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        node-version: ["18", "20", "22"]
+        node-version: ["20", "22", "24"]
     uses: ybiquitous/.github/.github/workflows/nodejs-test-reusable.yml@main
     with:
       node-version: ${{ matrix.node-version }}
-      node-version-coverage: "20"
+      node-version-coverage: "24"
 
   upload-coverage:
     needs: test
