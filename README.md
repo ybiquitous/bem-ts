@@ -1,7 +1,6 @@
 # bem-ts
 
 [![npm](https://img.shields.io/npm/v/bem-ts)](https://npm.im/bem-ts)
-[![npm bundle size](https://img.shields.io/bundlephobia/minzip/bem-ts)](https://bundlephobia.com/package/bem-ts)
 [![node](https://img.shields.io/node/v/bem-ts)](https://github.com/ybiquitous/bem-ts)
 
 [BEM](http://getbem.com/) (_Block Element Modifier_) class names generator for TypeScript.
