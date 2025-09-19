@@ -1,1 +1,1 @@
-npm exec --no -- lint-staged
+lint-staged
