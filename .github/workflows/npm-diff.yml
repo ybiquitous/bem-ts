@@ -12,4 +12,4 @@ jobs:
       contents: read
       pull-requests: write
     steps:
-      - uses: ybiquitous/npm-diff-action@a084dee0634ebf7104f058e3fbabde35fc753ccf # v1.6.0
+      - uses: ybiquitous/npm-diff-action@6c8b3173f54df2486b486e16efed488465ab8061 # v1.7.0
