@@ -58,17 +58,17 @@
     "prepublishOnly": "npm run posttest"
   },
   "devDependencies": {
-    "@tsconfig/node16": "^16.1.6",
-    "@tsconfig/strictest": "^2.0.7",
-    "@types/node": "^24.10.0",
-    "@typescript-eslint/eslint-plugin": "^8.46.3",
-    "@vitest/coverage-v8": "^4.0.7",
+    "@tsconfig/node16": "^16.1.8",
+    "@tsconfig/strictest": "^2.0.8",
+    "@types/node": "^24.10.1",
+    "@typescript-eslint/eslint-plugin": "^8.47.0",
+    "@vitest/coverage-v8": "^4.0.10",
     "eslint": "^8.52.0",
     "eslint-config-ybiquitous": "^22.0.0",
-    "remark-preset-ybiquitous": "^0.5.0",
+    "remark-preset-ybiquitous": "^0.5.1",
     "typescript": "^5.9.3",
     "vitest": "^4.0.7",
-    "ybiq": "^19.1.0"
+    "ybiq": "^19.2.0"
   },
   "lint-staged": {
     "*.{js,jsx,cjs,mjs,ts,tsx}": "eslint --cache --fix",
