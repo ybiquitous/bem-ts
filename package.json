@@ -55,7 +55,10 @@
     "release:dry-run": "standard-version --dry-run",
     "clean": "git clean -dx --force --exclude=node_modules --exclude=.husky",
     "prepare": "husky",
-    "prepublishOnly": "npm run posttest"
+    "prepublishOnly": "npm run posttest",
+    "changelog": "if [ ! -f CHANGELOG.md ]; then opts='--first-release' ; fi && conventional-changelog --preset conventional-changelog-conventionalcommits $opts && prettier --write CHANGELOG.md",
+    "changelog:dryrun": "npm version \"${NEW_VERSION:-major}\" --no-git-tag-version && git --no-pager diff CHANGELOG.md && git checkout CHANGELOG.md package.json package-lock.json",
+    "postversion": "npm run changelog"
   },
   "devDependencies": {
     "@tsconfig/node16": "^16.1.8",
@@ -74,12 +77,6 @@
     "*.{js,jsx,cjs,mjs,ts,tsx}": "eslint --cache --fix",
     "!(**/*.snap|.husky/**)": "prettier --cache --write",
     "!(CHANGELOG).md": "remark --frail"
-  },
-  "standard-version": {
-    "sign": true,
-    "scripts": {
-      "postchangelog": "prettier --write CHANGELOG.md"
-    }
   },
   "remarkConfig": {
     "plugins": [
@@ -119,5 +116,8 @@
         ]
       ]
     }
+  },
+  "overrides": {
+    "conventional-changelog-conventionalcommits": "^9.1.0"
   }
 }

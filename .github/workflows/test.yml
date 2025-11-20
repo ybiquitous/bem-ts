@@ -17,7 +17,7 @@ jobs:
       fail-fast: false
       matrix:
         node-version: ["20", "22", "24"]
-    uses: ybiquitous/.github/.github/workflows/nodejs-test-reusable.yml@d6ef2db54793a5799605c9660e049270dcb25500 # main
+    uses: ybiquitous/.github/.github/workflows/nodejs-test-reusable.yml@87de5ae43f03470d08d6d5d8fa1fb684947c173b # v2.2.1
     with:
       node-version: ${{ matrix.node-version }}
       node-version-coverage: "24"
@@ -37,6 +37,6 @@ jobs:
       - uses: codecov/codecov-action@5a1091511ad55cbe89839c7260b706298ca349f7 # v5.5.1
 
   lint:
-    uses: ybiquitous/.github/.github/workflows/nodejs-lint-reusable.yml@d6ef2db54793a5799605c9660e049270dcb25500 # main
+    uses: ybiquitous/.github/.github/workflows/nodejs-lint-reusable.yml@87de5ae43f03470d08d6d5d8fa1fb684947c173b # v2.2.1
     permissions:
       contents: read

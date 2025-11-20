@@ -7,11 +7,11 @@ on:
         description: New version to release
         required: true
         type: choice
-        options: [patch, minor, major]
+        options: [auto, patch, minor, major]
 
 jobs:
-  release-pr:
-    uses: ybiquitous/.github/.github/workflows/nodejs-release-pr-reusable.yml@f9cf8214a0fb9118e83f115f48eac6b3d797248a # v1.0.1
+  release:
+    uses: ybiquitous/.github/.github/workflows/nodejs-release-pr-reusable.yml@87de5ae43f03470d08d6d5d8fa1fb684947c173b # v2.2.1
     with:
       new-version: ${{ github.event.inputs.new-version }}
     permissions:
