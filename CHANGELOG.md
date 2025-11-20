@@ -1,5 +1,7 @@
 ## [0.15.1](https://github.com/ybiquitous/bem-ts/compare/v0.15.0...v0.15.1) (2025-11-20)
 
+No behavior changes.
+
 ## [0.15.0](https://github.com/ybiquitous/bem-ts/compare/v0.14.0...v0.15.0) (2025-08-16)
 
 ### ⚠ BREAKING CHANGES
