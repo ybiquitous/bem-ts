@@ -64,14 +64,14 @@
     "@tsconfig/node16": "^16.1.8",
     "@tsconfig/strictest": "^2.0.8",
     "@types/node": "^24.10.1",
-    "@typescript-eslint/eslint-plugin": "^8.47.0",
-    "@vitest/coverage-v8": "^4.0.10",
+    "@typescript-eslint/eslint-plugin": "^8.48.0",
+    "@vitest/coverage-v8": "^4.0.14",
     "eslint": "^8.52.0",
     "eslint-config-ybiquitous": "^22.0.0",
     "remark-preset-ybiquitous": "^0.5.1",
     "typescript": "^5.9.3",
     "vitest": "^4.0.7",
-    "ybiq": "^19.2.0"
+    "ybiq": "^21.0.0"
   },
   "lint-staged": {
     "*.{js,jsx,cjs,mjs,ts,tsx}": "eslint --cache --fix",
