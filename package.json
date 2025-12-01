@@ -71,7 +71,7 @@
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.48.0",
     "vitest": "^4.0.14",
-    "ybiq": "^21.0.0"
+    "ybiq": "^21.0.1"
   },
   "lint-staged": {
     "*.{js,jsx,cjs,mjs,ts,tsx}": "eslint --cache --fix",
