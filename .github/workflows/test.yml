@@ -17,7 +17,7 @@ jobs:
       fail-fast: false
       matrix:
         node-version: ["20", "22", "24"]
-    uses: ybiquitous/.github/.github/workflows/nodejs-test-reusable.yml@530c2571685fc8fd3462fad7d19beb613e28609d # v2.3.0
+    uses: ybiquitous/.github/.github/workflows/nodejs-test-reusable.yml@90e41242480929ed641a647c9a6544d4c080f980 # v2.3.1
     with:
       node-version: ${{ matrix.node-version }}
       node-version-coverage: "24"
