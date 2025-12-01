@@ -8,9 +8,6 @@ updates:
     groups:
       dev-deps:
         dependency-type: development
-    ignore:
-      - dependency-name: eslint # TODO: Temporarily disable due to some plugins has unsupported ESLint v9.
-        update-types: ["version-update:semver-major"]
   - package-ecosystem: github-actions
     directory: "/"
     schedule:

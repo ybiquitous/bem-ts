@@ -1,6 +1,6 @@
 import { describe, test, expect } from "vitest";
 
-import bem, { setup } from "./index";
+import bem, { setup } from "./index.ts";
 
 const testCases = [
   {
