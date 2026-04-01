@@ -7,7 +7,7 @@ on:
 
 jobs:
   release:
-    uses: ybiquitous/.github/.github/workflows/nodejs-release-reusable.yml@a1a00eb7b474a9299910fa9baf98c380dc8466ec # v2.5.0
+    uses: ybiquitous/.github/.github/workflows/nodejs-release-reusable.yml@f3aa9016849a3bebe447aa3e1ebee363742ab0be # v3.0.0
     permissions:
       contents: write
       id-token: write
