@@ -12,3 +12,6 @@ updates:
     directory: "/"
     schedule:
       interval: monthly
+    groups:
+      ybiquitous-actions:
+        patterns: ["ybiquitous/.github/*"]
