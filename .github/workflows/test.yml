@@ -37,6 +37,6 @@ jobs:
       - uses: codecov/codecov-action@57e3a136b779b570ffcdbf80b3bdc90e7fab3de2 # v6.0.0
 
   lint:
-    uses: ybiquitous/.github/.github/workflows/nodejs-lint-reusable.yml@a1a00eb7b474a9299910fa9baf98c380dc8466ec # v2.5.0
+    uses: ybiquitous/.github/.github/workflows/nodejs-lint-reusable.yml@6449c410d1b8ad8f7f6ac9e270441321ee65a5f6 # v3.0.1
     permissions:
       contents: read
