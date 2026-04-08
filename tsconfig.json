@@ -1,8 +1,6 @@
 {
-  "extends": ["@tsconfig/strictest/tsconfig", "@tsconfig/node16/tsconfig"],
+  "extends": ["@tsconfig/strictest/tsconfig"],
   "compilerOptions": {
-    "module": "es2022",
-    "moduleResolution": "node10",
     "declaration": true,
     "outDir": "./dist/"
   },
