@@ -61,7 +61,6 @@
     "postversion": "npm run changelog"
   },
   "devDependencies": {
-    "@tsconfig/node16": "^16.1.8",
     "@tsconfig/strictest": "^2.0.8",
     "@types/node": "^25.5.2",
     "@vitest/coverage-v8": "^4.1.3",
