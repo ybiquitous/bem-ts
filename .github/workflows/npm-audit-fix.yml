@@ -13,6 +13,6 @@ jobs:
       pull-requests: write
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
-      - uses: ybiquitous/npm-audit-fix-action@c37fdf3a1e014a5494ba574124c5cedf98894615 # v7.3.6
+      - uses: ybiquitous/npm-audit-fix-action@8f54467fe9a9e0b1bbad5e56cc14cd1cbd28dc75 # v7.3.7
         with:
           github_token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
