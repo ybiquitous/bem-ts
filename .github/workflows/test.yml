@@ -34,7 +34,7 @@ jobs:
       - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
         with:
           name: coverage
-      - uses: codecov/codecov-action@57e3a136b779b570ffcdbf80b3bdc90e7fab3de2 # v6.0.0
+      - uses: codecov/codecov-action@e79a6962e0d4c0c17b229090214935d2e33f8354 # v6.0.1
 
   lint:
     uses: ybiquitous/.github/.github/workflows/nodejs-lint-reusable.yml@6449c410d1b8ad8f7f6ac9e270441321ee65a5f6 # v3.0.1
