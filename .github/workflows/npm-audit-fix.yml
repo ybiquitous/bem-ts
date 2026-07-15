@@ -13,4 +13,4 @@ jobs:
       pull-requests: write
     steps:
       - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
-      - uses: ybiquitous/npm-audit-fix-action@7a4ed61745dec3422c6a0450e4948f0282b456f1 # v7.3.11
+      - uses: ybiquitous/npm-audit-fix-action@5e2a4ed64aa0a87fc4e51855324ae923061d722e # v8.0.0
