@@ -62,12 +62,12 @@
   },
   "devDependencies": {
     "@tsconfig/strictest": "^2.0.8",
-    "@vitest/coverage-v8": "^4.1.9",
-    "eslint": "^10.6.0",
-    "eslint-plugin-n": "^18.2.1",
+    "@vitest/coverage-v8": "^4.1.10",
+    "eslint": "^10.8.0",
+    "eslint-plugin-n": "^18.2.2",
     "remark-preset-ybiquitous": "^0.5.1",
-    "typescript": "^6.0.3",
-    "typescript-eslint": "^8.62.1",
+    "typescript": "^7.0.2",
+    "typescript-eslint": "^8.66.0",
     "vitest": "^4.0.14",
     "ybiq": "^21.0.3"
   },
