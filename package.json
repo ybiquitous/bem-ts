@@ -68,7 +68,7 @@
     "remark-preset-ybiquitous": "^0.5.1",
     "typescript": "^6.0.3",
     "typescript-eslint": "^8.62.1",
-    "vitest": "^4.0.14",
+    "vitest": "^4.1.11",
     "ybiq": "^21.0.3"
   },
   "lint-staged": {
