@@ -11,7 +11,7 @@ on:
 
 jobs:
   release:
-    uses: ybiquitous/.github/.github/workflows/nodejs-release-pr-reusable.yml@5e88270a455e5daf2387974dcb3cdea448076387 # v3.2.2
+    uses: ybiquitous/.github/.github/workflows/nodejs-release-pr-reusable.yml@11134ce0efbe36bdd758ab41e38fd8e05bf0a10d # v3.3.0
     with:
       new-version: ${{ github.event.inputs.new-version }}
     permissions:
