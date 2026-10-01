@@ -22,7 +22,8 @@ jobs:
       node-version: ${{ matrix.node-version }}
       node-version-coverage: "24"
     permissions:
-      contents: read
+      contents: write
+      pull-requests: write
 
   upload-coverage:
     needs: test
