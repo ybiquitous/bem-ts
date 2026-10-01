@@ -53,28 +53,29 @@
     "prerelease": "git switch main && git pull && npm ci && npm run clean && npm test && npm run clean",
     "release": "standard-version",
     "release:dry-run": "standard-version --dry-run",
-    "clean": "git clean -dx --force --exclude=node_modules --exclude=.husky",
-    "prepare": "husky",
+    "clean": "git clean -dx --force --exclude=node_modules",
+    "prepare": "git config set --local core.hooksPath .githooks || true",
     "prepublishOnly": "npm run posttest",
-    "changelog": "if [ ! -f CHANGELOG.md ]; then opts='--first-release' ; fi && conventional-changelog --preset conventional-changelog-conventionalcommits $opts && prettier --write CHANGELOG.md",
-    "changelog:dryrun": "npm version \"${NEW_VERSION:-major}\" --no-git-tag-version && git --no-pager diff CHANGELOG.md && git checkout CHANGELOG.md package.json package-lock.json",
+    "changelog": "ybiq changelog",
+    "changelog:dryrun": "ybiq changelog --dry-run",
     "postversion": "npm run changelog"
   },
   "devDependencies": {
     "@tsconfig/strictest": "^2.0.8",
-    "@vitest/coverage-v8": "^4.1.9",
-    "eslint": "^10.6.0",
-    "eslint-plugin-n": "^18.2.1",
+    "@typescript/native": "npm:typescript@^7.0.2",
+    "@vitest/coverage-v8": "^5.0.2",
+    "eslint": "^10.11.0",
+    "eslint-plugin-n": "^18.4.0",
     "remark-preset-ybiquitous": "^0.5.1",
-    "typescript": "^6.0.3",
-    "typescript-eslint": "^8.62.1",
-    "vitest": "^4.1.11",
-    "ybiq": "^21.0.3"
+    "typescript": "npm:@typescript/typescript6@^6.0.2",
+    "typescript-eslint": "^8.70.1",
+    "vitest": "^5.0.2",
+    "ybiq": "^22.2.0"
   },
   "lint-staged": {
     "*.{js,jsx,cjs,mjs,ts,tsx}": "eslint --cache --fix",
-    "!(**/*.snap|.husky/**)": "prettier --cache --write",
-    "!(CHANGELOG).md": "remark --frail"
+    "!(**/*.snapshot|.githooks/**)": "prettier --cache --write",
+    "*.md": "remark --frail --no-stdout"
   },
   "remarkConfig": {
     "plugins": [
