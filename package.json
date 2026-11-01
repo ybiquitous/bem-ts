@@ -63,7 +63,7 @@
   "devDependencies": {
     "@tsconfig/strictest": "^2.0.8",
     "@typescript/native": "npm:typescript@^7.0.2",
-    "@vitest/coverage-v8": "^5.0.2",
+    "@vitest/coverage-v8": "^5.0.5",
     "eslint": "^10.11.0",
     "eslint-plugin-n": "^18.4.0",
     "remark-preset-ybiquitous": "^0.5.1",
