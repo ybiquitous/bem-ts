@@ -2,6 +2,12 @@
 
 <!-- lint disable no-duplicate-headings -->
 
+## [0.15.2](https://github.com/ybiquitous/bem-ts/compare/v0.15.1...v0.15.2) (2026-11-16)
+
+### Bug Fixes
+
+- add `.d.cts` types for CommonJS ([#1192](https://github.com/ybiquitous/bem-ts/issues/1192)) ([ebe4567](https://github.com/ybiquitous/bem-ts/commit/ebe4567db76fd3836c05616fc87a9c51b01b3bed))
+
 ## [0.15.1](https://github.com/ybiquitous/bem-ts/compare/v0.15.0...v0.15.1) (2025-11-20)
 
 No behavior changes.
